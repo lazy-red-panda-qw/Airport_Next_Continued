@@ -1,0 +1,21 @@
+# Visual Studio 临时文件
+.vs/
+*.suo
+*.futdcache.v2
+.dtbcache.v2
+DocumentLayout*
+*.vsidx
+
+# 编译输出
+bin/
+obj/
+
+# 运行时文件
+Library/ilpp.pid
+
+# 二进制文件
+*.dll
+*.pdb
+*.bundle
+*.cache
+*.bin

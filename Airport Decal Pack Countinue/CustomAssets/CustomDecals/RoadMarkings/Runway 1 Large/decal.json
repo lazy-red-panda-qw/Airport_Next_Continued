@@ -1,0 +1,27 @@
+{
+  "Float": {
+    "_Metallic": 1,
+    "_Smoothness": 0,
+    "colossal_DecalLayerMask": 7,
+    "_NormalOpacity": 0,
+    "_MetallicAlphaSource": 0,
+    "_MetallicOpacity": 0,
+    "_NormalAlphaSource": 0,
+    "_DrawOrder": 42,
+    "UiPriority": 12014
+  },
+  "Vector": {
+    "colossal_MeshSize": {
+      "x": 30,
+      "y": 1,
+      "z": 30,
+      "w": 0
+    },
+    "colossal_TextureArea": {
+      "x": 0,
+      "y": 0,
+      "z": 1,
+      "w": 1
+    }
+  }
+}
