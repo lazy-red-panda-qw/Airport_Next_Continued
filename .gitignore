@@ -19,3 +19,8 @@ Library/ilpp.pid
 *.bundle
 *.cache
 *.bin
+
+# Asset tool output and Python caches
+artifacts/
+__pycache__/
+*.pyc

@@ -4,11 +4,13 @@
 	<!--Name of the mod to display to players-->
 	<DisplayName Value="Airport Details Pack [Countinued]" />
 	<!--Short description of the mod-->
-	<ShortDescription Value="A detail pack for a more realistic airport!" />
+	<ShortDescription Value="ICAO-based airport markings, modular decals and pavement surfaces." />
 	<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 	<!--LongDescription Value="This is a long description" /-->
 	<LongDescription>
-A mod for decorating your realistic airport!
+Airport marking modules with documented metre dimensions, reserved UI priorities,
+runway and taxiway patterns, mandatory marking characters and paint surfaces.
+Version 0.6.0 is a local test build; game-scale calibration is required before release.
 	</LongDescription>
 	<!--Thumbnail-->
 	<Thumbnail Value="Properties/Thumbnail.jpg" />
@@ -19,7 +21,7 @@ A mod for decorating your realistic airport!
 	<!--Link to the forum post where the mod can be discussed-->
 	<ForumLink Value="" />
 	<!--Version of the mod-->
-	<ModVersion Value="0.5.0.0" />
+	<ModVersion Value="0.6.0.0" />
 	<!--Recommended version of the base game to use the mod-->
 	<GameVersion Value="1.5.*" />
 	<!--Dependency for the mod, can be set multiple times-->
@@ -28,7 +30,7 @@ A mod for decorating your realistic airport!
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-	<ChangeLog Value="" />
+	<ChangeLog Value="ICAO dimension presets; UiPriority starts at 1000; additional runway, taxiway and apron modules; Surface presets; first-load prefab refresh mitigation." />
 	<!--<ChangeLog>
 	</ChangeLog>-->
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->

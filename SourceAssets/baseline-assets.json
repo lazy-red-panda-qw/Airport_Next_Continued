@@ -1,0 +1,5802 @@
+{
+  "git_commit": "7cf18e12ead9e64ea901eec36520b5a4e9f30be1",
+  "assets": [
+    {
+      "path": "CustomDecals/Alphabet/Dash Mark",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11062
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Dash Mark Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11062
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark A",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11062
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark A Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11062
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark B",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11063
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark B Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11063
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark C",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11064
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark C Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11064
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark D",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11065
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark D Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11065
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark E",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11066
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark E Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11066
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark F",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11067
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark F Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11067
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark G",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11068
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark G Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11068
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark H",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11069
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark H Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11069
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark I",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11070
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark I Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11070
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark J",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11071
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark J Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11071
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark K",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11072
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark K Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11072
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark L",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11073
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark L Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11073
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark M",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11074
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark M Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11074
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark N",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11075
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark N Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11075
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark O",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11076
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark O Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11076
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark P",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11077
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark P Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11077
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark Q",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11078
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark Q Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11078
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark R",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11079
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark R Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11079
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark S",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11080
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark S Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11080
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark T",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11081
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark T Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11081
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark U",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11082
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark U Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11082
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark V",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11083
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark V Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11083
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark W",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11084
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark W Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11084
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark X",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11085
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark X Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11085
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark Y",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11086
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark Y Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11086
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark Z",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11087
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Mark Z Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11087
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 0",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 500
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 0 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11052
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 1",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11053
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 1 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11053
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 2",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11054
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 2 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11054
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 3",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11055
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 3 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11055
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 4",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11056
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 4 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11056
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 5",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11057
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 5 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11057
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 6",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11058
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 6 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11058
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 7",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11059
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 7 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11059
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 8",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11060
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 8 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11060
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 9",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11061
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 5,
+            "y": 1,
+            "z": 5,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Num 9 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11061
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound A",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11000
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound B",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11001
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound C",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11002
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound D",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11003
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound E",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11004
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 1,
+            "y": 2,
+            "z": 1,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound F",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11005
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound G",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11006
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound H",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11007
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound I",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11008
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound J",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11009
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound K",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11010
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound L",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11011
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound M",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11012
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound N",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11013
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound O",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11014
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound P",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11015
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound Q",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11016
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound R",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11017
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound S",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11018
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound T",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11019
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound U",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11020
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound V",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11021
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound W",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11022
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound X",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11023
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound Y",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11024
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Outbound Z",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11025
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway A",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11026
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway B",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11027
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway C",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11028
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway D",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11029
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway E",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11030
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway F",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11031
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway G",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11032
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway H",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11033
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway I",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11034
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway J",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11035
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway K",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11036
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway L",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11037
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway M",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11038
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway N",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11039
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway O",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11040
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway P",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11041
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway Q",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11042
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway R",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11043
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway S",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11044
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway T",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11045
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway U",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11046
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway V",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11047
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway W",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11048
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway X",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11049
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway Y",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11050
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/Alphabet/Taxiway Z",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 11051
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Arrow Straight",
+      "draw_order": 39,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 39,
+          "UiPriority": 11104
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 3,
+            "y": 1,
+            "z": 3,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 0 Large",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12011
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 30,
+            "y": 1,
+            "z": 30,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 0 Medium",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12010
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 20,
+            "y": 1,
+            "z": 20,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 0 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12009
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 13,
+            "y": 1,
+            "z": 13,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 1 Large",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12014
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 30,
+            "y": 1,
+            "z": 30,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 1 Medium",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12013
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 20,
+            "y": 1,
+            "z": 20,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 1 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12012
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 13,
+            "y": 1,
+            "z": 13,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 2 Large",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12017
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 30,
+            "y": 1,
+            "z": 30,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 2 Medium",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12016
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 20,
+            "y": 1,
+            "z": 20,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 2 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12015
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 13,
+            "y": 1,
+            "z": 13,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 3 Large",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12020
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 30,
+            "y": 1,
+            "z": 30,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 3 Medium",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12019
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 20,
+            "y": 1,
+            "z": 20,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 3 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12018
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 13,
+            "y": 1,
+            "z": 13,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 4 Large",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12023
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 30,
+            "y": 1,
+            "z": 30,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 4 Medium",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12022
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 20,
+            "y": 1,
+            "z": 20,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 4 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12021
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 13,
+            "y": 1,
+            "z": 13,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 5 Large",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12026
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 30,
+            "y": 1,
+            "z": 30,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 5 Medium",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12025
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 20,
+            "y": 1,
+            "z": 20,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 5 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12024
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 13,
+            "y": 1,
+            "z": 13,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 6 Large",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12029
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 30,
+            "y": 1,
+            "z": 30,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 6 Medium",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12028
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 20,
+            "y": 1,
+            "z": 20,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 6 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12027
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 13,
+            "y": 1,
+            "z": 13,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 7 Large",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12032
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 30,
+            "y": 1,
+            "z": 30,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 7 Medium",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12031
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 20,
+            "y": 1,
+            "z": 20,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 7 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12030
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 13,
+            "y": 1,
+            "z": 13,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 8 Large",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12035
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 30,
+            "y": 1,
+            "z": 30,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 8 Medium",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12034
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 20,
+            "y": 1,
+            "z": 20,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 8 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12033
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 13,
+            "y": 1,
+            "z": 13,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 9 Large",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12038
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 30,
+            "y": 1,
+            "z": 30,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 9 Medium",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12037
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 20,
+            "y": 1,
+            "z": 20,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway 9 Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12036
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 13,
+            "y": 1,
+            "z": 13,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway C Large",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12005
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 30,
+            "y": 1,
+            "z": 30,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway C Medium",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12004
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 20,
+            "y": 1,
+            "z": 20,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway C Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12003
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 13,
+            "y": 1,
+            "z": 13,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway L Large",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12002
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 30,
+            "y": 1,
+            "z": 30,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway L Medium",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12001
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 20,
+            "y": 1,
+            "z": 20,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway L Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12000
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 13,
+            "y": 1,
+            "z": 13,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway R Large",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12008
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 30,
+            "y": 1,
+            "z": 30,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway R Medium",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12007
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 20,
+            "y": 1,
+            "z": 20,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/Runway R Small",
+      "draw_order": 42,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 42,
+          "UiPriority": 12006
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 13,
+            "y": 1,
+            "z": 13,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/TaxiWay SignBlank Red",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 11101
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 1,
+            "y": 1,
+            "z": 1,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/TaxiWay SignBlank Yellow",
+      "draw_order": 41,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 41,
+          "UiPriority": 11100
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 1,
+            "y": 1,
+            "z": 1,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomDecals/RoadMarkings/TaxiWay SignBlnk Black",
+      "draw_order": 39,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 39,
+          "UiPriority": 11102
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 1,
+            "y": 1,
+            "z": 1,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/Black Line Middle",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 712
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 12,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/Black Line Thick",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 713
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 15,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/Black Line Thin",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 711
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 9,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/ILS Critical Area Boundary",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 704
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 9,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/Red Line Middle",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 714
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 15,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/Red Line Thick",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 714
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 15,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/Red Line Thin",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 714
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 15,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/TaxiWay Centerline Enhanced Light Surface",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 701
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 9,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/TaxiWay Dark Surface",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 700
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 9,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/TaxiWay Light Surface",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 700
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 9,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/TaxiWay Stopline",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 702
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 9,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/TaxiWay Stopline Enhanced",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 703
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 9,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/White Line Middle",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 706
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 12,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/White Line Thick",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 707
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 15,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/White Line Thin",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 705
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 9,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/Yellow Line Middle",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 709
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 12,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/Yellow Line Thick",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 710
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 15,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    },
+    {
+      "path": "CustomNetlanes/RoadMarking/Yellow Line Thin",
+      "draw_order": 40,
+      "decal": {
+        "Float": {
+          "_Metallic": 1,
+          "_Smoothness": 0,
+          "colossal_DecalLayerMask": 7,
+          "_NormalOpacity": 0,
+          "_MetallicAlphaSource": 0,
+          "_MetallicOpacity": 0,
+          "_NormalAlphaSource": 0,
+          "_DrawOrder": 40,
+          "UiPriority": 708
+        },
+        "Vector": {
+          "colossal_MeshSize": {
+            "x": 9,
+            "y": 1,
+            "z": 9,
+            "w": 0
+          },
+          "colossal_TextureArea": {
+            "x": 0,
+            "y": 0,
+            "z": 1,
+            "w": 1
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "mod_name": "Airport Details Pack Countinue",
+  "general_character_heights_m": {"Small": 2.0, "Standard": 4.0},
+  "runway_scales": {"Small": 1, "Medium": 2, "Large": 3},
+  "generic_line_widths_m": {"Thin": 0.15, "Middle": 1.8, "Thick": 3.0},
+  "information_character_height_m": 4.0,
+  "sign_background_margin_m": 0.5,
+  "decal_padding_m": 0.15,
+  "palette": {"White": [177, 177, 177], "Yellow": [255, 239, 73], "Red": [176, 9, 4], "Black": [0, 0, 0]},
+  "priority_ranges": {
+    "general_characters": [1000, 2999],
+    "information_characters": [3000, 3999],
+    "runway_characters": [4000, 4999],
+    "threshold": [5000, 5099],
+    "runway_centerline": [5100, 5199],
+    "aiming_point": [5200, 5299],
+    "touchdown_zone": [5300, 5399],
+    "runway_edge": [5400, 5499],
+    "displaced_threshold": [5500, 5599],
+    "chevrons": [5600, 5699],
+    "closed_markings": [5700, 5799],
+    "taxiway": [6000, 6999],
+    "apron_and_mandatory": [7000, 7999],
+    "backgrounds_and_surfaces": [8000, 8999],
+    "generic_lines": [9000, 9899],
+    "calibration": [9900, 9999]
+  },
+  "sources": {
+    "icao": "https://www.bazl.admin.ch/dam/de/sd-web/PzvzqQpFptul/icao_annex_14_aerodromesvolumei-aerodromedesignandoperations.pdf",
+    "eai": "https://github.com/AlphaGaming7780/ExtraAssetsImporter"
+  }
+}

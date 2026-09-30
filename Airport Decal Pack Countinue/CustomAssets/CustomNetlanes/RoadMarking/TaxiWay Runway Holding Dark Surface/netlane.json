@@ -1,0 +1,14 @@
+{
+  "UiPriority": 6020,
+  "curveProperties": {
+    "TilingCount": 0,
+    "SmoothingDistance": 0,
+    "OverrideLength": 1.8,
+    "GeometryTiling": false,
+    "StraightTiling": false,
+    "SubFlow": false,
+    "InvertCurve": false
+  },
+  "utilityLane": null,
+  "prefabIdentifierInfos": []
+}
