@@ -10,7 +10,7 @@
 	<LongDescription>
 Airport marking modules with documented metre dimensions, reserved UI priorities,
 runway and taxiway patterns, mandatory marking characters and paint surfaces.
-Version 0.6.0 is a local test build; game-scale calibration is required before release.
+Version 0.6.1 is a local test build; background assembly and Surface rendering require game verification.
 	</LongDescription>
 	<!--Thumbnail-->
 	<Thumbnail Value="Properties/Thumbnail.jpg" />
@@ -21,7 +21,7 @@ Version 0.6.0 is a local test build; game-scale calibration is required before r
 	<!--Link to the forum post where the mod can be discussed-->
 	<ForumLink Value="" />
 	<!--Version of the mod-->
-	<ModVersion Value="0.6.0.0" />
+	<ModVersion Value="0.6.1.0" />
 	<!--Recommended version of the base game to use the mod-->
 	<GameVersion Value="1.5.*" />
 	<!--Dependency for the mod, can be set multiple times-->
@@ -30,7 +30,7 @@ Version 0.6.0 is a local test build; game-scale calibration is required before r
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-	<ChangeLog Value="ICAO dimension presets; UiPriority starts at 1000; additional runway, taxiway and apron modules; Surface presets; first-load prefab refresh mitigation." />
+	<ChangeLog Value="Fix ten legacy EAI asset names and dash proportions; refresh available prefabs independently; modular NetLane backgrounds, end caps, transparent characters and Surface comparison controls." />
 	<!--<ChangeLog>
 	</ChangeLog>-->
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->

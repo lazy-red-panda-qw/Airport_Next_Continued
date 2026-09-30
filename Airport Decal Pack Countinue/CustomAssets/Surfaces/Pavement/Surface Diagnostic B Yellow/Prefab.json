@@ -1,0 +1,11 @@
+{
+  "Components": {
+    "Game.Prefabs.UIObject": {
+      "m_Priority": 9921,
+      "m_IsDebugObject": false
+    },
+    "Game.Prefabs.RenderedArea": {
+      "m_Roundness": 0
+    }
+  }
+}

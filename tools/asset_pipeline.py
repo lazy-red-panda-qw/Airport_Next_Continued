@@ -161,7 +161,13 @@ class Pipeline:
             path.write_bytes(content)
 
     def asset(self, rel, priority, width, height, title, note, ref, canvas=None,
-              image=None, period=None, painted=None):
+              image=None, period=None, painted=None, draw_order=None):
+        requested_rel = rel
+        rel = SPEC["legacy_asset_renames"].get(rel, rel)
+        if requested_rel != rel and requested_rel in self.baseline:
+            raise ValueError(f"Cannot rename an original asset: {requested_rel}")
+        if "." in Path(rel).name:
+            raise ValueError(f"Legacy EAI misreads dots in asset names: {rel}")
         if priority in self.seen:
             raise ValueError(f"Duplicate UiPriority {priority}: {rel}")
         self.seen.add(priority)
@@ -169,14 +175,26 @@ class Pipeline:
             raise ValueError(f"Priority out of reserved ranges: {rel}")
         folder = ASSETS / rel
         old = self.baseline.get(rel)
-        order = old["draw_order"] if old else 42
+        order = old["draw_order"] if old else (42 if draw_order is None else draw_order)
+        if old and draw_order is not None and draw_order != order:
+            raise ValueError(f"Cannot change original DrawOrder: {rel}")
         is_lane = rel.startswith("CustomNetlanes/")
         data = decal_config(width, height, priority, order, old["decal"] if old else None)
+        aliases = []
+        if requested_rel != rel:
+            previous = Path(requested_rel)
+            aliases.append({"m_Name": f'{SPEC["mod_name"]} {previous.parent.name} {previous.name} '
+                            + ("NetLane" if is_lane else "Decal"),
+                            "m_Type": "NetLaneGeometryPrefab" if is_lane else "StaticObjectPrefab"})
+        if aliases and not is_lane:
+            data["prefabIdentifierInfos"] = aliases
         if is_lane:
             data.pop("UiPriority")
             if period is None:
                 raise ValueError(f"Missing explicit tile length: {rel}")
-            self.output(folder / "netlane.json", json_bytes(curve_config(priority, period)))
+            lane_data = curve_config(priority, period)
+            lane_data["prefabIdentifierInfos"] = aliases
+            self.output(folder / "netlane.json", json_bytes(lane_data))
         self.output(folder / "decal.json", json_bytes(data))
         if canvas is not None:
             image = canvas.finish()
@@ -214,25 +232,35 @@ class Pipeline:
 
     def character(self,s,height,rel,priority,title,background=None,foreground="White",margin=0,ref="造景字符预设；保留作者字形"):
         mask = load_glyph(s)
-        gw = mask.width/mask.height*height
-        width, length = gw+margin*2+PADDING*2, height+margin*2+PADDING*2
+        # The dash shares the author's H cap-height; its short stroke is not
+        # itself a 2/4 m capital. Other glyphs retain the tested dimensions.
+        metric_height = load_glyph("H").height if s == "-" else mask.height
+        gw, gh = mask.width/metric_height*height, mask.height/metric_height*height
+        cell_height = height if background else gh
+        width, length = gw+margin*2+PADDING*2, cell_height+margin*2+PADDING*2
         canvas = Canvas(width,length)
         if background:
-            canvas.rect(PADDING,PADDING,gw+margin*2,height+margin*2,COLORS[background])
-        pw, ph = max(1,round(gw/width*N*AA)),max(1,round(height/length*N*AA))
+            canvas.rect(PADDING,PADDING,gw+margin*2,cell_height+margin*2,COLORS[background])
+        pw, ph = max(1,round(gw/width*N*AA)),max(1,round(gh/length*N*AA))
         stamp = Image.new("RGBA",(pw,ph),COLORS[foreground]+(0,))
         stamp.putalpha(mask.resize((pw,ph),Image.Resampling.LANCZOS))
-        canvas.im.alpha_composite(stamp,(round((PADDING+margin)/width*N*AA),round((PADDING+margin)/length*N*AA)))
-        note = f"字符高度 {height:g} m，字符宽度 {gw:.3f} m。" + (f"底板四周外延 {margin:g} m。" if background else "")
+        canvas.im.alpha_composite(stamp,(round((PADDING+margin)/width*N*AA),
+            round((PADDING+margin+(cell_height-gh)/2)/length*N*AA)))
+        note = (f"配套字高 {height:g} m；连字符笔画厚 {gh:.3f} m、长 {gw:.3f} m，按作者 H 字高比例。"
+                if s == "-" else f"字符高度 {height:g} m，字符宽度 {gw:.3f} m。")
+        note += f"底板采用 {height:g} m 字高单元并四周外延 {margin:g} m。" if background else "透明底字符，可与独立背景组合。"
         note += "字体保留作者原图；字形轮廓尚未逐笔画认证。"
-        self.asset(rel,priority,width,length,title,note,ref,image=canvas.finish())
+        self.asset(rel,priority,width,length,title,note,ref,image=canvas.finish(),
+                   painted=(gw+margin*2,cell_height+margin*2))
 
-    def surface(self,name,priority,color,pavement=False):
+    def surface(self,name,priority,color,pavement=False,fade=None,noise_range=None,diagnostic=None):
         if priority in self.seen or not 1000 <= priority < 10000:
             raise ValueError(f"Duplicate or invalid Surface UiPriority {priority}: {name}")
         self.seen.add(priority)
         rel=f"Surfaces/Pavement/{name}"
         folder=ASSETS/rel
+        fade = SPEC["surface_edge_defaults"]["fade"] if fade is None else fade
+        noise_range = SPEC["surface_edge_defaults"]["noise"] if noise_range is None else noise_range
         rng=np.random.default_rng(20261001+priority)
         rgb=np.empty((512,512,4),dtype=np.uint8)
         noise=rng.normal(0,2.8 if pavement else 0,(512,512,1))
@@ -250,12 +278,17 @@ class Pipeline:
             "_NormalOpacity":0,"_MetallicOpacity":0,"colossal_UVScale":0.2,
             "colossal_EdgeNormal":0},"Vector":{
                 "_BaseColor":{"x":1,"y":1,"z":1,"w":1},
-                "colossal_EdgeFadeRange":{"x":0.02,"y":0.005,"z":0,"w":0},
-                "colossal_EdgeNoise":{"x":0,"y":0,"z":0,"w":0}}}))
+                "colossal_EdgeFadeRange":{"x":fade[0],"y":fade[1],"z":0,"w":0},
+                "colossal_EdgeNoise":{"x":noise_range[0],"y":noise_range[1],"z":0,"w":0}}}))
         full=f'{SPEC["mod_name"]} Pavement {name} Surface'
         title={"Airport Asphalt":"机场沥青 Surface","Airport Concrete":"机场混凝土 Surface"}.get(name,name+" Surface")
+        if diagnostic:
+            title = f"Surface 对照 {diagnostic} · 黄漆"
+        note = (f"面积由 Surface 工具绘制；UVScale=0.2。EdgeNoise={tuple(noise_range)}；EdgeFadeRange={tuple(fade)}。"
+                + ("诊断用，与对照 A/B/C/D 的相邻等大区域比较；D 复现 0.6.0 边缘参数。" if diagnostic
+                   else "恢复 EAI 默认边缘参数，仍需游戏验证可见性；平面颜色与微颗粒预设，非经认证 PBR 铺装。"))
         self.record(rel,priority,None,None,None,None,35 if pavement else 38,title,
-                    "面积由 Surface 工具绘制；UVScale=0.2，贴图名义重复尺度约 5 m。平面颜色与微颗粒预设；非经认证 PBR 铺装。",
+                    note,
                     "EAI 1.7.5/1.7.6 新版 Surfaces 导入器",full,"SurfacePrefab",True)
         self.contacts.append((priority,title,image.resize((128,128),Image.Resampling.LANCZOS)))
 
@@ -264,6 +297,12 @@ class Pipeline:
         missing=set(self.baseline)-{r["path"] for r in rows}
         if missing:
             raise ValueError(f"Original asset identities missing: {sorted(missing)}")
+        actual = {f.parent.relative_to(ASSETS).as_posix() for root in ("CustomDecals", "CustomNetlanes")
+                  for f in (ASSETS/root).rglob("decal.json")}
+        actual.update(f.parent.relative_to(ASSETS).as_posix() for f in (ASSETS/"Surfaces").rglob("Prefab.json"))
+        expected = {r["path"] for r in rows}
+        if actual != expected:
+            raise ValueError(f"Asset folder set mismatch; stale={sorted(actual-expected)}, missing={sorted(expected-actual)}")
         csvout=io.StringIO(newline="")
         writer=csv.DictWriter(csvout,fieldnames=list(rows[0]),lineterminator="\n")
         writer.writeheader();writer.writerows(rows)
@@ -275,7 +314,8 @@ class Pipeline:
             self.output(ASSETS/"Localization"/(lang+".json"),json_bytes(data))
         # Representative contact sheet, instead of hundreds of unreadable thumbnails.
         selected=[r for r in sorted(self.contacts) if r[0] in [1000,1001,3000,3010,4000,4010,4040,4060,4090,4100,4110,4120]
-                  or 5000<=r[0]<6100 or r[0] in [7000,7001,7400,8100,8110,8120,8130,8140,8150,9000,9001,9002,9900,9910]]
+                  or 5000<=r[0]<6100 or r[0] in [7000,7001,7180,7181,7400,8100,8110,8120,8130,8140,8150,9000,9001,9002,9900,9910]
+                  or 8200<=r[0]<8400 or 9920<=r[0]<=9923]
         from PIL import ImageFont
         font=ImageFont.load_default()
         thumb=Image.new("RGB",(8*160,math.ceil(len(selected)/8)*170),(48,48,48))
@@ -336,11 +376,63 @@ def runway(s):
     return w,h,polys,holes
 
 
+def generate_backgrounds(p):
+    """Repeat only the long sides; terminal borders belong to separate caps."""
+    for theme_index,(name,title,fill,edge) in enumerate([
+        ("Location", "位置背景 · 黑底黄框", "Black", "Yellow"),
+        ("Direction", "方向背景 · 黄底黑框", "Yellow", "Black"),
+        ("Mandatory", "强制背景 · 红底", "Red", None),
+        ("White Red", "通用背景 · 白底红框", "White", "Red"),
+    ]):
+        for height_index,height in enumerate((2,4)):
+            priority = 8200+theme_index*40+height_index*10
+            margin = SPEC["sign_background_margin_m"]
+            border = SPEC["background_border_m"] if edge else 0
+            inner = height+2*margin
+            outer = inner+2*border
+            order = SPEC["background_draw_order"]
+            purpose = ("红底白字强制标记的背景；文字四周至少 0.5 m 留白。" if name == "Mandatory"
+                       else "白底红框保留宽框外观，搭配黑字；不是红底白字强制标记。" if name == "White Red"
+                       else "与对应透明底黄字/黑字组合；外框笔画 0.15 m 为包内预设。")
+            note = (f"配套字高 {height} m，内区高 {inner:g} m，整体宽 {outer:g} m。"+purpose
+                    +"沿长度绘制；宽度固定。主体不包含端边，使用左右端帽封口。背景层级 41、字符 42；叠放和端头仍需实测。")
+            ref = "ICAO 5.2.16/5.2.17 的颜色与留白；边框/端帽/长度为造景预设"
+            c=Canvas(outer+2*PADDING,9)
+            c.rect(PADDING,0,outer,9,COLORS[edge or fill])
+            c.rect(PADDING+border,0,inner,9,COLORS[fill])
+            p.asset(f"CustomNetlanes/MarkingBackgrounds/{name} Background Strip {height}m",priority,
+                    c.width,c.height,f"{title} · {height} m 字高 · 拉线主体",note,ref,
+                    canvas=c,period=9,painted=(outer,9),draw_order=order)
+            cap_depth=margin+border
+            for offset,side in ((1,"Left"),(2,"Right")):
+                c=Canvas(outer+2*PADDING,cap_depth+2*PADDING)
+                c.rect(PADDING,PADDING,outer,cap_depth,COLORS[edge or fill])
+                start=border if side == "Left" else 0
+                c.rect(PADDING+border,PADDING+start,inner,cap_depth-border,COLORS[fill])
+                p.asset(f"CustomDecals/MarkingBackgrounds/{name} Background Cap {side} {height}m",priority+offset,
+                        c.width,c.height,f"{title} · {height} m 字高 · {'左' if side == 'Left' else '右'}端帽",
+                        note+"端帽内缘对齐主体端点，可少量重叠防止接缝。",ref,
+                        canvas=c,painted=(outer,cap_depth),draw_order=order)
+            length=SPEC["background_wide_lengths_m"][str(height)]
+            c=Canvas(length+2*PADDING,outer+2*PADDING)
+            c.rect(PADDING,PADDING,length,outer,COLORS[edge or fill])
+            c.rect(PADDING+border,PADDING+border,length-2*border,inner,COLORS[fill])
+            p.asset(f"CustomDecals/MarkingBackgrounds/{name} Background Wide {height}m",priority+3,
+                    c.width,c.height,f"{title} · {height} m 字高 · {length:g} m 宽幅贴花",
+                    note+f"固定长度 {length:g} m，保留宽框铺底形式；不是标准规定的固定长度。",ref,
+                    canvas=c,painted=(length,outer),draw_order=order)
+
+
 def generate(p):
     for i,s in enumerate(SYMBOLS):
         for suffix,height,offset in [(" Small",2,0),("",4,1)]:
             height=SPEC["general_character_heights_m"]["Small" if suffix else "Standard"]
             p.character(s,height,f"CustomDecals/Alphabet/{glyph_name(s)}{suffix}",1000+i*10+offset,f"通用 {s} · {height:g} m")
+        for color,color_offset in (("Black",0),("Yellow",10)):
+            for height,offset in ((2,0),(4,1)):
+                p.character(s,height,f"CustomDecals/AssemblyCharacters/{color} {('Dash' if s == '-' else s)} {height}m",
+                            2000+i*20+color_offset+offset,f"透明底 {'黑' if color == 'Black' else '黄'}字 {s} · {height} m",
+                            foreground=color,ref="作者字形；与独立背景组合的造景字符")
         for outbound in (False,True):
             name=("Outbound " if outbound else "Taxiway ")+("Dash" if s=="-" else s)
             p.character(s,SPEC["information_character_height_m"],f"CustomDecals/Alphabet/{name}",3000+i*20+(10 if outbound else 0),
@@ -366,6 +458,7 @@ def generate(p):
         c=Canvas(1+PADDING*2,1+PADDING*2);c.rect(PADDING,PADDING,1,1,COLORS[color])
         p.asset(f"CustomDecals/RoadMarkings/{name}",prio,c.width,c.height,f"{color} 底板 · 1 m",
                 "1 × 1 m 通用拼接底板；完整强制标记底板需超出文字四周至少 0.5 m。","造景模块；ICAO 5.2.16.10",canvas=c,painted=(1,1))
+    generate_backgrounds(p)
     old=ASSETS/"CustomDecals/RoadMarkings/Arrow Straight/_BaseColorMap.png"
     im=Image.open(old).convert("RGBA");box=paint_box(im);w=(box[2]-box[0])/(box[3]-box[1])*4
     # This legacy arrow's source PNG stays unchanged, so repeated generation is stable.
@@ -494,6 +587,15 @@ def generate(p):
         ("Paint White",8120,COLORS["White"],False),("Paint Yellow",8130,COLORS["Yellow"],False),
         ("Paint Red",8140,COLORS["Red"],False),("Paint Black",8150,COLORS["Black"],False)]:
         p.surface(name,priority,color,pavement)
+    # A 2x2 parameter experiment. All other rendering inputs are identical.
+    for code,priority,fade,noise in [
+        ("A",9920,(.75,.25),(0,1)),
+        ("B",9921,(.75,.25),(0,0)),
+        ("C",9922,(.02,.005),(0,1)),
+        ("D",9923,(.02,.005),(0,0)),
+    ]:
+        p.surface(f"Surface Diagnostic {code} Yellow",priority,COLORS["Yellow"],
+                  fade=fade,noise_range=noise,diagnostic=code)
     c=Canvas(10+.3,10+.3)
     for i in range(11):
         x=.15+i;c.rect(x-.015,.15,.03,10,COLORS["White"]);c.rect(.15,x-.015,10,.03,COLORS["White"])

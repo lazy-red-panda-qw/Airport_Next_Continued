@@ -23,7 +23,7 @@ namespace Airport_Decal_Pack_Countinue
             // EAI and the generated manifest are both rooted beside this DLL.
             AirportAssetRefreshSystem.AssetFolder = pathToModFolder;
             updateSystem.UpdateAt<AirportAssetRefreshSystem>(SystemUpdatePhase.MainLoop);
-            Log.Info("Airport Details Pack 0.6.0: ICAO asset configurations registered.");
+            Log.Info("Airport Details Pack 0.6.1: ICAO assets, modular backgrounds and Surface controls registered.");
         }
 
         public void OnDispose()

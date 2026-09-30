@@ -6,6 +6,22 @@
   "generic_line_widths_m": {"Thin": 0.15, "Middle": 1.8, "Thick": 3.0},
   "information_character_height_m": 4.0,
   "sign_background_margin_m": 0.5,
+  "background_border_m": 0.15,
+  "background_draw_order": 41,
+  "background_wide_lengths_m": {"2": 8.0, "4": 15.0},
+  "surface_edge_defaults": {"fade": [0.75, 0.25], "noise": [0.5, 0.5]},
+  "legacy_asset_renames": {
+    "CustomNetlanes/Apron/Apron Safety Red 0.1m": "CustomNetlanes/Apron/Apron Safety Red 10cm",
+    "CustomNetlanes/Apron/Stand Lead In 0.15m": "CustomNetlanes/Apron/Stand Lead In 15cm",
+    "CustomNetlanes/RunwayMarkings/Runway Centerline 0.3m": "CustomNetlanes/RunwayMarkings/Runway Centerline 30cm",
+    "CustomNetlanes/RunwayMarkings/Runway Centerline 0.45m": "CustomNetlanes/RunwayMarkings/Runway Centerline 45cm",
+    "CustomNetlanes/RunwayMarkings/Runway Centerline 0.9m": "CustomNetlanes/RunwayMarkings/Runway Centerline 90cm",
+    "CustomNetlanes/RunwayMarkings/Runway Edge 0.45m": "CustomNetlanes/RunwayMarkings/Runway Edge 45cm",
+    "CustomNetlanes/RunwayMarkings/Runway Edge 0.9m": "CustomNetlanes/RunwayMarkings/Runway Edge 90cm",
+    "CustomDecals/RunwayMarkings/Displaced Threshold Bar 1.8m Module": "CustomDecals/RunwayMarkings/Displaced Threshold Bar 180cm Module",
+    "CustomDecals/RunwayMarkings/Threshold Stripe 1.8x30m": "CustomDecals/RunwayMarkings/Threshold Stripe 180cm x30m",
+    "CustomDecals/RunwayMarkings/Touchdown Zone Basic 3x22.5m": "CustomDecals/RunwayMarkings/Touchdown Zone Basic 3x2250cm"
+  },
   "decal_padding_m": 0.15,
   "palette": {"White": [177, 177, 177], "Yellow": [255, 239, 73], "Red": [176, 9, 4], "Black": [0, 0, 0]},
   "priority_ranges": {

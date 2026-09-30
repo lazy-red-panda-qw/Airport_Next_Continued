@@ -10,7 +10,7 @@ namespace Airport_Decal_Pack_Countinue
 {
     /// <summary>
     /// EAI's legacy importer can mutate a cached RenderPrefab without notifying
-    /// PrefabSystem. Queue one update after all our assets have been imported.
+    /// PrefabSystem. Refresh each available asset after EAI finishes importing.
     /// This does not clear EAI's cache or touch another pack's prefabs.
     /// The mitigation still needs a cold-launch test in the actual game.
     /// </summary>
@@ -22,6 +22,7 @@ namespace Airport_Decal_Pack_Countinue
         private List<PrefabID> m_Expected;
         private float m_NextProbe;
         private float m_Started;
+        private float m_ImportersFinishedAt = -1f;
 
         protected override void OnCreate()
         {
@@ -75,25 +76,56 @@ namespace Airport_Decal_Pack_Countinue
                     Enabled = false;
                     return;
                 }
-                if (!m_ImportersFinished()) return;
+                if (!m_ImportersFinished())
+                {
+                    m_ImportersFinishedAt = -1f;
+                    return;
+                }
+                // Allow registrations queued on the main thread to settle.
+                // A missing asset must not block every successfully imported one.
+                if (m_ImportersFinishedAt < 0f)
+                    m_ImportersFinishedAt = UnityTime.realtimeSinceStartup;
+                if (UnityTime.realtimeSinceStartup - m_ImportersFinishedAt < 2f) return;
 
                 var parents = new List<PrefabBase>();
                 var renders = new List<PrefabBase>();
+                var missing = new List<string>();
                 foreach (PrefabID id in m_Expected)
                 {
-                    if (!m_Prefabs.TryGetPrefab(id, out PrefabBase parent)) return;
-                    if (!m_Prefabs.TryGetPrefab(new PrefabID(nameof(RenderPrefab), parent.name + "_RenderPrefab"), out PrefabBase render)) return;
+                    if (!m_Prefabs.TryGetPrefab(id, out PrefabBase parent))
+                    {
+                        missing.Add(id.ToString());
+                        continue;
+                    }
+                    if (!m_Prefabs.TryGetPrefab(new PrefabID(nameof(RenderPrefab), parent.name + "_RenderPrefab"), out PrefabBase render))
+                    {
+                        missing.Add(id + " (RenderPrefab missing)");
+                        continue;
+                    }
                     parents.Add(parent);
                     renders.Add(render);
                 }
-                foreach (PrefabBase render in renders) m_Prefabs.UpdatePrefab(render);
-                foreach (PrefabBase parent in parents)
+                int queued = 0;
+                int failed = 0;
+                for (int i = 0; i < parents.Count; i++)
                 {
-                    m_Prefabs.UpdatePrefab(parent);
-                    if (m_Prefabs.TryGetPrefab(new PrefabID(nameof(StaticObjectPrefab), parent.name + "_Placeholder"), out PrefabBase placeholder))
-                        m_Prefabs.UpdatePrefab(placeholder);
+                    PrefabBase parent = parents[i];
+                    try
+                    {
+                        m_Prefabs.UpdatePrefab(renders[i]);
+                        m_Prefabs.UpdatePrefab(parent);
+                        if (m_Prefabs.TryGetPrefab(new PrefabID(nameof(StaticObjectPrefab), parent.name + "_Placeholder"), out PrefabBase placeholder))
+                            m_Prefabs.UpdatePrefab(placeholder);
+                        queued++;
+                    }
+                    catch (Exception ex)
+                    {
+                        failed++;
+                        Mod.Log.Warn("Airport prefab refresh failed for " + parent.name + ": " + ex.Message);
+                    }
                 }
-                Mod.Log.Info($"Airport prefab refresh queued once: {parents.Count} assets / {renders.Count} render prefabs.");
+                foreach (string id in missing) Mod.Log.Warn("Airport asset missing after EAI import: " + id);
+                Mod.Log.Info($"Airport prefab refresh queued once: {queued}/{m_Expected.Count} assets; {missing.Count} missing; {failed} refresh failures.");
                 Enabled = false;
             }
             catch (Exception ex)

@@ -1,0 +1,19 @@
+{
+  "UiPriority": 5101,
+  "curveProperties": {
+    "TilingCount": 0,
+    "SmoothingDistance": 0,
+    "OverrideLength": 60,
+    "GeometryTiling": false,
+    "StraightTiling": false,
+    "SubFlow": false,
+    "InvertCurve": false
+  },
+  "utilityLane": null,
+  "prefabIdentifierInfos": [
+    {
+      "m_Name": "Airport Details Pack Countinue RunwayMarkings Runway Centerline 0.45m NetLane",
+      "m_Type": "NetLaneGeometryPrefab"
+    }
+  ]
+}
