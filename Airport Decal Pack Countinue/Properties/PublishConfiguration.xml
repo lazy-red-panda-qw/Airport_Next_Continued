@@ -8,9 +8,47 @@
 	<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 	<!--LongDescription Value="This is a long description" /-->
 	<LongDescription>
-Airport marking modules with documented metre dimensions, reserved UI priorities,
-runway and taxiway patterns, mandatory marking characters and paint surfaces.
-Version 0.6.2 is a local test build with verified Surface parameter controls and simplified background menus.
+## A continuation by the original creator
+
+This is the sequel and updated edition of my earlier [Airport Details Pack](https://mods.paradoxplaza.com/mods/113207/Windows), developed by the same creator.
+
+ICAO Annex 14 is the design baseline. The aim is strict application of the real definitions, purposes, patterns and dimensions of airport markings, so runway, taxiway and apron components can be assembled into coherent, realistic layouts. This edition reworks the documented marking geometry and adds modular parts for more detailed airport builds.
+
+## Included in this edition
+
+- Runway numbers, threshold stripes, centre lines, aiming points, touchdown-zone markings, edge lines, displaced-threshold arrows and closure markings.
+- Taxiway centre lines, enhanced centre lines, holding-position patterns and non-load-bearing pavement boundaries.
+- Transparent white, black and yellow characters in 1 m, 2 m and 4 m sizes, decimal points and matching arrows, with modular backgrounds and thin outlines.
+- Basic aircraft-stand guidance and apron safety lines, asphalt and concrete surfaces, and paint surfaces.
+
+Choose each marking for its intended use and airport layout. Some character outlines, colour values and placement presets still need further verification; this is not a claim of ICAO certification. The A2/B2 holding-position patterns follow the Annex 14 provisions applicable from 26 November 2026.
+
+Version 0.6.3 is currently a local test build with transparent lettering, Surface fills and thin outline pieces.
+
+## Recommended companion assets
+
+These are optional additions. Follow each asset's game-version requirements and required dependencies.
+
+**G87 materials and road markings**
+
+I regularly use G87's packs and recommend their quality. [Vanilla Asphalt](https://mods.paradoxplaza.com/mods/97145/Windows), [Vanilla Pavement](https://mods.paradoxplaza.com/mods/99944/Windows), [Road Markings](https://mods.paradoxplaza.com/mods/97828/Windows) and [Stripes and Chevrons](https://mods.paradoxplaza.com/mods/98624/Windows) provide complementary pavement materials, road markings and hatching, especially useful around service roads and the surrounding airport infrastructure.
+
+This pack already includes basic asphalt, concrete and paint surfaces; G87 adds further material and marking choices. Check overlapping surfaces and markings in a small area first, as pavement surfaces can cover markings from another pack. Ordinary road hatching should be selected for the airport function it represents.
+
+**Airport props and lighting**
+
+- [Airport Pack by peijo](https://mods.paradoxplaza.com/mods/147286/Any): illuminated blank taxiway sign bodies, coloured airfield lights, approach-light structures and ILS props. Write Everywhere is needed to add sign inscriptions. Its current release targets game 1.6.*; public feedback is limited.
+- [LAX Airport Props - No Landmark Buildings DLC](https://mods.paradoxplaza.com/mods/128482/Any): airport buildings, jetways, blast fences, baggage props and lighting. Keep both required HarbourmasterJay prefab packs updated; the rendering dependency was repaired for game 1.6.2. The [original LAX edition](https://mods.paradoxplaza.com/mods/128477/Any) also requires Landmark Buildings DLC.
+- [Runway Guard Light by kjmci](https://mods.paradoxplaza.com/mods/150288/Any): an alternating flashing guard-light prop for runway holding positions. Its current release targets game 1.6.*; independent compatibility feedback is limited.
+- MCN PAPI [red](https://mods.paradoxplaza.com/mods/141582/Any) and [white](https://mods.paradoxplaza.com/mods/141583/Any): optional visual props for PAPI assemblies. They currently declare game 1.5.* compatibility; compatibility with newer versions and viewing-angle-dependent colour changes have not been verified.
+
+These suggestions are based on the creators' descriptions, update records and available public reports. Joint in-game compatibility testing with this edition is still pending.
+
+## Planned expansion
+
+Future updates will gradually expand airport service-road markings, special instruction and information markings, complete aircraft-stand layouts, and apron/ramp safety lines and stripes.
+
+Each addition will be researched against ICAO requirements and relevant guidance before implementation. FAA documents will be used for comparison and clearly identified US-specific variants where appropriate. Equipment areas, no-parking hatching, vehicle crossings and aircraft guidance will be treated according to their actual purpose and local rules.
 	</LongDescription>
 	<!--Thumbnail-->
 	<Thumbnail Value="Properties/Thumbnail.jpg" />
@@ -21,7 +59,7 @@ Version 0.6.2 is a local test build with verified Surface parameter controls and
 	<!--Link to the forum post where the mod can be discussed-->
 	<ForumLink Value="" />
 	<!--Version of the mod-->
-	<ModVersion Value="0.6.2.0" />
+	<ModVersion Value="0.6.3.0" />
 	<!--Recommended version of the base game to use the mod-->
 	<GameVersion Value="1.5.*" />
 	<!--Dependency for the mod, can be set multiple times-->
@@ -30,7 +68,7 @@ Version 0.6.2 is a local test build with verified Surface parameter controls and
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-	<ChangeLog Value="Use tested Surface edge parameters; remove diagnostic surfaces, duplicate caps, obsolete generic lines and test swatches; keep one rotatable cap per bordered background." />
+	<ChangeLog Value="Use existing EAI menu categories; remove redundant baked characters and one duplicate aiming-point block; restore original runway glyphs; add 1 m lettering, decimal points, matching arrows and thin outlines; simplify runtime to EAI loading only." />
 	<!--<ChangeLog>
 	</ChangeLog>-->
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->

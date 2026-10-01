@@ -13,6 +13,7 @@ import csv
 import io
 import json
 import math
+import re
 import string
 import sys
 from pathlib import Path
@@ -24,11 +25,95 @@ ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "Airport Decal Pack Countinue" / "CustomAssets"
 SPEC = json.loads((ROOT / "asset-specs.json").read_text(encoding="utf-8"))
 BASELINE = ROOT / "SourceAssets" / "baseline-assets.json"
-SYMBOLS = string.ascii_uppercase + string.digits + "-"
+AUTHOR_SYMBOLS = string.ascii_uppercase + string.digits + "-"
+SYMBOLS = AUTHOR_SYMBOLS + "."
 COLORS = {k: tuple(v) for k, v in SPEC["palette"].items()}
 N = 1024
 AA = 2
 PADDING = SPEC["decal_padding_m"]
+TRADITIONAL = str.maketrans(json.loads((ROOT / "tools" / "zh-hant-map.json").read_text(encoding="utf-8")))
+
+
+def menu_path(rel):
+    """Use ExtraLib's existing categories; this only changes asset folders."""
+    parts = rel.split("/")
+    if parts[0] == "CustomDecals":
+        parts[1] = "Alphabet" if parts[1] in ("Alphabet", "AssemblyCharacters") else "RoadMarkings"
+    elif parts[0] == "CustomNetlanes":
+        parts[1] = "RoadMarking"
+    return "/".join(parts)
+
+
+def player_description(rel, painted, period):
+    """Player-facing descriptions contain dimensions, content and purpose."""
+    name = Path(rel).name
+    w,h = painted or (0,0)
+    size_zh, size_en = f"{w:g} × {h:g} m", f"{w:g} × {h:g} m"
+    if "/MarkingBackgrounds/" in rel:
+        theme = next(t for t in ("White Red", "Location", "Direction", "Mandatory") if name.startswith(t))
+        zh,en = {"Location":("黑底黄框","Black fill with a yellow border"),
+                 "Direction":("黄底黑框","Yellow fill with a black border"),
+                 "Mandatory":("纯红底","Solid red background"),
+                 "White Red":("白底红框","White fill with a red border")}[theme]
+        height = 2 if "2m" in name else 4
+        if "Strip" in name:
+            return (f"{zh}，宽 {w:g} m；搭配 {height} m 字高，长度沿线绘制。",
+                    f"{en}, {w:g} m wide. Draw the length for {height} m lettering.")
+        if "Cap" in name:
+            return (f"{zh}端帽，{size_zh}；搭配同尺寸背景主体，旋转 180° 用于另一端。",
+                    f"{en} end cap, {size_en}. Rotate 180 degrees for the other end of the matching strip.")
+        return (f"{zh}，{size_zh}；搭配 {height} m 字高的固定矩形背景。",
+                f"{en}, {size_en}. Fixed rectangular background for {height} m lettering.")
+    if name.startswith("Runway Centerline"):
+        return (f"白色跑道中线，宽 {w:g} m；实段 30 m、空段 30 m。",
+                f"White runway centre line, {w:g} m wide; 30 m paint / 30 m gap.")
+    if name.startswith("Runway Edge"):
+        return (f"白色跑道边线，宽 {w:g} m；沿跑道边缘连续绘制。",
+                f"White runway edge line, {w:g} m wide. Draw continuously along the runway edge.")
+    if name.startswith("Threshold Half"):
+        n=int(name.split()[2])
+        return (f"白色跑道入口条纹，单侧 {n} 根，范围 {size_zh}；每根宽 1.8 m、长 30 m。",
+                f"Half-threshold group of {n} white stripes, {size_en}; each stripe is 1.8 m wide and 30 m long.")
+    if name.startswith("Aiming Point"):
+        return (f"白色瞄准点单块，{size_zh}；在跑道两侧成对布置。",
+                f"White aiming-point block, {size_en}. Place as a pair on both sides of the runway centre line.")
+    if name.startswith("Touchdown Zone Coded"):
+        n=int(name.split()[3])
+        return (f"白色接地带标记，{n} 条，范围 {size_zh}；每条 1.8 × 22.5 m。",
+                f"Coded touchdown-zone group of {n} white stripes, {size_en}; each stripe is 1.8 × 22.5 m.")
+    exact = {
+        "Threshold Stripe 180cm x30m": ("白色跑道入口条纹，1.8 × 30 m；用于组合入口条纹组。", "White threshold stripe, 1.8 × 30 m. Assemble into threshold groups."),
+        "Touchdown Zone Basic 3x2250cm": ("白色基本式接地带单块，3 × 22.5 m；在跑道两侧成对布置。", "White basic touchdown-zone block, 3 × 22.5 m. Place in pairs on both sides of the runway centre line."),
+        "Displaced Threshold Bar 180cm Module": ("白色内移入口横条，10 × 1.8 m；首尾拼接至跑道全宽。", "White displaced-threshold bar module, 10 × 1.8 m. Join end-to-end across the runway."),
+        "Displaced Threshold Arrow 30m": ("白色内移入口箭头，长 30 m；用于跑道内移入口之前的中线。", "White displaced-threshold arrow, 30 m long. Place on the centre line before a displaced threshold."),
+        "Prethreshold Chevron 30m": ("黄色 V 形标记，跨宽约 30 m、笔画宽 0.9 m；用于前入口非可用区域。", "Yellow chevron, approximately 30 m across with 0.9 m strokes. Marks unusable pavement before the threshold."),
+        "Closed Runway X": (f"白色跑道关闭标记，外接范围 {size_zh}、笔画宽 1.8 m。", f"White runway closure cross, {size_en} overall, with 1.8 m strokes."),
+        "Closed Taxiway X": (f"黄色滑行道关闭标记，外接范围 {size_zh}、笔画宽 1.5 m。", f"Yellow taxiway closure cross, {size_en} overall, with 1.5 m strokes."),
+        "Calibration Grid 10m": ("10 × 10 m 校准网格，格距 1 m；用于测量贴花尺寸。", "10 × 10 m calibration grid with 1 m spacing. Measures decal dimensions."),
+        "Calibration Ruler 20m": ("20 m 校准尺，刻度间距 1 m、每 5 m 一个长刻度；用于测量长度。", "20 m calibration ruler with 1 m ticks and major ticks every 5 m. Measures lengths."),
+        "Stand Lead In 15cm": ("黄色实线，宽 0.15 m；用于机位引导线或黄色区域描边。", "Yellow solid line, 0.15 m wide. Use for aircraft-stand guidance or yellow outlines."),
+        "Apron Safety Red 10cm": ("红色实线，宽 0.10 m；用于机坪安全边界或红色区域描边。", "Red solid line, 0.10 m wide. Use for apron safety boundaries or red outlines."),
+    }
+    if name in exact:
+        return exact[name]
+    if name.startswith("TaxiWay") or name.startswith("ILS") or name.startswith("Taxi Side"):
+        light = "Light" in name or name in ("TaxiWay Stopline Enhanced", "TaxiWay Stopline", "ILS Critical Area Boundary")
+        border_zh = "，带黑色对比边" if light else ""
+        border_en = " with black contrast edging" if border_zh else ""
+        if "Centerline Enhanced" in name:
+            zh,en="增强滑行道中线，三条黄线各宽 0.15 m；两侧虚线实段 3 m、空段 1 m", "Enhanced taxiway centre line: three 0.15 m yellow lines; side dashes are 3 m paint / 1 m gap"
+        elif name in ("TaxiWay Light Surface","TaxiWay Dark Surface"):
+            zh,en="黄色滑行道中线，宽 0.15 m", "Yellow taxiway centre line, 0.15 m wide"
+        elif name in ("TaxiWay Runway Holding Dark Surface","TaxiWay Stopline Enhanced"):
+            zh,en="跑道等待线 A2，四条黄线各宽 0.30 m、净距 0.30 m；虚线实段和空段各 0.90 m", "A2 runway holding marking: four 0.30 m yellow lines with 0.30 m clear spacing; dashes and gaps are 0.90 m"
+        elif name.startswith("ILS"):
+            zh,en="ILS 等待线 B2，两条 0.30 m 黄线与双横档；重复周期 3.90 m", "B2 ILS holding marking: two 0.30 m yellow lines with paired cross-bars; 3.90 m repeat"
+        elif "Intermediate" in name or name=="TaxiWay Stopline":
+            zh,en="中间等待线，黄色虚线宽 0.30 m；实段和空段各 0.90 m", "Intermediate holding marking: 0.30 m yellow dashes; 0.90 m paint / 0.90 m gap"
+        else:
+            zh,en="黄色非承重铺装边界，两条实线各宽 0.15 m、净距 0.15 m", "Yellow non-load-bearing pavement boundary: two 0.15 m solid lines with 0.15 m clear spacing"
+        return zh+border_zh+"。",en+border_en+"."
+    raise ValueError(f"Missing player description: {rel}")
 
 
 def json_bytes(data):
@@ -55,7 +140,7 @@ def bootstrap():
                      "draw_order": data["Float"]["_DrawOrder"], "decal": data})
     if len(rows) != 187:
         raise ValueError(f"Expected the original 187 assets, got {len(rows)}.")
-    for s in SYMBOLS:
+    for s in AUTHOR_SYMBOLS:
         source = ASSETS / "CustomDecals" / "Alphabet" / glyph_name(s) / "_BaseColorMap.png"
         dest = ROOT / "SourceAssets" / "Glyphs" / ("dash.png" if s == "-" else s + ".png")
         dest.parent.mkdir(parents=True, exist_ok=True)
@@ -128,6 +213,7 @@ def decal_config(width, height, priority, order=42, original=None):
                   "_MetallicOpacity": 0, "_NormalAlphaSource": 0, "_DrawOrder": order},
         "Vector": {"colossal_TextureArea": {"x": 0, "y": 0, "z": 1, "w": 1}}}
     data["Float"].pop("UiPriority", None)
+    data["Float"]["_DrawOrder"] = order
     data["UiPriority"] = priority
     data["Vector"]["colossal_MeshSize"] = {"x": round(width, 9), "y": 1,
                                            "z": round(height, 9), "w": 0}
@@ -161,7 +247,7 @@ class Pipeline:
             path.write_bytes(content)
 
     def asset(self, rel, priority, width, height, title, note, ref, canvas=None,
-              image=None, period=None, painted=None, draw_order=None):
+              image=None, period=None, painted=None, draw_order=None, note_en=None):
         requested_rel = rel
         rel = SPEC["legacy_asset_renames"].get(rel, rel)
         if requested_rel != rel and requested_rel in self.baseline:
@@ -175,27 +261,21 @@ class Pipeline:
         self.seen.add(priority)
         if not 1000 <= priority < 10000:
             raise ValueError(f"Priority out of reserved ranges: {rel}")
+        source_rel = rel
+        rel = menu_path(rel)
         folder = ASSETS / rel
-        old = self.baseline.get(rel)
-        order = old["draw_order"] if old else (42 if draw_order is None else draw_order)
-        if old and draw_order is not None and draw_order != order:
-            raise ValueError(f"Cannot change original DrawOrder: {rel}")
+        old = self.baseline.get(source_rel)
+        order = SPEC["draw_order_overrides"].get(source_rel,
+            old["draw_order"] if old else (42 if draw_order is None else draw_order))
         is_lane = rel.startswith("CustomNetlanes/")
         data = decal_config(width, height, priority, order, old["decal"] if old else None)
-        aliases = []
-        if requested_rel != rel:
-            previous = Path(requested_rel)
-            aliases.append({"m_Name": f'{SPEC["mod_name"]} {previous.parent.name} {previous.name} '
-                            + ("NetLane" if is_lane else "Decal"),
-                            "m_Type": "NetLaneGeometryPrefab" if is_lane else "StaticObjectPrefab"})
-        if aliases and not is_lane:
-            data["prefabIdentifierInfos"] = aliases
+        # Unpublished pack: use the final identities without migration aliases.
+        data.pop("prefabIdentifierInfos", None)
         if is_lane:
             data.pop("UiPriority")
             if period is None:
                 raise ValueError(f"Missing explicit tile length: {rel}")
             lane_data = curve_config(priority, period)
-            lane_data["prefabIdentifierInfos"] = aliases
             self.output(folder / "netlane.json", json_bytes(lane_data))
         self.output(folder / "decal.json", json_bytes(data))
         if canvas is not None:
@@ -215,31 +295,44 @@ class Pipeline:
                     raise ValueError(f"Painted bounds mismatch: {rel}: {actual}, expected {painted}")
         cat, name = folder.parent.name, folder.name
         full = f'{SPEC["mod_name"]} {cat} {name} ' + ("NetLane" if is_lane else "Decal")
+        if note_en is None:
+            note,note_en = player_description(source_rel, painted or actual, period)
         self.record(rel,priority,width,height,actual,period,order,title,note,ref,full,
-                    "NetLaneGeometryPrefab" if is_lane else "StaticObjectPrefab", not old)
+                    "NetLaneGeometryPrefab" if is_lane else "StaticObjectPrefab", not old,
+                    source_rel=source_rel,note_en=note_en)
         self.contacts.append((priority,title,image.resize((128,128),Image.Resampling.LANCZOS)))
 
-    def record(self,rel,priority,width,height,painted,period,order,title,note,ref,full,kind,new):
-        self.rows.append({"UiPriority":priority,"path":rel,"type":kind,"new":new,
+    def record(self,rel,priority,width,height,painted,period,order,title,note,ref,full,kind,new,
+               source_rel=None,note_en=None):
+        self.rows.append({"UiPriority":priority,"path":rel,"source_path":source_rel or rel,"type":kind,"new":new,
                           "mesh_x_m":round(width,6) if width else None,
                           "mesh_z_m":round(height,6) if height else None,
                           "paint_x_m":round(painted[0],6) if painted else None,
                           "paint_z_m":round(painted[1],6) if painted else None,
                           "tile_period_m":period,"draw_order":order,"title":title,
                           "reference":ref,"notes":note,"prefab_name":full})
-        english = full.removeprefix(SPEC["mod_name"] + " ").removesuffix(" Decal").removesuffix(" NetLane").removesuffix(" Surface")
-        if rel.startswith("CustomDecals/MarkingBackgrounds/"):
+        english = Path(rel).name
+        if note_en and "runway character" not in note_en and any(note_en.startswith(color+" ") for color in ("White","Black","Yellow")):
+            m=re.search(r"character ([A-Z0-9]),",note_en)
+            letter=m.group(1) if m else "hyphen" if "hyphen," in note_en else "decimal point" if "decimal point," in note_en else None
+            if letter is not None:
+                english=f"{note_en.split()[0]} {letter} · {title.rsplit(' · ',1)[1]}"
+        if english.startswith("Aiming Point"):
+            english=f"Aiming point · {painted[0]:.2f} × {painted[1]:.2f} m"
+        if re.fullmatch(r"Runway [0-9LCR] (Small|Medium|Large)",english):
+            english=title.replace("跑道 ","Runway ",1)
+        if "Background Cap" in english:
             english = english.replace("Background Cap Left", "Background End Cap")
         for lang, values in self.locales.items():
-            values[f"Assets.NAME[{full}]"] = english if lang == "en-US" else title
-            values[f"Assets.DESCRIPTION[{full}]"] = note
+            values[f"Assets.NAME[{full}]"] = english if lang == "en-US" else title.translate(TRADITIONAL) if lang == "zh-HANT" else title
+            values[f"Assets.DESCRIPTION[{full}]"] = note_en if lang == "en-US" else note.translate(TRADITIONAL) if lang == "zh-HANT" else note
 
     def character(self,s,height,rel,priority,title,background=None,foreground="White",margin=0,ref="造景字符预设；保留作者字形"):
-        mask = load_glyph(s)
+        mask = Image.new("L",(1,1),255) if s == "." else load_glyph(s)
         # The dash shares the author's H cap-height; its short stroke is not
         # itself a 2/4 m capital. Other glyphs retain the tested dimensions.
         metric_height = load_glyph("H").height if s == "-" else mask.height
-        gw, gh = mask.width/metric_height*height, mask.height/metric_height*height
+        gw, gh = (height*SPEC["decimal_point_ratio"],)*2 if s == "." else (mask.width/metric_height*height, mask.height/metric_height*height)
         cell_height = height if background else gh
         width, length = gw+margin*2+PADDING*2, cell_height+margin*2+PADDING*2
         canvas = Canvas(width,length)
@@ -250,12 +343,12 @@ class Pipeline:
         stamp.putalpha(mask.resize((pw,ph),Image.Resampling.LANCZOS))
         canvas.im.alpha_composite(stamp,(round((PADDING+margin)/width*N*AA),
             round((PADDING+margin+(cell_height-gh)/2)/length*N*AA)))
-        note = (f"配套字高 {height:g} m；连字符笔画厚 {gh:.3f} m、长 {gw:.3f} m，按作者 H 字高比例。"
-                if s == "-" else f"字符高度 {height:g} m，字符宽度 {gw:.3f} m。")
-        note += f"底板采用 {height:g} m 字高单元并四周外延 {margin:g} m。" if background else "透明底字符，可与独立背景组合。"
-        note += "字体保留作者原图；字形轮廓尚未逐笔画认证。"
+        color={"White":"白色","Black":"黑色","Yellow":"黄色"}[foreground]
+        content="连字符" if s=="-" else "小数点" if s=="." else f"字符 {s}"
+        note=f"{color}{content}，涂漆范围 {gw:.3f} × {gh:.3f} m；配套 {height:g} m 字高，透明底，可与独立背景组合。"
+        note_en=f"{foreground} {'hyphen' if s=='-' else 'decimal point' if s=='.' else 'character '+s}, {gw:.3f} × {gh:.3f} m paint bounds. For {height:g} m lettering; transparent background for separate assembly."
         self.asset(rel,priority,width,length,title,note,ref,image=canvas.finish(),
-                   painted=(gw+margin*2,cell_height+margin*2))
+                   painted=(gw+margin*2,cell_height+margin*2),note_en=note_en)
 
     def surface(self,name,priority,color,pavement=False):
         if priority in SPEC["reserved_removed_priorities"]:
@@ -289,21 +382,23 @@ class Pipeline:
                 "colossal_EdgeFadeRange":{"x":fade[0],"y":fade[1],"z":0,"w":0},
                 "colossal_EdgeNoise":{"x":noise_range[0],"y":noise_range[1],"z":0,"w":0}}}))
         full=f'{SPEC["mod_name"]} Pavement {name} Surface'
-        title={"Airport Asphalt":"机场沥青 Surface","Airport Concrete":"机场混凝土 Surface"}.get(name,name+" Surface")
-        note = (f"面积由 Surface 工具绘制；UVScale=0.2。EdgeNoise={tuple(noise_range)}；EdgeFadeRange={tuple(fade)}。"
-                + "边缘参数采用 A/C 对照已验证的非零 Noise 范围；平面颜色与微颗粒预设，非经认证 PBR 铺装。")
+        title={"Airport Asphalt":"机场沥青表面","Airport Concrete":"机场混凝土表面",
+               "Paint White":"白色涂漆表面","Paint Yellow":"黄色涂漆表面",
+               "Paint Red":"红色涂漆表面","Paint Black":"黑色涂漆表面"}[name]
+        note="面积与形状由玩家绘制；用于机场道面铺装。" if pavement else "面积与形状由玩家绘制；用于标记背景或涂漆区域，可搭配独立描边和字符。"
+        note_en="Draw the area and shape for airport pavement." if pavement else "Draw the area and shape for marking backgrounds or painted areas. Combine with separate outlines and characters."
         self.record(rel,priority,None,None,None,None,35 if pavement else 38,title,
                     note,
-                    "EAI 1.7.5/1.7.6 新版 Surfaces 导入器",full,"SurfacePrefab",True)
+                    "EAI 1.7.5/1.7.6 新版 Surfaces 导入器",full,"SurfacePrefab",True,note_en=note_en)
         self.contacts.append((priority,title,image.resize((128,128),Image.Resampling.LANCZOS)))
 
     def finish(self):
         rows=sorted(self.rows,key=lambda x:x["UiPriority"])
-        missing=set(self.baseline)-{r["path"] for r in rows}
+        missing=set(self.baseline)-{r["source_path"] for r in rows}
         allowed_removed = set(self.baseline) & set(SPEC["removed_assets"])
         if missing != allowed_removed:
             raise ValueError(f"Unexpected original identity removal: {sorted(missing ^ allowed_removed)}")
-        if {r["path"] for r in rows} & set(SPEC["removed_assets"]):
+        if {r["source_path"] for r in rows} & set(SPEC["removed_assets"]):
             raise ValueError("Removed assets must not be generated or deployed.")
         actual = {f.parent.relative_to(ASSETS).as_posix() for root in ("CustomDecals", "CustomNetlanes")
                   for f in (ASSETS/root).rglob("decal.json")}
@@ -316,14 +411,12 @@ class Pipeline:
         writer.writeheader();writer.writerows(rows)
         self.output(ROOT/"docs"/"asset-catalog.csv",csvout.getvalue().encode("utf-8-sig"))
         self.output(ROOT/"docs"/"asset-catalog.json",json_bytes(rows))
-        manifest="\n".join(r["type"]+"\t"+r["prefab_name"] for r in rows)+"\n"
-        self.output(ASSETS/"airport-prefabs.tsv",manifest.encode("utf-8"))
         for lang,data in self.locales.items():
             self.output(ASSETS/"Localization"/(lang+".json"),json_bytes(data))
         # Representative contact sheet, instead of hundreds of unreadable thumbnails.
-        selected=[r for r in sorted(self.contacts) if r[0] in [1000,1001,3000,3010,4000,4010,4040,4060,4090,4100,4110,4120]
+        selected=[r for r in sorted(self.contacts) if r[0] in [1000,1001,1002,1370,2010,2011,2012,2750,4000,4010,4040,4060,4090,4100,4110,4120]
                   or 5000<=r[0]<6100 or r[0] in [7000,7001,7180,7181,7400,8100,8110,8120,8130,8140,8150,9900,9910]
-                  or 8200<=r[0]<8400]
+                  or 8200<=r[0]<8430 or 7300<=r[0]<7330]
         from PIL import ImageFont
         font=ImageFont.load_default()
         thumb=Image.new("RGB",(8*160,math.ceil(len(selected)/8)*170),(48,48,48))
@@ -340,7 +433,7 @@ class Pipeline:
             draw.text((x,y+133),str(priority),fill="white",font=font)
         self.output(ROOT/"docs"/"asset-preview.png",png_bytes(thumb))
         print(f'{len(rows)} assets ({sum(r["new"] for r in rows)} new), '
-              f'{len(self.baseline)-len(missing)} original identities retained, {len(missing)} explicitly removed; '
+              f'{len(self.baseline)-len(missing)} original sources retained, {len(missing)} explicitly removed; '
               f'UiPriority {min(self.seen)}..{max(self.seen)}, unique; {len(self.changed)} changed outputs.')
         if self.check and self.changed:
             print("Outputs need regeneration:\n"+"\n".join(self.changed[:30]),file=sys.stderr)
@@ -348,41 +441,70 @@ class Pipeline:
         return 0
 
 
-def runway(s):
-    """Figure 5-3 geometry. 6/9 overhang the nominal 9 m body by 0.5 m."""
-    polys=[];holes=[];w=3;h=9
-    if s=="0":
-        polys=[[(0,0),(3,0),(3,9),(0,9)]];holes=[[(.8,1.5),(2.2,1.5),(2.2,7.5),(.8,7.5)]]
-    elif s=="1":
-        w=1.1;polys=[[(.3,0),(1.1,0),(1.1,9),(.3,9),(.3,1.5),(0,1.5),(0,.4)]]
-    elif s=="2":
-        polys=[[(0,0),(3,0),(3,2.9),(.8,6.4),(.8,7.5),(3,7.5),(3,9),(0,9),(0,6.4),(2.2,2.9),(2.2,1.5),(.8,1.5),(.8,2.4),(0,2.4)]]
-    elif s=="3":
-        polys=[[(0,0),(3,0),(3,2.5),(1.8,3.6),(3,4.7),(3,9),(0,9),(0,7.5),(2.2,7.5),(2.2,5),(.8,3.6),(2.2,2.2),(2.2,1.5),(0,1.5)]]
-    elif s=="4":
-        w=3.9;polys=[[(0,7.1),(1.3,0),(2.1,0),(1.05,5.6),(2.4,5.6),(2.4,2.7),(3.2,2.7),(3.2,5.6),(3.9,5.6),(3.9,7.1),(3.2,7.1),(3.2,9),(2.4,9),(2.4,7.1)]]
-    elif s=="5":
-        polys=[[(0,0),(3,0),(3,1.5),(.8,1.5),(.8,2.7),(3,2.7),(3,9),(0,9),(0,7.5),(2.2,7.5),(2.2,4.2),(0,4.2)]]
-    elif s in "69":
-        h=9.5
-        polys=[[(2.2,0),(2.2,1),(.8,3),(.8,4),(3,4),(3,9.5),(0,9.5),(0,2)]]
-        holes=[[(.8,5.5),(2.2,5.5),(2.2,8),(.8,8)]]
-        if s=="9":
-            polys=[[(w-x,h-y) for x,y in p] for p in polys]
-            holes=[[(w-x,h-y) for x,y in p] for p in holes]
-    elif s=="7":
-        w=3.5;polys=[[(0,0),(3.5,0),(1.1,9),(.3,9),(2.3,1.5),(0,1.5)]]
-    elif s=="8":
-        polys=[[(0,0),(3,0),(3,3.15),(2.2,3.9),(3,4.65),(3,9),(0,9),(0,4.65),(.8,3.9),(0,3.15)]]
-        holes=[[(.8,1.5),(2.2,1.5),(2.2,3.15),(.8,3.15)],[(.8,4.65),(2.2,4.65),(2.2,7.5),(.8,7.5)]]
-    elif s=="L":
-        polys=[[(0,0),(.8,0),(.8,7.5),(3,7.5),(3,9),(0,9)]]
-    elif s=="C":
-        polys=[[(0,0),(3,0),(3,2.1),(2.2,2.1),(2.2,1.5),(.8,1.5),(.8,7.5),(2.2,7.5),(2.2,6.9),(3,6.9),(3,9),(0,9)]]
-    elif s=="R":
-        polys=[[(0,0),(3,0),(3,5.3),(2.2,5.3),(3,9),(2.2,9),(1.4,5.3),(.8,5.3),(.8,9),(0,9)]]
-        holes=[[(.8,1.5),(2.2,1.5),(2.2,3.8),(.8,3.8)]]
-    return w,h,polys,holes
+def stamp_mask(mask, width, height, color):
+    canvas = Canvas(width+2*PADDING, height+2*PADDING)
+    pw,ph = round(width/canvas.width*N*AA),round(height/canvas.height*N*AA)
+    stamp = Image.new("RGBA",(pw,ph),COLORS[color]+(0,))
+    stamp.putalpha(mask.resize((pw,ph),Image.Resampling.LANCZOS))
+    canvas.im.alpha_composite(stamp,(round(PADDING/canvas.width*N*AA),round(PADDING/canvas.height*N*AA)))
+    # Source-font antialiasing can span multiple output pixels after scaling.
+    # Size the projection from the final visible bounds, preserving the bitmap.
+    box=paint_box(canvas.finish())
+    canvas.width=width*N/(box[2]-box[0])
+    canvas.height=height*N/(box[3]-box[1])
+    return canvas
+
+
+def generate_runway_characters(p):
+    # Keep the author's original glyph contours; normalize the outer paint bounds.
+    for i,symbol in enumerate("0123456789LCR"):
+        original=Image.open(ROOT/"SourceAssets"/"RunwayGlyphs"/(symbol+".png")).convert("RGBA")
+        mask=original.crop(paint_box(original)).getchannel("A")
+        width={"1":1.1,"4":3.9,"7":3.5}.get(symbol,3)
+        height=9.5 if symbol in "69" else 9
+        for offset,(size,scale) in enumerate(SPEC["runway_scales"].items()):
+            w,h=width*scale,height*scale
+            canvas=stamp_mask(mask,w,h,"White")
+            p.asset(f"CustomDecals/RoadMarkings/Runway {symbol} {size}",4000+i*10+offset,
+                    canvas.width,canvas.height,f"跑道 {symbol} · {w:g} × {h:g} m",
+                    f"白色跑道字符 {symbol}，涂漆范围 {w:g} × {h:g} m；用于组合跑道编号。",
+                    "作者 ICAO 跑道字体母版；Annex 14 图 5-3 外接尺寸；放大档为包内预设",
+                    image=canvas.finish(),painted=(w,h),
+                    note_en=f"White runway character {symbol}, {w:g} × {h:g} m paint bounds. Assemble into runway designations.")
+
+
+def generate_characters(p):
+    for i,symbol in enumerate(SYMBOLS):
+        for color in ("White","Black","Yellow"):
+            for offset,height in enumerate(SPEC["character_heights_m"]):
+                if color=="White":
+                    name=(f"Decimal Point {height}m" if symbol=="." else
+                          glyph_name(symbol)+(" Small" if height==2 else "" if height==4 else " 1m"))
+                    rel=f"CustomDecals/Alphabet/{name}"
+                    priority=1000+i*10+offset
+                else:
+                    name="Point" if symbol=="." else "Dash" if symbol=="-" else symbol
+                    rel=f"CustomDecals/AssemblyCharacters/{color} {name} {height}m"
+                    priority=2000+i*20+(10 if color=="Yellow" else 0)+offset
+                zh={"White":"白","Black":"黑","Yellow":"黄"}[color]
+                content="小数点" if symbol=="." else "连字符" if symbol=="-" else symbol
+                p.character(symbol,height,rel,priority,f"{zh}字 {content} · {height} m",foreground=color,
+                            ref="作者 ICAO 通用字体母版" if symbol!="." else "包内小数点组件，边长为配套字高的 0.1 倍")
+
+
+def generate_arrows(p):
+    original=Image.open(ROOT/"SourceAssets"/"Glyphs"/"arrow.png").convert("RGBA")
+    mask=original.crop(paint_box(original)).getchannel("A")
+    for color_index,color in enumerate(("Black","Yellow","White")):
+        for offset,height in enumerate(SPEC["character_heights_m"]):
+            w=mask.width/mask.height*height
+            canvas=stamp_mask(mask,w,height,color)
+            rel="CustomDecals/RoadMarkings/Arrow Straight" if color=="Black" and height==4 else f"CustomDecals/RoadMarkings/Arrow {color} {height}m"
+            zh={"Black":"黑色","Yellow":"黄色","White":"白色"}[color]
+            p.asset(rel,7300+color_index*10+offset,canvas.width,canvas.height,f"{zh}方向箭头 · {height} m",
+                    f"{zh}方向箭头，长 {height} m、宽 {w:.3f} m；用于组合方向或信息标记。",
+                    "作者原始箭头；1/2/4 m 为包内组合尺寸预设",image=canvas.finish(),painted=(w,height),draw_order=42,
+                    note_en=f"{color} direction arrow, {height} m long and {w:.3f} m wide. Assemble into direction or information markings.")
 
 
 def generate_backgrounds(p):
@@ -434,41 +556,10 @@ def generate_backgrounds(p):
 
 
 def generate(p):
-    for i,s in enumerate(SYMBOLS):
-        for suffix,height,offset in [(" Small",2,0),("",4,1)]:
-            height=SPEC["general_character_heights_m"]["Small" if suffix else "Standard"]
-            p.character(s,height,f"CustomDecals/Alphabet/{glyph_name(s)}{suffix}",1000+i*10+offset,f"通用 {s} · {height:g} m")
-        for color,color_offset in (("Black",0),("Yellow",10)):
-            for height,offset in ((2,0),(4,1)):
-                p.character(s,height,f"CustomDecals/AssemblyCharacters/{color} {('Dash' if s == '-' else s)} {height}m",
-                            2000+i*20+color_offset+offset,f"透明底 {'黑' if color == 'Black' else '黄'}字 {s} · {height} m",
-                            foreground=color,ref="作者字形；与独立背景组合的造景字符")
-        for outbound in (False,True):
-            name=("Outbound " if outbound else "Taxiway ")+("Dash" if s=="-" else s)
-            p.character(s,SPEC["information_character_height_m"],f"CustomDecals/Alphabet/{name}",3000+i*20+(10 if outbound else 0),
-                        f'{"方向" if outbound else "位置"} {s} · 4 m',"Yellow" if outbound else "Black",
-                        "Black" if outbound else "Yellow",SPEC["sign_background_margin_m"],"ICAO 5.2.17；原字形保留")
-        for height,offset in [(2,0),(4,1)]:
-            name=f'Mandatory {"Dash" if s=="-" else s} {height}m'
-            p.character(s,height,f"CustomDecals/Mandatory/{name}",7000+i*5+offset,f"强制标记 {s} · {height} m",
-                        "Red","White",.5,"ICAO 5.2.16.6 / 5.2.16.9 / 5.2.16.10；原字形保留")
-
-    for i,s in enumerate("0123456789LCR"):
-        w,h,polys,holes=runway(s)
-        for offset,(size,scale) in enumerate(SPEC["runway_scales"].items()):
-            c=Canvas(w*scale+PADDING*2,h*scale+PADDING*2)
-            for shape in polys:c.polygon([(x*scale+PADDING,y*scale+PADDING) for x,y in shape],COLORS["White"])
-            for shape in holes:c.polygon([(x*scale+PADDING,y*scale+PADDING) for x,y in shape],(0,0,0,0))
-            p.asset(f"CustomDecals/RoadMarkings/Runway {s} {size}",4000+i*10+offset,c.width,c.height,
-                    f"跑道 {s} · ICAO ×{scale}",f"图 5-3 基础图样 ×{scale}，涂漆外接尺寸 {w*scale:g} × {h*scale:g} m。6/9 含斜笔超出部分。放大档是包内预设，非 ICAO 三种尺寸等级；两位跑道号需要包含前导零。",
-                    "ICAO 5.2.2.4/5.2.2.6，图 5-3",canvas=c,painted=(w*scale,h*scale))
-
+    generate_characters(p)
+    generate_runway_characters(p)
     generate_backgrounds(p)
-    old=ASSETS/"CustomDecals/RoadMarkings/Arrow Straight/_BaseColorMap.png"
-    im=Image.open(old).convert("RGBA");box=paint_box(im);w=(box[2]-box[0])/(box[3]-box[1])*4
-    # This legacy arrow's source PNG stays unchanged, so repeated generation is stable.
-    p.asset("CustomDecals/RoadMarkings/Arrow Straight",7300,w*im.width/(box[2]-box[0]),4*im.height/(box[3]-box[1]),
-            "通用方向箭头 · 4 m","原有箭头实际涂漆高度 4 m；与内移入口专用箭头分开使用。","造景预设",image=im,painted=(w,4))
+    generate_arrows(p)
 
     # Yellow taxiway patterns. Both dark and light pavement versions share geometry.
     for role,base in [("center",6000),("enhanced",6010),("hold",6020),("ils",6040),("intermediate",6060),("edge",6070)]:
@@ -517,12 +608,13 @@ def generate(p):
                 for x in (-.15,.15):line(x,.15)
                 name=f'Taxi Side Stripe {"Light" if light else "Dark"} Surface'
                 title="非承重铺装边界双线";note="两条黄色实线各 0.15 m，净距 0.15 m。沿承重铺装边缘绘制。";ref="ICAO 7.2.3"
-            p.asset(f"CustomNetlanes/RoadMarking/{name}",base+int(light),c.width,c.height,title+(" · 亮铺装" if light else " · 暗铺装"),
+            p.asset(f"CustomNetlanes/RoadMarking/{name}",base+int(light),c.width,c.height,title+(" · 带黑边" if light else " · 无黑边"),
                     note,ref,canvas=c,period=period)
 
     def block(name,priority,w,h,note,ref,category="RunwayMarkings"):
         c=Canvas(w+PADDING*2,h+PADDING*2);c.rect(PADDING,PADDING,w,h,COLORS["White"])
-        p.asset(f"CustomDecals/{category}/{name}",priority,c.width,c.height,name,note,ref,canvas=c,painted=(w,h))
+        label="瞄准点" if name.startswith("Aiming Point") else "入口单条纹" if name.startswith("Threshold Stripe") else "基本式接地带" if name.startswith("Touchdown Zone Basic") else "内移入口横条"
+        p.asset(f"CustomDecals/{category}/{name}",priority,c.width,c.height,f"{label} · {w:g} × {h:g} m",note,ref,canvas=c,painted=(w,h))
     block("Threshold Stripe 1.8x30m",5000,1.8,30,"入口条纹单根。起点距入口 6 m；普通条纹净距约 1.8 m，中心净距 3.6 m；总条纹数随跑道宽度选择。","ICAO 5.2.4")
     for i,n in enumerate((2,3,4,6,8)):
         w=n*1.8+(n-1)*1.8;c=Canvas(w+.3,30+.3)
@@ -533,8 +625,10 @@ def generate(p):
         c=Canvas(width+.3,60);c.rect(.15,0,width,30,COLORS["White"])
         p.asset(f"CustomNetlanes/RunwayMarkings/Runway Centerline {width:g}m",5100+i,c.width,c.height,f"跑道中线 · {width:g} m",
                 "白虚线 30 m / 间隔 30 m，周期 60 m。宽度按跑道仪表类别/代码选用。","ICAO 5.2.3",canvas=c,period=60,painted=(width,30))
-    for i,(w,h,offset,gap,label) in enumerate([(4,30,150,6,"LDA under 800m"),(6,30,250,9,"LDA 800-1200m"),(6,45,300,18,"LDA 1200-2400m"),(6,45,400,18,"LDA 2400m plus"),(10,60,400,22.5,"Large preset")]):
-        block(f"Aiming Point {label}",5200+i,w,h,f"单侧瞄准点块 {w} × {h} m；两块内缘距 {gap} m，起点距入口 {offset} m。尺寸取表内允许值；Large preset 的位置需按实际 LDA 选择。","ICAO 表 5-1")
+    for i,(w,h,offset,gap,label) in enumerate([(4,30,150,6,"LDA under 800m"),(6,30,250,9,"LDA 800-1200m"),(6,45,300,18,"LDA 1200-2400m"),(10,60,400,22.5,"Large preset")]):
+        block(f"Aiming Point {label}",5204 if label=="Large preset" else 5200+i,w,h,
+              f"单侧瞄准点块 {w} × {h} m；两块内缘距 {gap} m，起点距入口 {offset} m。",
+              "ICAO 表 5-1；6×45 m 共用模块按 LDA 分别在 300/400 m 处放置")
     block("Touchdown Zone Basic 3x22.5m",5300,3,22.5,"基本式接地带单块；两侧成对布置，纵向站距 150 m；瞄准点前后 50 m 内应省略相冲突的站。","ICAO 5.2.6")
     for i,n in enumerate((1,2,3)):
         w=1.8*n+1.5*(n-1);c=Canvas(w+.3,22.5+.3)
@@ -572,7 +666,7 @@ def generate(p):
         extra_y=stroke/2*separation/math.hypot(length,separation)
         w=separation+extra_x*2;h=length+extra_y*2;c=Canvas(w+.3,h+.3);cx=c.width/2;cy=c.height/2
         for direction in (-1,1):c.stroke((cx-halfx,cy-direction*halfy),(cx+halfx,cy+direction*halfy),stroke,COLORS[color])
-        p.asset(f"CustomDecals/RunwayMarkings/{name}",priority,c.width,c.height,name,
+        p.asset(f"CustomDecals/RunwayMarkings/{name}",priority,c.width,c.height,"跑道关闭标记 · 白色 X" if color=="White" else "滑行道关闭标记 · 黄色 X",
                 f"图 7-1：{'白色跑道关闭标记，笔画 1.8 m，端点基准距 14.5 × 36 m' if color=='White' else '黄色滑行道关闭标记，单斜臂全长 9 m、笔画 1.5 m'}。外接尺寸含斜端外伸部分。",
                 "ICAO 7.1 / 图 7-1",canvas=c,painted=(w,h))
     # Aircraft stand lead-in and apron safety are separate purposes.
@@ -580,7 +674,17 @@ def generate(p):
         ("Stand Lead In 0.15m",7400,.15,"Yellow","机位滑入线至少宽 0.15 m；航空器停车位置按机型和净距规划。","ICAO 5.2.13"),
         ("Apron Safety Red 0.1m",7410,.1,"Red","机坪安全线 0.10 m；红色为醒目对比色预设，标准要求与机位线不同且醒目。","ICAO 5.2.14")]:
         c=Canvas(width+.3,9);c.rect(.15,0,width,9,COLORS[color])
-        p.asset(f"CustomNetlanes/Apron/{name}",priority,c.width,c.height,name,note,ref,canvas=c,period=9,painted=(width,9))
+        p.asset(f"CustomNetlanes/Apron/{name}",priority,c.width,c.height,
+                "黄色引导／描边线 · 15 cm" if color=="Yellow" else "红色安全／描边线 · 10 cm",
+                note,ref,canvas=c,period=9,painted=(width,9),draw_order=41)
+    # Thin outline pieces complement Surface fills; existing red/yellow lines are reused.
+    for color,priority,width in [("White",8400,.1),("Black",8410,.1),("Black",8411,.15),("Yellow",8420,.1)]:
+        c=Canvas(width+2*PADDING,9);c.rect(PADDING,0,width,9,COLORS[color])
+        zh={"White":"白色","Black":"黑色","Yellow":"黄色"}[color]
+        p.asset(f"CustomNetlanes/RoadMarking/Outline {color} {round(width*100)}cm",priority,c.width,c.height,
+                f"{zh}描边线 · {round(width*100)} cm",f"{zh}实线，宽 {width:g} m；用于标记背景或涂漆区域描边。",
+                "包内描边组件；宽度档位按所选标记图样使用",canvas=c,period=9,painted=(width,9),draw_order=41,
+                note_en=f"{color} solid line, {width:g} m wide. Outline marking backgrounds or painted areas.")
     for name,priority,color,pavement in [("Airport Asphalt",8100,(67,69,70),True),("Airport Concrete",8110,(155,153,145),True),
         ("Paint White",8120,COLORS["White"],False),("Paint Yellow",8130,COLORS["Yellow"],False),
         ("Paint Red",8140,COLORS["Red"],False),("Paint Black",8150,COLORS["Black"],False)]:

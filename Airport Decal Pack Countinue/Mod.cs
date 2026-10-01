@@ -19,16 +19,11 @@ namespace Airport_Decal_Pack_Countinue
             string pathToModFolder = new FileInfo(asset.path).DirectoryName;
 
             ExtraAssetsImporter.EAI.LoadCustomAssets(pathToModFolder);
-            // The deployment target flattens the source CustomAssets directory.
-            // EAI and the generated manifest are both rooted beside this DLL.
-            AirportAssetRefreshSystem.AssetFolder = pathToModFolder;
-            updateSystem.UpdateAt<AirportAssetRefreshSystem>(SystemUpdatePhase.MainLoop);
-            Log.Info("Airport Details Pack 0.6.2: ICAO assets, tested Surface parameters and streamlined backgrounds registered.");
+            Log.Info("Airport Details Pack 0.6.3: EAI import requested for modular characters, outlines and surfaces.");
         }
 
         public void OnDispose()
         {
-            AirportAssetRefreshSystem.AssetFolder = null;
         }
     }
 }

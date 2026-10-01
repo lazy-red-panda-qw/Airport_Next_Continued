@@ -7,13 +7,13 @@
     "_MetallicAlphaSource": 0,
     "_MetallicOpacity": 0,
     "_NormalAlphaSource": 0,
-    "_DrawOrder": 39
+    "_DrawOrder": 42
   },
   "Vector": {
     "colossal_MeshSize": {
-      "x": 4.97691373,
+      "x": 1.496724667,
       "y": 1,
-      "z": 4.97691373,
+      "z": 4.302521008,
       "w": 0
     },
     "colossal_TextureArea": {
@@ -23,5 +23,5 @@
       "w": 1
     }
   },
-  "UiPriority": 7300
+  "UiPriority": 7302
 }

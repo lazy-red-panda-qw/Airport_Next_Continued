@@ -8,6 +8,10 @@ $staging = [IO.Path]::GetFullPath((Join-Path $taskRoot 'artifacts\LocalMod'))
 if (-not $staging.StartsWith($taskRoot + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase)) {
     throw 'Staging path is outside the workspace.'
 }
+# Build a clean package so retired or relocated asset folders cannot survive.
+if (Test-Path -LiteralPath $staging) {
+    Remove-Item -LiteralPath $staging -Recurse -Force
+}
 & dotnet build (Join-Path $taskRoot 'Airport Decal Pack Countinue.sln') -c $Configuration "-p:AirportDeployDir=$staging" --nologo
 if ($LASTEXITCODE -ne 0) { throw 'Build failed.' }
 if (-not $Deploy) { Write-Output "Built package: $staging"; return }
