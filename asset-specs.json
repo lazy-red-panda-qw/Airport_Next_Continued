@@ -496,8 +496,14 @@
       7500,
       7699
     ],
-    "stand_presets": [7700, 7779],
-    "stand_preset_details": [7780, 7899],
+    "stand_presets": [
+      7700,
+      7779
+    ],
+    "stand_preset_details": [
+      7780,
+      7899
+    ],
     "surface_material_trials": [
       8160,
       8199
@@ -523,7 +529,10 @@
   "decimal_point_ratio": 0.1,
   "stand_components": {
     "continuous_width_m": 0.3,
-    "secondary_widths_m": [0.15, 0.3],
+    "secondary_widths_m": [
+      0.15,
+      0.3
+    ],
     "dash_paint_m": 2.0,
     "dash_gap_m": 2.0,
     "turn_bar_length_m": 6.0,
@@ -540,7 +549,7 @@
     "texture_size_px": 1024,
     "tile_m": 5.0,
     "aggregate_min_m": 0.025,
-    "aggregate_max_m": 0.10,
+    "aggregate_max_m": 0.1,
     "aggregate_contrast": 3.2,
     "mottle_contrast": 1.2,
     "pore_darkening": 2.4,
@@ -553,31 +562,305 @@
     "lead_contrast_each_side_m": 0.075,
     "id_gap_height_m": 3.0,
     "id_gap_from_entry_m": 1.0,
-    "clearances_m": {"A": 3.0, "B": 3.0, "C": 4.5, "D": 7.5, "E": 7.5, "F": 7.5},
+    "clearances_m": {
+      "A": 3.0,
+      "B": 3.0,
+      "C": 4.5,
+      "D": 7.5,
+      "E": 7.5,
+      "F": 7.5
+    },
     "profiles": [
-      {"key": "GA A", "priority": 7700, "title": "小型通航 A", "length_m": 10.0, "span_m": 12.0, "code": "A", "lead_width_m": 0.15, "texture_px": 2048, "basis": "package preset"},
-      {"key": "GA B", "priority": 7710, "title": "通航与公务机 B", "length_m": 22.0, "span_m": 23.9, "code": "B", "lead_width_m": 0.15, "texture_px": 2048, "basis": "package preset"},
-      {"key": "Narrowbody C", "priority": 7720, "title": "通用窄体 C", "length_m": 44.0, "span_m": 35.9, "code": "C", "lead_width_m": 0.3, "texture_px": 4096, "basis": "package preset"},
-      {"key": "Game Regional", "priority": 7730, "title": "原版支线客机", "length_m": 34.0, "span_m": 38.0, "code": "D", "lead_width_m": 0.3, "texture_px": 4096, "basis": "user measured game model"},
-      {"key": "Game Passenger", "priority": 7740, "title": "原版干线客机", "length_m": 50.5, "span_m": 50.5, "code": "D", "lead_width_m": 0.3, "texture_px": 4096, "basis": "user measured game model"},
-      {"key": "Game Cargo", "priority": 7750, "title": "原版货机", "length_m": 58.0, "span_m": 60.0, "code": "E", "lead_width_m": 0.3, "texture_px": 4096, "basis": "user measured game model"},
-      {"key": "Widebody E", "priority": 7760, "title": "大型宽体 E", "length_m": 76.0, "span_m": 64.9, "code": "E", "lead_width_m": 0.3, "texture_px": 4096, "basis": "package preset"},
-      {"key": "Heavy F", "priority": 7770, "title": "超大型 F", "length_m": 85.0, "span_m": 79.9, "code": "F", "lead_width_m": 0.3, "texture_px": 4096, "basis": "package preset"}
+      {
+        "key": "GA A",
+        "priority": 7700,
+        "title": "小型通航 A",
+        "length_m": 10.0,
+        "span_m": 12.0,
+        "code": "A",
+        "lead_width_m": 0.15,
+        "texture_px": 2048,
+        "basis": "package preset",
+        "layout": "ga"
+      },
+      {
+        "key": "GA B",
+        "priority": 7710,
+        "title": "通航与公务机 B",
+        "length_m": 22.0,
+        "span_m": 23.9,
+        "code": "B",
+        "lead_width_m": 0.15,
+        "texture_px": 2048,
+        "basis": "package preset",
+        "layout": "ga"
+      },
+      {
+        "key": "Narrowbody C",
+        "priority": 7720,
+        "title": "通用窄体 C",
+        "length_m": 44.0,
+        "span_m": 35.9,
+        "code": "C",
+        "lead_width_m": 0.3,
+        "texture_px": 4096,
+        "basis": "package preset",
+        "layout": "base"
+      },
+      {
+        "key": "Game Regional",
+        "priority": 7730,
+        "title": "原版支线客机",
+        "length_m": 34.0,
+        "span_m": 38.0,
+        "code": "D",
+        "lead_width_m": 0.3,
+        "texture_px": 4096,
+        "basis": "user measured game model",
+        "layout": "base"
+      },
+      {
+        "key": "Game Passenger",
+        "priority": 7740,
+        "title": "原版干线客机",
+        "length_m": 50.5,
+        "span_m": 50.5,
+        "code": "D",
+        "lead_width_m": 0.3,
+        "texture_px": 4096,
+        "basis": "user measured game model",
+        "layout": "base"
+      },
+      {
+        "key": "Game Cargo",
+        "priority": 7750,
+        "title": "原版货机",
+        "length_m": 58.0,
+        "span_m": 60.0,
+        "code": "E",
+        "lead_width_m": 0.3,
+        "texture_px": 4096,
+        "basis": "user measured game model",
+        "layout": "cargo"
+      },
+      {
+        "key": "Widebody E",
+        "priority": 7760,
+        "title": "大型宽体 E",
+        "length_m": 76.0,
+        "span_m": 64.9,
+        "code": "E",
+        "lead_width_m": 0.3,
+        "texture_px": 4096,
+        "basis": "package preset",
+        "layout": "base"
+      },
+      {
+        "key": "Heavy F",
+        "priority": 7770,
+        "title": "超大型 F",
+        "length_m": 85.0,
+        "span_m": 79.9,
+        "code": "F",
+        "lead_width_m": 0.3,
+        "texture_px": 4096,
+        "basis": "package preset",
+        "layout": "base"
+      }
     ]
   },
+  "apron_layouts": {
+    "lead_extension_m": 8.0,
+    "variants": [
+      {
+        "base": "GA A",
+        "key": "GA A Turnaround",
+        "priority": 7701,
+        "layout": "loop"
+      },
+      {
+        "base": "GA B",
+        "key": "GA B Through",
+        "priority": 7711,
+        "layout": "through"
+      }
+    ],
+    "left_service_strip_width_m": 6.0,
+    "right_service_strip_width_m": 8.0
+  },
   "stand_details": {
-    "nosewheel_caac": {"bar_length_m": 2.0, "bar_width_m": 0.15, "text_height_m": 0.3, "contrast_border_m": 0.05},
-    "pipb_caam": {"bar_extension_m": 1.0, "lead_width_m": 0.3, "bar_width_m": 0.3, "text_height_m": 1.0, "label_height_m": 1.5, "label_side_margin_m": 0.15},
-    "cockpit_stop": {"bar_length_m": 6.0, "bar_width_m": 0.15},
-    "type_labels": ["A320", "B737", "A350", "B777", "B747", "A380"],
-    "pbb_fan_radii_m": [12.0, 18.0],
+    "nosewheel_caac": {
+      "bar_length_m": 2.0,
+      "bar_width_m": 0.15,
+      "text_height_m": 0.3,
+      "contrast_border_m": 0.05
+    },
+    "pipb_caam": {
+      "bar_extension_m": 1.0,
+      "lead_width_m": 0.3,
+      "bar_width_m": 0.3,
+      "text_height_m": 1.0,
+      "label_height_m": 1.5,
+      "label_side_margin_m": 0.15
+    },
+    "cockpit_stop": {
+      "bar_length_m": 6.0,
+      "bar_width_m": 0.15
+    },
+    "type_labels": [
+      "A320",
+      "B737",
+      "A350",
+      "B777",
+      "B747",
+      "A380"
+    ],
+    "pbb_fan_radii_m": [
+      12.0,
+      18.0
+    ],
     "pbb_fan_angle_degrees": 90.0,
     "pbb_fan_ray_step_degrees": 15.0,
     "pbb_fan_line_m": 0.1,
-    "pbb_wheel_sizes_m": [3.0, 4.0],
+    "pbb_wheel_sizes_m": [
+      3.0,
+      4.0
+    ],
     "pbb_wheel_border_m": 0.1,
-    "no_parking_rectangles_m": [[6.0, 10.0], [10.0, 20.0]],
-    "equipment_rectangles_m": [[3.0, 5.0], [6.0, 10.0]]
+    "no_parking_rectangles_m": [
+      [
+        6.0,
+        10.0
+      ],
+      [
+        10.0,
+        20.0
+      ]
+    ],
+    "equipment_rectangles_m": [
+      [
+        3.0,
+        5.0
+      ],
+      [
+        6.0,
+        10.0
+      ]
+    ],
+    "no_parking_shapes": [
+      {
+        "key": "Trapezoid 6-12x12m",
+        "priority": 7832,
+        "title": "梯形 · 6／12 × 12 m",
+        "polygon_m": [
+          [
+            3,
+            0
+          ],
+          [
+            9,
+            0
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            0,
+            12
+          ]
+        ],
+        "parts_m": [
+          [
+            [
+              3,
+              0
+            ],
+            [
+              9,
+              0
+            ],
+            [
+              12,
+              12
+            ],
+            [
+              0,
+              12
+            ]
+          ]
+        ]
+      },
+      {
+        "key": "L Shape 10x14m",
+        "priority": 7833,
+        "title": "折角 · 10 × 14 m",
+        "polygon_m": [
+          [
+            0,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            10,
+            8
+          ],
+          [
+            10,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ],
+        "parts_m": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              4,
+              14
+            ],
+            [
+              0,
+              14
+            ]
+          ],
+          [
+            [
+              4,
+              8
+            ],
+            [
+              10,
+              8
+            ],
+            [
+              10,
+              14
+            ],
+            [
+              4,
+              14
+            ]
+          ]
+        ]
+      }
+    ]
   },
   "draw_order_overrides": {
     "CustomDecals/RoadMarkings/Arrow Straight": 42,

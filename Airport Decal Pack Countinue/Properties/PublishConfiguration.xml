@@ -20,13 +20,13 @@ ICAO Annex 14 is the design baseline. The aim is strict application of the real 
 - Taxiway centre lines, enhanced centre lines, holding-position patterns and non-load-bearing pavement boundaries.
 - Transparent white, black and yellow characters in 1 m, 2 m and 4 m sizes, decimal points and matching arrows, with modular backgrounds and thin outlines.
 - Aircraft-stand guidance and apron safety lines, including wider continuous guidance, CAAM secondary guidance and a turn bar.
-- Eight transparent nose-in stand templates, from small general aviation to large widebody stands, with separately positioned stop bars and aircraft labels.
-- CAAC and CAAM stop-marking variants, passenger boarding bridge movement and wheel parking marks, framed no-parking areas and equipment parking outlines.
+- Ten flexible transparent apron bases, from small general aviation to large widebody stands, including open turnaround and straight through stands. Safety boundaries, corner no-parking areas and service reserves; bridge, wheel, equipment, stop and identification markings are positioned separately.
+- CAAC and CAAM stop-marking variants, optional boarding bridge movement and wheel parking marks, rectangular/trapezoid/L-shaped no-parking modules and equipment parking outlines.
 - Asphalt, concrete and paint surfaces, plus test variants for subtle pavement normals and transparent CAAM no-parking hatching.
 
 Choose each marking for its intended use and airport layout. The creator's character artwork uses ICAO font sources; colour and placement presets are chosen for game scenery, and this is not a claim of ICAO certification. CAAM variants are identified separately. The A2/B2 holding-position patterns follow the Annex 14 provisions applicable from 26 November 2026.
 
-Version 0.6.6 is currently a local test build. Runway centre lines, secondary guidance dashes, the red hatch surface and save/reload have passed user testing. Stand templates and apron details need in-game validation, together with the refined concrete grain and low-light lettering carried over from 0.6.5. Template footprints are conservative scenery presets; match the selected aircraft, stop positions and bridge geometry before duplicating a layout.
+Version 0.6.7 is currently a local test build. Runway centre lines, secondary guidance dashes, the red hatch surface and save/reload have passed user testing. Apron bases and optional details need in-game validation, together with the refined concrete grain and low-light lettering carried over from 0.6.5. Base footprints and the open turnaround radius are scenery presets. Select bridge and equipment markings for the actual layout, match aircraft and stop positions, then duplicate the player's assembly.
 
 ## Recommended companion assets
 
@@ -62,7 +62,7 @@ Each addition will be researched against ICAO requirements and relevant guidance
 	<!--Link to the forum post where the mod can be discussed-->
 	<ForumLink Value="" />
 	<!--Version of the mod-->
-	<ModVersion Value="0.6.6.0" />
+	<ModVersion Value="0.6.7.0" />
 	<!--Recommended version of the base game to use the mod-->
 	<GameVersion Value="1.5.*" />
 	<!--Dependency for the mod, can be set multiple times-->
@@ -71,7 +71,7 @@ Each addition will be researched against ICAO requirements and relevant guidance
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-	<ChangeLog Value="Add eight transparent nose-in stand templates and independently positioned CAAC/CAAM stop marks, aircraft labels, boarding bridge movement and wheel parking marks, framed no-parking areas and equipment outlines. Preserve the existing 469 assets and carry forward pending concrete and low-light tests." />
+	<ChangeLog Value="Redesign eight stand templates as flexible apron bases with corner no-parking, safety boundaries, guidance and service reserves. Keep bridge, wheel and equipment positions independent. Add an open turnaround, a straight open through stand and two optional no-parking silhouettes. Preserve all 500 existing prefab identities and the other 492 assets. Carry forward concrete, low-light lettering and turn-bar tests." />
 	<!--<ChangeLog>
 	</ChangeLog>-->
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->

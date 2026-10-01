@@ -15,6 +15,7 @@ STAND_TRADITIONAL = str.maketrans({
     "桥": "橋", "动": "動", "圆": "圓", "备": "備", "从": "從",
     "竖": "豎", "范": "範", "过": "過", "于": "於", "辆": "輛",
     "凈": "淨", "驶": "駛", "驾": "駕", "员": "員", "适": "適", "轴": "軸",
+    "远": "遠", "运": "運", "贯": "貫", "络": "絡", "护": "護", "综": "綜", "联": "聯",
 })
 
 
@@ -23,7 +24,7 @@ def generate_stand_presets(p, Canvas, glyph, spec, colors, padding, png_bytes):
 
     def add(name, priority, c, title, note, note_en, reference, geometry):
         rel = f"CustomDecals/RoadMarkings/{name}"
-        order = 40 if geometry["kind"] == "no_parking_frame" else 41 if geometry["kind"] in (
+        order = 40 if geometry["kind"] in ("no_parking_frame", "no_parking_shape") else 41 if geometry["kind"] in (
             "stand", "pbb_fan", "pbb_wheel", "equipment_frame") else 42
         p.asset(rel, priority, c.width, c.height, title, note, reference,
                 canvas=c, draw_order=order, note_en=note_en)
@@ -39,7 +40,7 @@ def generate_stand_presets(p, Canvas, glyph, spec, colors, padding, png_bytes):
         spacing = height * 0.15
         return sum(widths) + spacing * (len(widths) - 1), widths, spacing
 
-    def text_stamp(c, text, x, y, height, rotate=180):
+    def text_stamp(c, text, x, y, height, rotate=180, ink=None):
         """Preserve the author's PNG glyphs, including in the SVG authoring master."""
         width, widths, spacing = metrics(text, height)
         sx, sy = c.im.width / c.width, c.im.height / c.height
@@ -49,7 +50,7 @@ def generate_stand_presets(p, Canvas, glyph, spec, colors, padding, png_bytes):
             letter = glyph(char).resize((max(1, round(w * sx)), mask.height), Image.Resampling.LANCZOS)
             mask.paste(letter, (round(offset * sx), 0))
             offset += w + spacing
-        stamp = Image.new("RGBA", mask.size, colors["Yellow"] + (0,))
+        stamp = Image.new("RGBA", mask.size, (colors["Yellow"] if ink is None else ink) + (0,))
         stamp.putalpha(mask)
         if rotate == 180:
             stamp = stamp.transpose(Image.Transpose.ROTATE_180)
@@ -68,42 +69,32 @@ def generate_stand_presets(p, Canvas, glyph, spec, colors, padding, png_bytes):
         c.rect(x + width - side, y + height - stroke, side, stroke, color)
 
     stand = spec["stand_presets"]
-    border = stand["safety_line_m"]
-    for profile in stand["profiles"]:
-        clearance = stand["clearances_m"][profile["code"]]
-        inner_w = profile["span_m"] + 2 * clearance
-        inner_h = profile["length_m"] + 2 * clearance
-        width, height = inner_w + 2 * border, inner_h + 2 * border
-        c = Canvas(width + 2 * padding, height + 2 * padding, resolution=profile["texture_px"])
-        entry = 4.0 if profile["code"] in "AB" else 6.0
-        frame(c, padding, padding, width, height, border, colors["Red"], entry)
-        axis = c.width / 2
-        lead = profile["lead_width_m"]
-        contrast = stand["lead_contrast_each_side_m"]
-        inner_top = padding + border
-        entry_y = inner_top + inner_h
-        gap_end = entry_y - stand["id_gap_from_entry_m"]
-        gap_start = gap_end - stand["id_gap_height_m"]
-        head_y = inner_top + 1.0
-        for start, end in [(head_y, gap_start), (gap_end, padding + height)]:
-            c.rect(axis - lead / 2 - contrast, start, lead + 2 * contrast, end - start, colors["Black"])
-            c.rect(axis - lead / 2, start, lead, end - start, colors["Yellow"])
-        note = (f"透明直入机位模板：框内 {inner_w:g} × {inner_h:g} m，参照机长 {profile['length_m']:g} m、"
-                f"翼展 {profile['span_m']:g} m；每侧预留 {clearance:g} m。黄线 {lead:g} m、红线 0.10 m。"
-                "编号与停止线另放；机头朝红框封闭端。")
+    from apron_layouts import make_layout
+    profiles = list(stand["profiles"])
+    for variant in spec["apron_layouts"]["variants"]:
+        base = next(profile for profile in stand["profiles"] if profile["key"] == variant["base"])
+        profiles.append({**base, **{k: v for k, v in variant.items() if k != "base"}})
+    layout_titles = {"base": "机坪基础布局", "cargo": "货运机坪基础布局",
+                     "ga": "通航机坪基础布局", "loop": "开放回转机位", "through": "开放贯通机位"}
+    for profile in profiles:
+        c, geometry = make_layout(profile, spec, Canvas, colors, padding, text_stamp)
+        family = layout_titles[profile["layout"]]
+        content = ("简洁回转引导及引出箭头，不画外围框线" if profile['layout'] == 'loop' else
+                   "直线停靠段、两端开放及两侧服务留白，外部滑行道另接" if profile['layout'] == 'through' else
+                   "折角安全边界、角部禁停斜线、机坪外界及两侧服务留白")
+        note = (f"{family}，参照机长 {profile['length_m']:g} m、翼展 {profile['span_m']:g} m；"
+                f"净空 {geometry['clearance_m']:g} m。{content}。廊桥、轮位、设备停车框、编号与停止线独立放置。")
+        layout_en = ('Simple curved guidance and exit arrow without a perimeter frame.' if profile['layout'] == 'loop' else
+                     'Straight parking segment with two open ends and side service reserves; connect external taxilanes separately.' if profile['layout'] == 'through' else
+                     'Chamfered safety boundary, corner no-parking hatching, apron outline and side service reserves.')
         add(f"Stand Template {profile['key']}", profile["priority"], c,
-            f"直入机位模板 · {profile['title']} · {inner_w:g} × {inner_h:g} m", note,
-            f"Transparent nose-in stand: {inner_w:g} x {inner_h:g} m inside the frame, for a "
-            f"{profile['length_m']:g} m length / {profile['span_m']:g} m span reference. "
-            f"{clearance:g} m margin on each side; {lead:g} m yellow guidance and 0.10 m red boundary. "
-            "Place identification and stop marks separately. Nose toward the closed end.",
-            "ICAO Annex 14 3.13.7/5.2.13/5.2.14；保守 S+2C、L+2C 包内矩形预设；原版三机型来自用户实测",
-            {"kind": "stand", "profile": profile, "clearance_m": clearance,
-             "inner_m": [inner_w, inner_h], "safety_line_m": border,
-             "entry_opening_m": entry, "lead_width_m": lead,
-             "axis_x_m": axis, "id_gap_y_m": [gap_start, gap_end],
-             "nose_reference_y_m": inner_top + clearance,
-             "stop_datum": "separate; nosewheel/cockpit distances were not measured"})
+            f"{family}模板 · {profile['title']}", note,
+            f"Flexible {profile['layout']} apron for a {profile['length_m']:g} m length / "
+            f"{profile['span_m']:g} m span reference, with {geometry['clearance_m']:g} m clearance. " +
+            layout_en + ' ' +
+            "Place bridge/wheel/equipment, identification and stop markings independently; turn radius is a scenery preset.",
+            "ICAO Annex14按停靠配置选标记及净空；CAAM1403禁停/机坪安全线；CAA637开放自行机动图样；跨机场功能分区对照，外形与留白为包内预设",
+            {"kind": "stand", "profile": profile, **geometry})
 
     detail = spec["stand_details"]
 
@@ -276,6 +267,27 @@ def generate_stand_presets(p, Canvas, glyph, spec, colors, padding, png_bytes):
             {"kind": "no_parking_frame", "outer_m": [width, height], "stroke_m": stroke,
              "perpendicular_period_m": stroke + gap, "clear_gap_m": gap, "angle_degrees": 45})
 
+    # Flexible optional silhouettes, not a prescribed bridge pivot or sweep.
+    from apron_layouts import hatch, polyline
+    for shape in detail.get('no_parking_shapes', []):
+        vertices = shape['polygon_m']
+        width, height = max(x for x, y in vertices), max(y for x, y in vertices)
+        c = Canvas(width + .8, height + .8, resolution=2048)
+        shifted = [(x + .4, y + .4) for x, y in vertices]
+        parts = []
+        for part in shape['parts_m']:
+            polygon = [(x + .4, y + .4) for x, y in part]
+            parts.append(hatch(c, polygon, colors, border=False))
+        polyline(c, shifted, .1, colors['Red'], closed=True)
+        add('No Parking Hatch CAAM ' + shape['key'], shape['priority'], c,
+            '禁停斜线模块 · CAAM 图样 · ' + shape['title'],
+            '红框与斜线宽0.10m，45°、垂直净距0.75m，间隙透明。形状和外尺寸为可选预设，用于廊桥下方或其他实际禁停区域；轮位另放。',
+            'Optional red no-parking footprint: 0.10 m frame/hatching, 45 degrees and 0.75 m perpendicular gaps. '
+            'Use where needed under a bridge or in other no-parking areas; place wheel marks separately. Shape is a scenery preset.',
+            'CAAM CAGM1403 §11禁停线宽/间距/颜色；梯形与折角为可选外形，不代表固定廊桥运动范围',
+            {'kind': 'no_parking_shape', 'polygon_m': shifted, 'hatches': parts,
+             'outer_m': [width, height], 'stroke_m': .1, 'clear_gap_m': .75, 'wheel_position': 'separate'})
+
     for index, (width, height) in enumerate(detail["equipment_rectangles_m"]):
         c = Canvas(width + 2 * padding, height + 2 * padding)
         frame(c, padding, padding, width, height, 0.1, colors["White"])
@@ -287,6 +299,6 @@ def generate_stand_presets(p, Canvas, glyph, spec, colors, padding, png_bytes):
             "CAAM CAGM 1403 (2025) §15、图15-1/15-2；外框尺寸为包内预设，语义区别于禁停区",
             {"kind": "equipment_frame", "outer_m": [width, height], "stroke_m": 0.1})
 
-    p.output(ROOT / "docs/stand-presets.json", (json.dumps({"version": "0.6.6", "units": "metres",
-             "orientation": "nose toward image top / closed boundary", "assets": records},
+    p.output(ROOT / "docs/stand-presets.json", (json.dumps({"version": "0.6.7", "units": "metres",
+             "orientation": "straight stands nose toward image top; curved stands follow the guidance path", "assets": records},
              ensure_ascii=False, indent=2) + "\n").encode("utf-8"))

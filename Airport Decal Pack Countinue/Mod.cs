@@ -19,7 +19,7 @@ namespace Airport_Decal_Pack_Countinue
             string pathToModFolder = new FileInfo(asset.path).DirectoryName;
 
             ExtraAssetsImporter.EAI.LoadCustomAssets(pathToModFolder);
-            Log.Info("Airport Details Pack 0.6.6: EAI import requested for airport markings, stand templates and apron details.");
+            Log.Info("Airport Details Pack 0.6.7: EAI import requested for airport markings, flexible apron bases and independent details.");
         }
 
         public void OnDispose()
