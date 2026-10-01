@@ -152,14 +152,15 @@ def bootstrap():
 
 class Canvas:
     """Raster and SVG use the same metre coordinates; no external font needed."""
-    def __init__(self, width, height):
+    def __init__(self, width, height, resolution=N):
         self.width, self.height = float(width), float(height)
-        self.im = Image.new("RGBA", (N * AA, N * AA))
+        self.resolution = resolution
+        self.im = Image.new("RGBA", (resolution * AA, resolution * AA))
         self.draw = ImageDraw.Draw(self.im)
         self.svg = []
 
     def point(self, x, y):
-        return x * N * AA / self.width, y * N * AA / self.height
+        return x * self.im.width / self.width, y * self.im.height / self.height
 
     def polygon(self, points, color):
         color = tuple(color)
@@ -185,7 +186,7 @@ class Canvas:
                       (p2[0]-nx,p2[1]-ny), (p1[0]-nx,p1[1]-ny)], color)
 
     def finish(self):
-        return self.im.resize((N, N), Image.Resampling.LANCZOS)
+        return self.im.resize((self.resolution, self.resolution), Image.Resampling.LANCZOS)
 
     def svg_bytes(self):
         holes = [s for kind,s in self.svg if kind == "hole"]
@@ -290,8 +291,8 @@ class Pipeline:
             raise ValueError(f"Empty texture: {rel}")
         actual = ((box[2]-box[0]) / image.width * width, (box[3]-box[1]) / image.height * height)
         if painted:
-            for measured,expected,mesh in zip(actual,painted,(width,height)):
-                if abs(measured-expected) > mesh / N * 2.1:
+            for measured,expected,mesh,pixels in zip(actual,painted,(width,height),image.size):
+                if abs(measured-expected) > mesh / pixels * 2.1:
                     raise ValueError(f"Painted bounds mismatch: {rel}: {actual}, expected {painted}")
         cat, name = folder.parent.name, folder.name
         full = f'{SPEC["mod_name"]} {cat} {name} ' + ("NetLane" if is_lane else "Decal")
@@ -424,7 +425,7 @@ class Pipeline:
         selected=[r for r in sorted(self.contacts) if r[0] in [1000,1001,1002,1370,2010,2011,2012,2750,4000,4010,4040,4060,4090,4100,4110,4120]
                   or 5000<=r[0]<6100 or r[0] in [7000,7001,7180,7181,7400,8100,8110,8120,8130,8140,8150,9900,9910]
                   or 8200<=r[0]<8430 or 7300<=r[0]<7330 or 7420<=r[0]<7500
-                  or r[0] in (8160,8170,8500)]
+                  or r[0] in (8160,8170,8500) or 7700<=r[0]<7850]
         from PIL import ImageFont
         font=ImageFont.load_default()
         thumb=Image.new("RGB",(8*160,math.ceil(len(selected)/8)*170),(48,48,48))
@@ -845,6 +846,8 @@ def generate(p):
         ("Paint Red",8140,COLORS["Red"],False),("Paint Black",8150,COLORS["Black"],False)]:
         p.surface(name,priority,color,pavement)
     generate_surface_prototypes(p)
+    from stand_presets import generate_stand_presets
+    generate_stand_presets(p, Canvas, load_glyph, SPEC, COLORS, PADDING, png_bytes)
     c=Canvas(10+.3,10+.3)
     for i in range(11):
         x=.15+i;c.rect(x-.015,.15,.03,10,COLORS["White"]);c.rect(.15,x-.015,10,.03,COLORS["White"])

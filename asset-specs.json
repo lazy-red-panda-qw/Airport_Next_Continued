@@ -496,6 +496,8 @@
       7500,
       7699
     ],
+    "stand_presets": [7700, 7779],
+    "stand_preset_details": [7780, 7899],
     "surface_material_trials": [
       8160,
       8199
@@ -545,6 +547,37 @@
     "normal_rms_slope": 0.045,
     "normal_max_slope": 0.18,
     "smoothness": 0.04
+  },
+  "stand_presets": {
+    "safety_line_m": 0.1,
+    "lead_contrast_each_side_m": 0.075,
+    "id_gap_height_m": 3.0,
+    "id_gap_from_entry_m": 1.0,
+    "clearances_m": {"A": 3.0, "B": 3.0, "C": 4.5, "D": 7.5, "E": 7.5, "F": 7.5},
+    "profiles": [
+      {"key": "GA A", "priority": 7700, "title": "小型通航 A", "length_m": 10.0, "span_m": 12.0, "code": "A", "lead_width_m": 0.15, "texture_px": 2048, "basis": "package preset"},
+      {"key": "GA B", "priority": 7710, "title": "通航与公务机 B", "length_m": 22.0, "span_m": 23.9, "code": "B", "lead_width_m": 0.15, "texture_px": 2048, "basis": "package preset"},
+      {"key": "Narrowbody C", "priority": 7720, "title": "通用窄体 C", "length_m": 44.0, "span_m": 35.9, "code": "C", "lead_width_m": 0.3, "texture_px": 4096, "basis": "package preset"},
+      {"key": "Game Regional", "priority": 7730, "title": "原版支线客机", "length_m": 34.0, "span_m": 38.0, "code": "D", "lead_width_m": 0.3, "texture_px": 4096, "basis": "user measured game model"},
+      {"key": "Game Passenger", "priority": 7740, "title": "原版干线客机", "length_m": 50.5, "span_m": 50.5, "code": "D", "lead_width_m": 0.3, "texture_px": 4096, "basis": "user measured game model"},
+      {"key": "Game Cargo", "priority": 7750, "title": "原版货机", "length_m": 58.0, "span_m": 60.0, "code": "E", "lead_width_m": 0.3, "texture_px": 4096, "basis": "user measured game model"},
+      {"key": "Widebody E", "priority": 7760, "title": "大型宽体 E", "length_m": 76.0, "span_m": 64.9, "code": "E", "lead_width_m": 0.3, "texture_px": 4096, "basis": "package preset"},
+      {"key": "Heavy F", "priority": 7770, "title": "超大型 F", "length_m": 85.0, "span_m": 79.9, "code": "F", "lead_width_m": 0.3, "texture_px": 4096, "basis": "package preset"}
+    ]
+  },
+  "stand_details": {
+    "nosewheel_caac": {"bar_length_m": 2.0, "bar_width_m": 0.15, "text_height_m": 0.3, "contrast_border_m": 0.05},
+    "pipb_caam": {"bar_extension_m": 1.0, "lead_width_m": 0.3, "bar_width_m": 0.3, "text_height_m": 1.0, "label_height_m": 1.5, "label_side_margin_m": 0.15},
+    "cockpit_stop": {"bar_length_m": 6.0, "bar_width_m": 0.15},
+    "type_labels": ["A320", "B737", "A350", "B777", "B747", "A380"],
+    "pbb_fan_radii_m": [12.0, 18.0],
+    "pbb_fan_angle_degrees": 90.0,
+    "pbb_fan_ray_step_degrees": 15.0,
+    "pbb_fan_line_m": 0.1,
+    "pbb_wheel_sizes_m": [3.0, 4.0],
+    "pbb_wheel_border_m": 0.1,
+    "no_parking_rectangles_m": [[6.0, 10.0], [10.0, 20.0]],
+    "equipment_rectangles_m": [[3.0, 5.0], [6.0, 10.0]]
   },
   "draw_order_overrides": {
     "CustomDecals/RoadMarkings/Arrow Straight": 42,
