@@ -533,6 +533,19 @@
     "clear_gap_m": 0.75,
     "angle_degrees": 45
   },
+  "concrete_material_trial": {
+    "seed": 101,
+    "texture_size_px": 1024,
+    "tile_m": 5.0,
+    "aggregate_min_m": 0.025,
+    "aggregate_max_m": 0.10,
+    "aggregate_contrast": 3.2,
+    "mottle_contrast": 1.2,
+    "pore_darkening": 2.4,
+    "normal_rms_slope": 0.045,
+    "normal_max_slope": 0.18,
+    "smoothness": 0.04
+  },
   "draw_order_overrides": {
     "CustomDecals/RoadMarkings/Arrow Straight": 42,
     "CustomNetlanes/RoadMarking/Black Line Middle": 42,

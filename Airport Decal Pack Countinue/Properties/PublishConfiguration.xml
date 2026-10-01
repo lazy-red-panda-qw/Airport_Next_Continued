@@ -24,7 +24,7 @@ ICAO Annex 14 is the design baseline. The aim is strict application of the real 
 
 Choose each marking for its intended use and airport layout. The creator's character artwork uses ICAO font sources; colour and placement presets are chosen for game scenery, and this is not a claim of ICAO certification. CAAM variants are identified separately. The A2/B2 holding-position patterns follow the Annex 14 provisions applicable from 26 November 2026.
 
-Version 0.6.4 is currently a local test build. New hatch transparency and material variants still need in-game validation.
+Version 0.6.5 is currently a local test build. Runway centre lines, secondary guidance dashes, the red hatch surface and save/reload have passed user testing. The refined concrete grain still needs in-game validation.
 
 ## Recommended companion assets
 
@@ -60,7 +60,7 @@ Each addition will be researched against ICAO requirements and relevant guidance
 	<!--Link to the forum post where the mod can be discussed-->
 	<ForumLink Value="" />
 	<!--Version of the mod-->
-	<ModVersion Value="0.6.4.0" />
+	<ModVersion Value="0.6.5.0" />
 	<!--Recommended version of the base game to use the mod-->
 	<GameVersion Value="1.5.*" />
 	<!--Dependency for the mod, can be set multiple times-->
@@ -69,7 +69,7 @@ Each addition will be researched against ICAO requirements and relevant guidance
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-	<ChangeLog Value="Add 30 cm stand guidance, CAAM secondary guidance and a turn bar; prototype a transparent no-parking hatch surface and subtle-normal pavement materials. Preserve all existing assets and the author's tested white colour." />
+	<ChangeLog Value="Refine the test concrete surface with fine aggregate, subtle pores and a rougher matte response. Record successful runway centre line, secondary guidance and save/reload tests. Keep the existing red area hatch and all marking assets unchanged." />
 	<!--<ChangeLog>
 	</ChangeLog>-->
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->

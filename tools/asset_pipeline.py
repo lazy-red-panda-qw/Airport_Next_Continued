@@ -582,6 +582,48 @@ def pavement_normal(seed, tile_m=5.0, amplitude_m=0.00018):
     return Image.fromarray(rgba)
 
 
+def concrete_material(color, profile):
+    """Periodic fine aggregate and pores, without inheriting the ground's coarse relief."""
+    n = profile["texture_size_px"]
+    tile_m = profile["tile_m"]
+    step_m = tile_m / n
+    rng = np.random.default_rng(profile["seed"])
+    fx, fy = np.meshgrid(np.fft.rfftfreq(n, step_m), np.fft.fftfreq(n, step_m))
+    frequency = np.hypot(fx, fy)
+
+    def band(min_m, max_m):
+        spectrum = np.fft.rfft2(rng.standard_normal((n, n)))
+        spectrum *= (frequency >= 1 / max_m) & (frequency <= 1 / min_m)
+        field = np.fft.irfft2(spectrum, s=(n, n))
+        return field / field.std()
+
+    aggregate = band(profile["aggregate_min_m"], profile["aggregate_max_m"])
+    mottle = band(0.10, 0.45)
+    pores = np.maximum(-aggregate - 1.4, 0) ** 1.5
+    variation = (profile["aggregate_contrast"] * aggregate
+                 + profile["mottle_contrast"] * mottle
+                 - profile["pore_darkening"] * pores)
+    # Preserve the concrete's average colour while making the grain visible up close.
+    variation -= variation.mean()
+    rgba = np.empty((n, n, 4), dtype=np.uint8)
+    rgba[:, :, :3] = np.rint(np.clip(np.array(color) + variation[:, :, None], 0, 255)).astype(np.uint8)
+    rgba[:, :, 3] = 255
+    base = Image.fromarray(rgba.copy())
+
+    height = aggregate + 0.25 * mottle - 0.35 * pores
+    dx = (np.roll(height, -1, axis=1) - np.roll(height, 1, axis=1)) / (2 * step_m)
+    dy = (np.roll(height, -1, axis=0) - np.roll(height, 1, axis=0)) / (2 * step_m)
+    gain = profile["normal_rms_slope"] / np.sqrt(np.mean(dx * dx + dy * dy))
+    dx *= gain
+    dy *= gain
+    slope = np.hypot(dx, dy)
+    limit = np.minimum(1, profile["normal_max_slope"] / np.maximum(slope, 1e-12))
+    normal = np.stack((-dx * limit, -dy * limit, np.ones_like(dx)), axis=-1)
+    normal /= np.linalg.norm(normal, axis=-1, keepdims=True)
+    rgba[:, :, :3] = np.rint((normal * 0.5 + 0.5) * 255).astype(np.uint8)
+    return base, Image.fromarray(rgba)
+
+
 def hatch_texture(width_m,gap_m,color):
     """One seamless 45-degree cycle. Width/gap are measured normal to each stripe."""
     period=width_m+gap_m
@@ -646,19 +688,25 @@ def generate_surface_prototypes(p):
               note="红色 45° 斜线，宽 0.10 m、垂直净距 0.75 m；间隙透明，区域由玩家绘制，红色边框另画。",
               note_en="Red 45-degree hatching, 0.10 m wide with 0.75 m perpendicular clear gaps. Draw the area; transparent gaps and a separate red outline.",
               reference="CAAM CAGM 1403 (2025) 11.1/11.2，图 11-1；45° 和 0.75 m 为图示/范围内预设；Surface UV 米制换算待游戏测量")
-    # Baseline colours and base maps stay identical. Only new comparison surfaces
-    # replace inherited normals and apply their own non-metallic matte response.
-    for name,priority,color,source_priority,seed,smoothness,zh in [
-        ("Airport Concrete Fine",8160,(155,153,145),8110,101,0.15,"混凝土"),
-        ("Airport Asphalt Fine",8170,(67,69,70),8100,102,0.10,"沥青")]:
-        p.surface(name,priority,color,True,noise_priority=source_priority,
-                  normal=pavement_normal(seed),
-                  material={"_NormalOpacity":1,"_MetallicOpacity":1,"_Smoothness":smoothness,
-                            "_NormalAlphaSource":0,"_MetallicAlphaSource":0},
-                  title=f"机场{zh}表面 · 细腻材质（试验）",
-                  note=f"面积与形状由玩家绘制；与原{zh}同色，使用轻微法线细节和哑光材质，用于道面效果对照。",
-                  note_en=f"Draw airport pavement. Same base map as the original {'concrete' if zh=='混凝土' else 'asphalt'}, with subtle normals and a matte material for comparison.",
-                  reference="EAI 1.7.6 SurfacesImporter / TextureAssetImporterUtils；本机 AreaBatchSystem 与 TextureImporter；优化效果待游戏实测")
+    # Keep the successful asphalt comparison unchanged. Refine only concrete 8160.
+    p.surface("Airport Asphalt Fine",8170,(67,69,70),True,noise_priority=8100,
+              normal=pavement_normal(102),
+              material={"_NormalOpacity":1,"_MetallicOpacity":1,"_Smoothness":0.10,
+                        "_NormalAlphaSource":0,"_MetallicAlphaSource":0},
+              title="机场沥青表面 · 细腻材质（试验）",
+              note="面积与形状由玩家绘制；与原沥青同色，使用轻微法线细节和哑光材质，用于道面效果对照。",
+              note_en="Draw airport pavement. Same base map as the original asphalt, with subtle normals and a matte material for comparison.",
+              reference="EAI 1.7.6 SurfacesImporter / TextureAssetImporterUtils；本机 AreaBatchSystem 与 TextureImporter；优化效果待游戏实测")
+    profile=SPEC["concrete_material_trial"]
+    base,normal=concrete_material((155,153,145),profile)
+    p.surface("Airport Concrete Fine",8160,(155,153,145),True,image=base,normal=normal,
+              material={"_NormalOpacity":1,"_MetallicOpacity":1,"_Smoothness":profile["smoothness"],
+                        "colossal_UVScale":1/profile["tile_m"],
+                        "_NormalAlphaSource":0,"_MetallicAlphaSource":0},
+              title="机场混凝土表面 · 细腻材质（试验）",
+              note="面积与形状由玩家绘制；保持原混凝土平均基色，加入细颗粒、微孔色差和自身法线，使用粗糙哑光材质。",
+              note_en="Draw airport concrete pavement. Retains the original average colour with fine aggregate, subtle pores, its own normal detail and a rough matte finish.",
+              reference="0.6.4 用户实测清晰度改善但过于平滑；0.6.5 细颗粒与微孔法线调整，观感待游戏复测")
 
 
 def generate(p):

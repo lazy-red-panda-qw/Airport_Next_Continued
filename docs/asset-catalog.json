@@ -7458,8 +7458,8 @@
     "tile_period_m": null,
     "draw_order": 35,
     "title": "机场混凝土表面 · 细腻材质（试验）",
-    "reference": "EAI 1.7.6 SurfacesImporter / TextureAssetImporterUtils；本机 AreaBatchSystem 与 TextureImporter；优化效果待游戏实测",
-    "notes": "面积与形状由玩家绘制；与原混凝土同色，使用轻微法线细节和哑光材质，用于道面效果对照。",
+    "reference": "0.6.4 用户实测清晰度改善但过于平滑；0.6.5 细颗粒与微孔法线调整，观感待游戏复测",
+    "notes": "面积与形状由玩家绘制；保持原混凝土平均基色，加入细颗粒、微孔色差和自身法线，使用粗糙哑光材质。",
     "prefab_name": "Airport Details Pack Countinue Pavement Airport Concrete Fine Surface"
   },
   {
