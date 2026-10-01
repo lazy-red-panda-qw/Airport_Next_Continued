@@ -168,6 +168,8 @@ class Pipeline:
             raise ValueError(f"Cannot rename an original asset: {requested_rel}")
         if "." in Path(rel).name:
             raise ValueError(f"Legacy EAI misreads dots in asset names: {rel}")
+        if priority in SPEC["reserved_removed_priorities"]:
+            raise ValueError(f"Removed UiPriority remains reserved: {priority}: {rel}")
         if priority in self.seen:
             raise ValueError(f"Duplicate UiPriority {priority}: {rel}")
         self.seen.add(priority)
@@ -226,6 +228,8 @@ class Pipeline:
                           "tile_period_m":period,"draw_order":order,"title":title,
                           "reference":ref,"notes":note,"prefab_name":full})
         english = full.removeprefix(SPEC["mod_name"] + " ").removesuffix(" Decal").removesuffix(" NetLane").removesuffix(" Surface")
+        if rel.startswith("CustomDecals/MarkingBackgrounds/"):
+            english = english.replace("Background Cap Left", "Background End Cap")
         for lang, values in self.locales.items():
             values[f"Assets.NAME[{full}]"] = english if lang == "en-US" else title
             values[f"Assets.DESCRIPTION[{full}]"] = note
@@ -253,14 +257,18 @@ class Pipeline:
         self.asset(rel,priority,width,length,title,note,ref,image=canvas.finish(),
                    painted=(gw+margin*2,cell_height+margin*2))
 
-    def surface(self,name,priority,color,pavement=False,fade=None,noise_range=None,diagnostic=None):
+    def surface(self,name,priority,color,pavement=False):
+        if priority in SPEC["reserved_removed_priorities"]:
+            raise ValueError(f"Removed Surface UiPriority remains reserved: {priority}: {name}")
         if priority in self.seen or not 1000 <= priority < 10000:
             raise ValueError(f"Duplicate or invalid Surface UiPriority {priority}: {name}")
         self.seen.add(priority)
         rel=f"Surfaces/Pavement/{name}"
         folder=ASSETS/rel
-        fade = SPEC["surface_edge_defaults"]["fade"] if fade is None else fade
-        noise_range = SPEC["surface_edge_defaults"]["noise"] if noise_range is None else noise_range
+        fade = SPEC["surface_edge_defaults"]["fade"]
+        noise_range = SPEC["surface_edge_defaults"]["noise"]
+        if tuple(noise_range) == (0,0):
+            raise ValueError("EdgeNoise=(0,0) made Surface invisible in the A/B/C/D game test.")
         rng=np.random.default_rng(20261001+priority)
         rgb=np.empty((512,512,4),dtype=np.uint8)
         noise=rng.normal(0,2.8 if pavement else 0,(512,512,1))
@@ -282,11 +290,8 @@ class Pipeline:
                 "colossal_EdgeNoise":{"x":noise_range[0],"y":noise_range[1],"z":0,"w":0}}}))
         full=f'{SPEC["mod_name"]} Pavement {name} Surface'
         title={"Airport Asphalt":"机场沥青 Surface","Airport Concrete":"机场混凝土 Surface"}.get(name,name+" Surface")
-        if diagnostic:
-            title = f"Surface 对照 {diagnostic} · 黄漆"
         note = (f"面积由 Surface 工具绘制；UVScale=0.2。EdgeNoise={tuple(noise_range)}；EdgeFadeRange={tuple(fade)}。"
-                + ("诊断用，与对照 A/B/C/D 的相邻等大区域比较；D 复现 0.6.0 边缘参数。" if diagnostic
-                   else "恢复 EAI 默认边缘参数，仍需游戏验证可见性；平面颜色与微颗粒预设，非经认证 PBR 铺装。"))
+                + "边缘参数采用 A/C 对照已验证的非零 Noise 范围；平面颜色与微颗粒预设，非经认证 PBR 铺装。")
         self.record(rel,priority,None,None,None,None,35 if pavement else 38,title,
                     note,
                     "EAI 1.7.5/1.7.6 新版 Surfaces 导入器",full,"SurfacePrefab",True)
@@ -295,8 +300,11 @@ class Pipeline:
     def finish(self):
         rows=sorted(self.rows,key=lambda x:x["UiPriority"])
         missing=set(self.baseline)-{r["path"] for r in rows}
-        if missing:
-            raise ValueError(f"Original asset identities missing: {sorted(missing)}")
+        allowed_removed = set(self.baseline) & set(SPEC["removed_assets"])
+        if missing != allowed_removed:
+            raise ValueError(f"Unexpected original identity removal: {sorted(missing ^ allowed_removed)}")
+        if {r["path"] for r in rows} & set(SPEC["removed_assets"]):
+            raise ValueError("Removed assets must not be generated or deployed.")
         actual = {f.parent.relative_to(ASSETS).as_posix() for root in ("CustomDecals", "CustomNetlanes")
                   for f in (ASSETS/root).rglob("decal.json")}
         actual.update(f.parent.relative_to(ASSETS).as_posix() for f in (ASSETS/"Surfaces").rglob("Prefab.json"))
@@ -314,8 +322,8 @@ class Pipeline:
             self.output(ASSETS/"Localization"/(lang+".json"),json_bytes(data))
         # Representative contact sheet, instead of hundreds of unreadable thumbnails.
         selected=[r for r in sorted(self.contacts) if r[0] in [1000,1001,3000,3010,4000,4010,4040,4060,4090,4100,4110,4120]
-                  or 5000<=r[0]<6100 or r[0] in [7000,7001,7180,7181,7400,8100,8110,8120,8130,8140,8150,9000,9001,9002,9900,9910]
-                  or 8200<=r[0]<8400 or 9920<=r[0]<=9923]
+                  or 5000<=r[0]<6100 or r[0] in [7000,7001,7180,7181,7400,8100,8110,8120,8130,8140,8150,9900,9910]
+                  or 8200<=r[0]<8400]
         from PIL import ImageFont
         font=ImageFont.load_default()
         thumb=Image.new("RGB",(8*160,math.ceil(len(selected)/8)*170),(48,48,48))
@@ -331,7 +339,8 @@ class Pipeline:
             thumb.paste(im,(x+(128-im.width)//2,y+(128-im.height)//2),im)
             draw.text((x,y+133),str(priority),fill="white",font=font)
         self.output(ROOT/"docs"/"asset-preview.png",png_bytes(thumb))
-        print(f'{len(rows)} assets ({sum(r["new"] for r in rows)} new), all 187 original identities retained; '
+        print(f'{len(rows)} assets ({sum(r["new"] for r in rows)} new), '
+              f'{len(self.baseline)-len(missing)} original identities retained, {len(missing)} explicitly removed; '
               f'UiPriority {min(self.seen)}..{max(self.seen)}, unique; {len(self.changed)} changed outputs.')
         if self.check and self.changed:
             print("Outputs need regeneration:\n"+"\n".join(self.changed[:30]),file=sys.stderr)
@@ -395,7 +404,9 @@ def generate_backgrounds(p):
                        else "白底红框保留宽框外观，搭配黑字；不是红底白字强制标记。" if name == "White Red"
                        else "与对应透明底黄字/黑字组合；外框笔画 0.15 m 为包内预设。")
             note = (f"配套字高 {height} m，内区高 {inner:g} m，整体宽 {outer:g} m。"+purpose
-                    +"沿长度绘制；宽度固定。主体不包含端边，使用左右端帽封口。背景层级 41、字符 42；叠放和端头仍需实测。")
+                    +"沿长度绘制；宽度固定。"
+                    +("主体不包含端边，同一端帽旋转 180° 用于另一端。" if edge else "纯红底主体无需端帽；长度需包含文字两端留白。")
+                    +"背景层级 41、字符 42；第二轮游戏测试确认铺底方案可用。")
             ref = "ICAO 5.2.16/5.2.17 的颜色与留白；边框/端帽/长度为造景预设"
             c=Canvas(outer+2*PADDING,9)
             c.rect(PADDING,0,outer,9,COLORS[edge or fill])
@@ -404,13 +415,12 @@ def generate_backgrounds(p):
                     c.width,c.height,f"{title} · {height} m 字高 · 拉线主体",note,ref,
                     canvas=c,period=9,painted=(outer,9),draw_order=order)
             cap_depth=margin+border
-            for offset,side in ((1,"Left"),(2,"Right")):
+            if edge:
                 c=Canvas(outer+2*PADDING,cap_depth+2*PADDING)
                 c.rect(PADDING,PADDING,outer,cap_depth,COLORS[edge or fill])
-                start=border if side == "Left" else 0
-                c.rect(PADDING+border,PADDING+start,inner,cap_depth-border,COLORS[fill])
-                p.asset(f"CustomDecals/MarkingBackgrounds/{name} Background Cap {side} {height}m",priority+offset,
-                        c.width,c.height,f"{title} · {height} m 字高 · {'左' if side == 'Left' else '右'}端帽",
+                c.rect(PADDING+border,PADDING+border,inner,cap_depth-border,COLORS[fill])
+                p.asset(f"CustomDecals/MarkingBackgrounds/{name} Background Cap Left {height}m",priority+1,
+                        c.width,c.height,f"{title} · {height} m 字高 · 通用端帽（可旋转）",
                         note+"端帽内缘对齐主体端点，可少量重叠防止接缝。",ref,
                         canvas=c,painted=(outer,cap_depth),draw_order=order)
             length=SPEC["background_wide_lengths_m"][str(height)]
@@ -453,24 +463,12 @@ def generate(p):
                     f"跑道 {s} · ICAO ×{scale}",f"图 5-3 基础图样 ×{scale}，涂漆外接尺寸 {w*scale:g} × {h*scale:g} m。6/9 含斜笔超出部分。放大档是包内预设，非 ICAO 三种尺寸等级；两位跑道号需要包含前导零。",
                     "ICAO 5.2.2.4/5.2.2.6，图 5-3",canvas=c,painted=(w*scale,h*scale))
 
-    # Original blank swatches remain 1 m building blocks.
-    for color,name,prio in [("Black","TaxiWay SignBlnk Black",8000),("Yellow","TaxiWay SignBlank Yellow",8010),("Red","TaxiWay SignBlank Red",8020)]:
-        c=Canvas(1+PADDING*2,1+PADDING*2);c.rect(PADDING,PADDING,1,1,COLORS[color])
-        p.asset(f"CustomDecals/RoadMarkings/{name}",prio,c.width,c.height,f"{color} 底板 · 1 m",
-                "1 × 1 m 通用拼接底板；完整强制标记底板需超出文字四周至少 0.5 m。","造景模块；ICAO 5.2.16.10",canvas=c,painted=(1,1))
     generate_backgrounds(p)
     old=ASSETS/"CustomDecals/RoadMarkings/Arrow Straight/_BaseColorMap.png"
     im=Image.open(old).convert("RGBA");box=paint_box(im);w=(box[2]-box[0])/(box[3]-box[1])*4
     # This legacy arrow's source PNG stays unchanged, so repeated generation is stable.
     p.asset("CustomDecals/RoadMarkings/Arrow Straight",7300,w*im.width/(box[2]-box[0]),4*im.height/(box[3]-box[1]),
             "通用方向箭头 · 4 m","原有箭头实际涂漆高度 4 m；与内移入口专用箭头分开使用。","造景预设",image=im,painted=(w,4))
-
-    for i,color in enumerate(("White","Yellow","Red","Black")):
-        for j,(size,stroke) in enumerate(SPEC["generic_line_widths_m"].items()):
-            c=Canvas(stroke+.3,9);c.rect(.15,0,stroke,9,COLORS[color])
-            p.asset(f"CustomNetlanes/RoadMarking/{color} Line {size}",9000+i*10+j,c.width,c.height,f"{color} 线 · {stroke:g} m",
-                    f"实线宽 {stroke:g} m。四种颜色统一此宽度；可作通用模块，具体用途仍需遵循标记颜色和布局规定。",
-                    "ICAO 5.2.8 / 5.2.4 / 5.2.6 的模块宽度",canvas=c,period=9,painted=(stroke,9))
 
     # Yellow taxiway patterns. Both dark and light pavement versions share geometry.
     for role,base in [("center",6000),("enhanced",6010),("hold",6020),("ils",6040),("intermediate",6060),("edge",6070)]:
@@ -587,15 +585,6 @@ def generate(p):
         ("Paint White",8120,COLORS["White"],False),("Paint Yellow",8130,COLORS["Yellow"],False),
         ("Paint Red",8140,COLORS["Red"],False),("Paint Black",8150,COLORS["Black"],False)]:
         p.surface(name,priority,color,pavement)
-    # A 2x2 parameter experiment. All other rendering inputs are identical.
-    for code,priority,fade,noise in [
-        ("A",9920,(.75,.25),(0,1)),
-        ("B",9921,(.75,.25),(0,0)),
-        ("C",9922,(.02,.005),(0,1)),
-        ("D",9923,(.02,.005),(0,0)),
-    ]:
-        p.surface(f"Surface Diagnostic {code} Yellow",priority,COLORS["Yellow"],
-                  fade=fade,noise_range=noise,diagnostic=code)
     c=Canvas(10+.3,10+.3)
     for i in range(11):
         x=.15+i;c.rect(x-.015,.15,.03,10,COLORS["White"]);c.rect(.15,x-.015,10,.03,COLORS["White"])

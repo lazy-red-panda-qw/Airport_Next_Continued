@@ -447,9 +447,6 @@ StaticObjectPrefab	Airport Details Pack Countinue Mandatory Mandatory Dash 4m De
 StaticObjectPrefab	Airport Details Pack Countinue RoadMarkings Arrow Straight Decal
 NetLaneGeometryPrefab	Airport Details Pack Countinue Apron Stand Lead In 15cm NetLane
 NetLaneGeometryPrefab	Airport Details Pack Countinue Apron Apron Safety Red 10cm NetLane
-StaticObjectPrefab	Airport Details Pack Countinue RoadMarkings TaxiWay SignBlnk Black Decal
-StaticObjectPrefab	Airport Details Pack Countinue RoadMarkings TaxiWay SignBlank Yellow Decal
-StaticObjectPrefab	Airport Details Pack Countinue RoadMarkings TaxiWay SignBlank Red Decal
 SurfacePrefab	Airport Details Pack Countinue Pavement Airport Asphalt Surface
 SurfacePrefab	Airport Details Pack Countinue Pavement Airport Concrete Surface
 SurfacePrefab	Airport Details Pack Countinue Pavement Paint White Surface
@@ -458,51 +455,25 @@ SurfacePrefab	Airport Details Pack Countinue Pavement Paint Red Surface
 SurfacePrefab	Airport Details Pack Countinue Pavement Paint Black Surface
 NetLaneGeometryPrefab	Airport Details Pack Countinue MarkingBackgrounds Location Background Strip 2m NetLane
 StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Location Background Cap Left 2m Decal
-StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Location Background Cap Right 2m Decal
 StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Location Background Wide 2m Decal
 NetLaneGeometryPrefab	Airport Details Pack Countinue MarkingBackgrounds Location Background Strip 4m NetLane
 StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Location Background Cap Left 4m Decal
-StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Location Background Cap Right 4m Decal
 StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Location Background Wide 4m Decal
 NetLaneGeometryPrefab	Airport Details Pack Countinue MarkingBackgrounds Direction Background Strip 2m NetLane
 StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Direction Background Cap Left 2m Decal
-StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Direction Background Cap Right 2m Decal
 StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Direction Background Wide 2m Decal
 NetLaneGeometryPrefab	Airport Details Pack Countinue MarkingBackgrounds Direction Background Strip 4m NetLane
 StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Direction Background Cap Left 4m Decal
-StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Direction Background Cap Right 4m Decal
 StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Direction Background Wide 4m Decal
 NetLaneGeometryPrefab	Airport Details Pack Countinue MarkingBackgrounds Mandatory Background Strip 2m NetLane
-StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Mandatory Background Cap Left 2m Decal
-StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Mandatory Background Cap Right 2m Decal
 StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Mandatory Background Wide 2m Decal
 NetLaneGeometryPrefab	Airport Details Pack Countinue MarkingBackgrounds Mandatory Background Strip 4m NetLane
-StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Mandatory Background Cap Left 4m Decal
-StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Mandatory Background Cap Right 4m Decal
 StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds Mandatory Background Wide 4m Decal
 NetLaneGeometryPrefab	Airport Details Pack Countinue MarkingBackgrounds White Red Background Strip 2m NetLane
 StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds White Red Background Cap Left 2m Decal
-StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds White Red Background Cap Right 2m Decal
 StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds White Red Background Wide 2m Decal
 NetLaneGeometryPrefab	Airport Details Pack Countinue MarkingBackgrounds White Red Background Strip 4m NetLane
 StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds White Red Background Cap Left 4m Decal
-StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds White Red Background Cap Right 4m Decal
 StaticObjectPrefab	Airport Details Pack Countinue MarkingBackgrounds White Red Background Wide 4m Decal
-NetLaneGeometryPrefab	Airport Details Pack Countinue RoadMarking White Line Thin NetLane
-NetLaneGeometryPrefab	Airport Details Pack Countinue RoadMarking White Line Middle NetLane
-NetLaneGeometryPrefab	Airport Details Pack Countinue RoadMarking White Line Thick NetLane
-NetLaneGeometryPrefab	Airport Details Pack Countinue RoadMarking Yellow Line Thin NetLane
-NetLaneGeometryPrefab	Airport Details Pack Countinue RoadMarking Yellow Line Middle NetLane
-NetLaneGeometryPrefab	Airport Details Pack Countinue RoadMarking Yellow Line Thick NetLane
-NetLaneGeometryPrefab	Airport Details Pack Countinue RoadMarking Red Line Thin NetLane
-NetLaneGeometryPrefab	Airport Details Pack Countinue RoadMarking Red Line Middle NetLane
-NetLaneGeometryPrefab	Airport Details Pack Countinue RoadMarking Red Line Thick NetLane
-NetLaneGeometryPrefab	Airport Details Pack Countinue RoadMarking Black Line Thin NetLane
-NetLaneGeometryPrefab	Airport Details Pack Countinue RoadMarking Black Line Middle NetLane
-NetLaneGeometryPrefab	Airport Details Pack Countinue RoadMarking Black Line Thick NetLane
 StaticObjectPrefab	Airport Details Pack Countinue Calibration Calibration Grid 10m Decal
 StaticObjectPrefab	Airport Details Pack Countinue Calibration Calibration Ruler 20m Decal
-SurfacePrefab	Airport Details Pack Countinue Pavement Surface Diagnostic A Yellow Surface
-SurfacePrefab	Airport Details Pack Countinue Pavement Surface Diagnostic B Yellow Surface
-SurfacePrefab	Airport Details Pack Countinue Pavement Surface Diagnostic C Yellow Surface
-SurfacePrefab	Airport Details Pack Countinue Pavement Surface Diagnostic D Yellow Surface
