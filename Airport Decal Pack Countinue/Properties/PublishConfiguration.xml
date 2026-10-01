@@ -19,11 +19,12 @@ ICAO Annex 14 is the design baseline. The aim is strict application of the real 
 - Runway numbers, threshold stripes, centre lines, aiming points, touchdown-zone markings, edge lines, displaced-threshold arrows and closure markings.
 - Taxiway centre lines, enhanced centre lines, holding-position patterns and non-load-bearing pavement boundaries.
 - Transparent white, black and yellow characters in 1 m, 2 m and 4 m sizes, decimal points and matching arrows, with modular backgrounds and thin outlines.
-- Basic aircraft-stand guidance and apron safety lines, asphalt and concrete surfaces, and paint surfaces.
+- Aircraft-stand guidance and apron safety lines, including wider continuous guidance, CAAM secondary guidance and a turn bar.
+- Asphalt, concrete and paint surfaces, plus test variants for subtle pavement normals and transparent CAAM no-parking hatching.
 
-Choose each marking for its intended use and airport layout. Some character outlines, colour values and placement presets still need further verification; this is not a claim of ICAO certification. The A2/B2 holding-position patterns follow the Annex 14 provisions applicable from 26 November 2026.
+Choose each marking for its intended use and airport layout. The creator's character artwork uses ICAO font sources; colour and placement presets are chosen for game scenery, and this is not a claim of ICAO certification. CAAM variants are identified separately. The A2/B2 holding-position patterns follow the Annex 14 provisions applicable from 26 November 2026.
 
-Version 0.6.3 is currently a local test build with transparent lettering, Surface fills and thin outline pieces.
+Version 0.6.4 is currently a local test build. New hatch transparency and material variants still need in-game validation.
 
 ## Recommended companion assets
 
@@ -59,7 +60,7 @@ Each addition will be researched against ICAO requirements and relevant guidance
 	<!--Link to the forum post where the mod can be discussed-->
 	<ForumLink Value="" />
 	<!--Version of the mod-->
-	<ModVersion Value="0.6.3.0" />
+	<ModVersion Value="0.6.4.0" />
 	<!--Recommended version of the base game to use the mod-->
 	<GameVersion Value="1.5.*" />
 	<!--Dependency for the mod, can be set multiple times-->
@@ -68,7 +69,7 @@ Each addition will be researched against ICAO requirements and relevant guidance
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-	<ChangeLog Value="Use existing EAI menu categories; remove redundant baked characters and one duplicate aiming-point block; restore original runway glyphs; add 1 m lettering, decimal points, matching arrows and thin outlines; simplify runtime to EAI loading only." />
+	<ChangeLog Value="Add 30 cm stand guidance, CAAM secondary guidance and a turn bar; prototype a transparent no-parking hatch surface and subtle-normal pavement materials. Preserve all existing assets and the author's tested white colour." />
 	<!--<ChangeLog>
 	</ChangeLog>-->
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->

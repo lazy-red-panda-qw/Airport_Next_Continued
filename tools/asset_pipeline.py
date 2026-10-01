@@ -350,7 +350,9 @@ class Pipeline:
         self.asset(rel,priority,width,length,title,note,ref,image=canvas.finish(),
                    painted=(gw+margin*2,cell_height+margin*2),note_en=note_en)
 
-    def surface(self,name,priority,color,pavement=False):
+    def surface(self,name,priority,color,pavement=False,*,image=None,normal=None,
+                material=None,title=None,note=None,note_en=None,reference=None,period=None,
+                noise_priority=None):
         if priority in SPEC["reserved_removed_priorities"]:
             raise ValueError(f"Removed Surface UiPriority remains reserved: {priority}: {name}")
         if priority in self.seen or not 1000 <= priority < 10000:
@@ -362,34 +364,39 @@ class Pipeline:
         noise_range = SPEC["surface_edge_defaults"]["noise"]
         if tuple(noise_range) == (0,0):
             raise ValueError("EdgeNoise=(0,0) made Surface invisible in the A/B/C/D game test.")
-        rng=np.random.default_rng(20261001+priority)
-        rgb=np.empty((512,512,4),dtype=np.uint8)
-        noise=rng.normal(0,2.8 if pavement else 0,(512,512,1))
-        rgb[:,:,:3]=np.clip(np.array(color)[None,None,:]+noise,0,255).astype(np.uint8)
-        rgb[:,:,3]=255
-        image=Image.fromarray(rgb)
+        if image is None:
+            rng=np.random.default_rng(20261001+(priority if noise_priority is None else noise_priority))
+            rgb=np.empty((512,512,4),dtype=np.uint8)
+            noise=rng.normal(0,2.8 if pavement else 0,(512,512,1))
+            rgb[:,:,:3]=np.clip(np.array(color)[None,None,:]+noise,0,255).astype(np.uint8)
+            rgb[:,:,3]=255
+            image=Image.fromarray(rgb)
         self.output(folder/"_BaseColorMap.png",png_bytes(image))
+        if normal is not None:
+            self.output(folder/"_NormalMap.png",png_bytes(normal))
         self.output(folder/"icon.png",png_bytes(image.resize((128,128),Image.Resampling.LANCZOS)))
         self.output(folder/"Prefab.json",json_bytes({"Components":{
             "Game.Prefabs.UIObject":{"m_Priority":priority,"m_IsDebugObject":False},
             "Game.Prefabs.RenderedArea":{"m_Roundness":0}}}))
-        self.output(folder/"Material.json",json_bytes({"Float":{
+        floats={
             "_DrawOrder":35 if pavement else 38,"colossal_DecalLayerMask":7,
             "_Metallic":0,"_Smoothness":0.15 if pavement else 0,
             "_NormalOpacity":0,"_MetallicOpacity":0,"colossal_UVScale":0.2,
-            "colossal_EdgeNormal":0},"Vector":{
+            "colossal_EdgeNormal":0}
+        floats.update(material or {})
+        self.output(folder/"Material.json",json_bytes({"Float":floats,"Vector":{
                 "_BaseColor":{"x":1,"y":1,"z":1,"w":1},
                 "colossal_EdgeFadeRange":{"x":fade[0],"y":fade[1],"z":0,"w":0},
                 "colossal_EdgeNoise":{"x":noise_range[0],"y":noise_range[1],"z":0,"w":0}}}))
         full=f'{SPEC["mod_name"]} Pavement {name} Surface'
-        title={"Airport Asphalt":"机场沥青表面","Airport Concrete":"机场混凝土表面",
+        title=title or {"Airport Asphalt":"机场沥青表面","Airport Concrete":"机场混凝土表面",
                "Paint White":"白色涂漆表面","Paint Yellow":"黄色涂漆表面",
                "Paint Red":"红色涂漆表面","Paint Black":"黑色涂漆表面"}[name]
-        note="面积与形状由玩家绘制；用于机场道面铺装。" if pavement else "面积与形状由玩家绘制；用于标记背景或涂漆区域，可搭配独立描边和字符。"
-        note_en="Draw the area and shape for airport pavement." if pavement else "Draw the area and shape for marking backgrounds or painted areas. Combine with separate outlines and characters."
-        self.record(rel,priority,None,None,None,None,35 if pavement else 38,title,
+        note=note or ("面积与形状由玩家绘制；用于机场道面铺装。" if pavement else "面积与形状由玩家绘制；用于标记背景或涂漆区域，可搭配独立描边和字符。")
+        note_en=note_en or ("Draw the area and shape for airport pavement." if pavement else "Draw the area and shape for marking backgrounds or painted areas. Combine with separate outlines and characters.")
+        self.record(rel,priority,None,None,None,period,floats["_DrawOrder"],title,
                     note,
-                    "EAI 1.7.5/1.7.6 新版 Surfaces 导入器",full,"SurfacePrefab",True,note_en=note_en)
+                    reference or "EAI 1.7.5/1.7.6 新版 Surfaces 导入器",full,"SurfacePrefab",True,note_en=note_en)
         self.contacts.append((priority,title,image.resize((128,128),Image.Resampling.LANCZOS)))
 
     def finish(self):
@@ -416,7 +423,8 @@ class Pipeline:
         # Representative contact sheet, instead of hundreds of unreadable thumbnails.
         selected=[r for r in sorted(self.contacts) if r[0] in [1000,1001,1002,1370,2010,2011,2012,2750,4000,4010,4040,4060,4090,4100,4110,4120]
                   or 5000<=r[0]<6100 or r[0] in [7000,7001,7180,7181,7400,8100,8110,8120,8130,8140,8150,9900,9910]
-                  or 8200<=r[0]<8430 or 7300<=r[0]<7330]
+                  or 8200<=r[0]<8430 or 7300<=r[0]<7330 or 7420<=r[0]<7500
+                  or r[0] in (8160,8170,8500)]
         from PIL import ImageFont
         font=ImageFont.load_default()
         thumb=Image.new("RGB",(8*160,math.ceil(len(selected)/8)*170),(48,48,48))
@@ -555,11 +563,110 @@ def generate_backgrounds(p):
                     canvas=c,painted=(length,outer),draw_order=order)
 
 
+def pavement_normal(seed, tile_m=5.0, amplitude_m=0.00018):
+    """Small periodic relief; RGB source normals are packed to AG by the game importer."""
+    rng=np.random.default_rng(seed)
+    x,y=np.meshgrid((np.arange(512)+.5)/512,(np.arange(512)+.5)/512)
+    dx=np.zeros_like(x);dy=np.zeros_like(y)
+    for _ in range(20):
+        fx,fy=rng.integers(-64,65,size=2)
+        phase=rng.uniform(0,2*math.pi)
+        wave=np.cos(2*math.pi*(fx*x+fy*y)+phase)
+        dx+=amplitude_m/20*2*math.pi*fx/tile_m*wave
+        dy+=amplitude_m/20*2*math.pi*fy/tile_m*wave
+    normal=np.stack((-dx,-dy,np.ones_like(dx)),axis=-1)
+    normal/=np.linalg.norm(normal,axis=-1,keepdims=True)
+    rgba=np.empty((512,512,4),dtype=np.uint8)
+    rgba[:,:,:3]=np.rint((normal*.5+.5)*255).astype(np.uint8)
+    rgba[:,:,3]=255
+    return Image.fromarray(rgba)
+
+
+def hatch_texture(width_m,gap_m,color):
+    """One seamless 45-degree cycle. Width/gap are measured normal to each stripe."""
+    period=width_m+gap_m
+    n=512;aa=4
+    x,y=np.meshgrid((np.arange(n*aa)+.5)/(n*aa),(np.arange(n*aa)+.5)/(n*aa))
+    distance=np.abs(((x-y)*period+period/2)%period-period/2)
+    alpha=(distance<width_m/2).astype(np.float32)
+    alpha=alpha.reshape(n,aa,n,aa).mean(axis=(1,3))
+    rgba=np.empty((n,n,4),dtype=np.uint8)
+    # Keep paint RGB beneath transparent pixels to avoid a dark mip/filter fringe.
+    rgba[:,:,:3]=color
+    rgba[:,:,3]=np.rint(alpha*255).astype(np.uint8)
+    return Image.fromarray(rgba)
+
+
+def generate_stand_components(p):
+    profile=SPEC["stand_components"]
+    width=profile["continuous_width_m"]
+    c=Canvas(width+2*PADDING,9);c.rect(PADDING,0,width,9,COLORS["Yellow"])
+    p.asset("CustomNetlanes/Apron/Stand Lead In 30cm",7420,c.width,c.height,
+            "黄色机位引导线 · 30 cm",
+            "黄色连续引导线，宽 0.30 m；用于机位引入、转弯和引出路径。",
+            "ICAO 5.2.13：至少 0.15 m；0.30 m 为醒目宽度预设",
+            canvas=c,period=9,painted=(width,9),draw_order=41,
+            note_en="Yellow continuous line, 0.30 m wide. Use for aircraft-stand lead-in, turning and lead-out paths.")
+    period=profile["dash_paint_m"]+profile["dash_gap_m"]
+    for i,width in enumerate(profile["secondary_widths_m"]):
+        c=Canvas(width+2*PADDING,period)
+        c.rect(PADDING,0,width,profile["dash_paint_m"],COLORS["Yellow"])
+        p.asset(f"CustomNetlanes/Apron/Stand Secondary CAAM {round(width*100)}cm",7430+i,c.width,c.height,
+                f"多机型引导虚线 · CAAM · {round(width*100)} cm",
+                f"黄色虚线，宽 {width:g} m；实段 2 m、空段 2 m，用于多机型机位的次要引导路径。",
+                "ICAO 5.2.13.6；CAAM CAGM 1403 (2025) 8.1/8.2，图 8-1/2；0.30 m 为加宽预设",
+                canvas=c,period=period,painted=(width,profile["dash_paint_m"]),draw_order=41,
+                note_en=f"Yellow broken line, {width:g} m wide; 2 m paint / 2 m gap. Secondary guidance path for multi-aircraft stands.")
+    # Figure 4-9 measures 6 m INCLUDING its 2 x 2 m triangular arrow.
+    length=profile["turn_bar_length_m"];head=profile["turn_arrow_size_m"]
+    stroke=profile["turn_bar_width_m"]
+    c=Canvas(length+2*PADDING,head+2*PADDING);cy=c.height/2
+    c.rect(PADDING,cy-stroke/2,length-head+stroke,stroke,COLORS["Yellow"])
+    c.polygon([(PADDING+length-head,cy-head/2),(PADDING+length,cy),
+               (PADDING+length-head,cy+head/2)],COLORS["Yellow"])
+    p.asset("CustomDecals/Apron/Stand Turn Bar CAAM 6m",7440,c.width,c.height,
+            "机位转弯条 · CAAM · 6 m",
+            "黄色转弯条，总长 6 m、杆宽 0.15 m，箭头 2 × 2 m；垂直引导线放置，指示开始转弯的位置。",
+            "ICAO 5.2.13.9；CAAM CAGM 1403 (2025) 4.9，图 4-9",
+            canvas=c,painted=(length,head),draw_order=41,
+            note_en="Yellow turn bar, 6 m overall; 0.15 m shaft and 2 x 2 m arrowhead. Place perpendicular to the guidance line at the start of a turn.")
+
+
+def generate_surface_prototypes(p):
+    profile=SPEC["hatch_surface"]
+    if profile["angle_degrees"] != 45:
+        raise ValueError("This seamless hatch master supports the 45-degree preset only.")
+    width,gap=profile["width_m"],profile["clear_gap_m"]
+    # UV scale is cycles/metre along world axes; perpendicular pitch is shorter by sqrt(2).
+    tile_m=math.sqrt(2)*(width+gap)
+    p.surface("No Parking Hatch CAAM Red 10cm",8500,COLORS["Red"],
+              image=hatch_texture(width,gap,COLORS["Red"]),period=tile_m,
+              material={"_DrawOrder":40,"colossal_UVScale":1/tile_m},
+              title="禁停斜线区域 · CAAM · 红色 10 cm（试验）",
+              note="红色 45° 斜线，宽 0.10 m、垂直净距 0.75 m；间隙透明，区域由玩家绘制，红色边框另画。",
+              note_en="Red 45-degree hatching, 0.10 m wide with 0.75 m perpendicular clear gaps. Draw the area; transparent gaps and a separate red outline.",
+              reference="CAAM CAGM 1403 (2025) 11.1/11.2，图 11-1；45° 和 0.75 m 为图示/范围内预设；Surface UV 米制换算待游戏测量")
+    # Baseline colours and base maps stay identical. Only new comparison surfaces
+    # replace inherited normals and apply their own non-metallic matte response.
+    for name,priority,color,source_priority,seed,smoothness,zh in [
+        ("Airport Concrete Fine",8160,(155,153,145),8110,101,0.15,"混凝土"),
+        ("Airport Asphalt Fine",8170,(67,69,70),8100,102,0.10,"沥青")]:
+        p.surface(name,priority,color,True,noise_priority=source_priority,
+                  normal=pavement_normal(seed),
+                  material={"_NormalOpacity":1,"_MetallicOpacity":1,"_Smoothness":smoothness,
+                            "_NormalAlphaSource":0,"_MetallicAlphaSource":0},
+                  title=f"机场{zh}表面 · 细腻材质（试验）",
+                  note=f"面积与形状由玩家绘制；与原{zh}同色，使用轻微法线细节和哑光材质，用于道面效果对照。",
+                  note_en=f"Draw airport pavement. Same base map as the original {'concrete' if zh=='混凝土' else 'asphalt'}, with subtle normals and a matte material for comparison.",
+                  reference="EAI 1.7.6 SurfacesImporter / TextureAssetImporterUtils；本机 AreaBatchSystem 与 TextureImporter；优化效果待游戏实测")
+
+
 def generate(p):
     generate_characters(p)
     generate_runway_characters(p)
     generate_backgrounds(p)
     generate_arrows(p)
+    generate_stand_components(p)
 
     # Yellow taxiway patterns. Both dark and light pavement versions share geometry.
     for role,base in [("center",6000),("enhanced",6010),("hold",6020),("ils",6040),("intermediate",6060),("edge",6070)]:
@@ -689,6 +796,7 @@ def generate(p):
         ("Paint White",8120,COLORS["White"],False),("Paint Yellow",8130,COLORS["Yellow"],False),
         ("Paint Red",8140,COLORS["Red"],False),("Paint Black",8150,COLORS["Black"],False)]:
         p.surface(name,priority,color,pavement)
+    generate_surface_prototypes(p)
     c=Canvas(10+.3,10+.3)
     for i in range(11):
         x=.15+i;c.rect(x-.015,.15,.03,10,COLORS["White"]);c.rect(.15,x-.015,10,.03,COLORS["White"])

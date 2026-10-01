@@ -1,12 +1,14 @@
-# Airport Details Pack Continued — 0.6.3 本地测试版
+# Airport Details Pack Continued — 0.6.4 本地测试版
 
-本包依赖 Extra Assets Importer（PDX 80529）、Extra Detailing Tools（80528）及它们所需的 ExtraLib（75724）。0.6.3 共 **462 项：425 Decal、31 NetLane、6 Surface**。玩家用透明字符、Surface 底色、细描边线和已有背景条自行组合标记。菜单收拢到 EAI 的字符、道路贴花、道路线条、铺装四类；移除 148 个带底字符和一个重复瞄准点，加入 1 m 字符、小数点、配套箭头和描边线，恢复作者原始跑道字形。
+本包依赖 Extra Assets Importer（PDX 80529）、Extra Detailing Tools（80528）及它们所需的 ExtraLib（75724）。0.6.4 共 **469 项：426 Decal、34 NetLane、9 Surface**。玩家用透明字符、Surface 底色、细描边线和已有背景条自行组合标记；继续使用字符、道路贴花、道路线条、铺装四类菜单。
+
+本轮新增 30 cm 连续机位引导线、15 / 30 cm CAAM 多机型引导虚线、CAAM 6 m 转弯条，以及一个透明间隙的红色禁停斜线 Surface 原型。另有混凝土、沥青两项细腻材质对照样品，供测试法线和哑光材质；原 462 项的贴图、尺寸、材质配置、名称和优先级均保留，白色保持作者实测确定的 RGB 177/177/177。新增斜线和材质的游戏效果尚待验收。
 
 游戏端只调用 EAI 的 `LoadCustomAssets`，已移除自定义 Prefab 刷新系统。Decal / NetLane 使用旧导入格式，Surface 使用新版格式。源码中的 `CustomAssets` 在部署时展开到 DLL 同级：运行包直接包含 `CustomDecals`、`CustomNetlanes`、`Surfaces`、`Localization`。本版不生成自动文字、预设机位布局或存档转换逻辑。
 
 当前工作：`codex/icao-standardization`。修改前基线：`baseline/pre-icao-20261001`，提交 `7cf18e1`。基线包含用户后来补齐的贴图。初代 AirportNext 仓库未作修改。
 
-本版验收步骤见 [0.6.3 测试指南](docs/test-round-4.md)。详细尺寸、标准适用条件、字段含义与回退见 [实施说明](docs/ICAO-implementation.md)。每个资产的路径、UiPriority、投影大小、实际涂漆范围、虚线周期和用途见 [完整清单](docs/asset-catalog.csv) 或 [JSON 清单](docs/asset-catalog.json)。[图样预览](docs/asset-preview.png) 中的编号对应 UiPriority。
+本版验收步骤见 [0.6.4 测试指南](docs/test-round-5.md)，上一版实测见 [0.6.3 记录](docs/test-round-4.md)。详细尺寸、标准适用条件、字段含义与回退见 [实施说明](docs/ICAO-implementation.md)。每个资产的路径、UiPriority、投影大小、实际涂漆范围、虚线周期和用途见 [完整清单](docs/asset-catalog.csv) 或 [JSON 清单](docs/asset-catalog.json)。[图样预览](docs/asset-preview.png) 中的编号对应 UiPriority。
 
 后续制作对话可直接阅读 [机场标线扩展与配套资产交接](docs/airport-expansion-handoff.md)，其中包含可选社区资产的版本与反馈核查、服务道路和机坪标线的标准依据、待补核资料、建议制作批次及验收要求。
 
