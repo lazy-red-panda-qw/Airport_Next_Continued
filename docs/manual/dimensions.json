@@ -1,0 +1,431 @@
+{
+  "groups": [
+    {
+      "title_zh": "字符、颜色与组合背景",
+      "title_en": "Characters, colours and backgrounds",
+      "rows": [
+        [
+          "通用字符",
+          "General characters",
+          "白/黑/黄；A-Z、0-9、连字符、小数点；字高档1/2/4 m；保留作者字形长宽比。",
+          "White/black/yellow; A-Z, 0-9, hyphen and decimal point; 1/2/4 m lettering presets; original glyph aspect ratios retained.",
+          "PKG"
+        ],
+        [
+          "颜色RGB",
+          "RGB palette",
+          "白177/177/177，黄255/239/73，红176/9/4，黑0/0/0。游戏配色，不是认证色度。",
+          "White 177/177/177, yellow 255/239/73, red 176/9/4, black 0/0/0. Game palette, not certified chromaticity.",
+          "PKG"
+        ],
+        [
+          "连字符",
+          "Hyphens",
+          "1/2/4 m字高档对应约0.553/1.107/2.214 m长，0.160/0.320/0.641 m厚。",
+          "For 1/2/4 m lettering: approximately 0.553/1.107/2.214 m long and 0.160/0.320/0.641 m thick.",
+          "PKG"
+        ],
+        [
+          "小数点与箭头",
+          "Points and arrows",
+          "小数点边长0.1/0.2/0.4 m；箭头长1/2/4 m，宽约0.299/0.598/1.196 m。",
+          "Point side length 0.1/0.2/0.4 m; arrows 1/2/4 m long, approximately 0.299/0.598/1.196 m wide.",
+          "PKG"
+        ],
+        [
+          "背景",
+          "Backgrounds",
+          "配套2/4 m字高，边缘留白0.5 m、框线0.15 m；带框总宽3.3/5.3 m；红底总宽3/5 m。",
+          "For 2/4 m lettering: 0.5 m margins, 0.15 m border; framed width 3.3/5.3 m; red fill width 3/5 m.",
+          "PKG"
+        ],
+        [
+          "宽幅、端帽与描边",
+          "Wide blocks, caps, outlines",
+          "固定背景长8/15 m；端帽旋转180度用于另一端。描边白0.10、黑0.10/0.15、黄0.10/0.15、红0.10 m。",
+          "Fixed background length 8/15 m; rotate a cap 180 degrees for the opposite end. Outlines: white 0.10, black 0.10/0.15, yellow 0.10/0.15, red 0.10 m.",
+          "PKG"
+        ],
+        [
+          "字高适用条件",
+          "Lettering applicability",
+          "1/2/4 m是组合档位；机位识别须驾驶舱可读。不同信息/强制标记另有角色、字高与位置条件。",
+          "1/2/4 m are assembly presets. Stand identification must be readable from the cockpit; information and mandatory markings have separate role, height and location conditions.",
+          "A14 5.2.13/16/17"
+        ]
+      ]
+    },
+    {
+      "title_zh": "跑道编号、入口与中线",
+      "title_en": "Runway designators, thresholds and centre lines",
+      "rows": [
+        [
+          "跑道编号",
+          "Designators",
+          "两位数，个位数前补0；平行跑道配L/C/R。基准高9 m；一般宽3 m；1宽1.1，4宽3.9，7宽3.5 m；6/9外接高9.5 m。",
+          "Two digits with a leading zero where needed; L/C/R for parallel runways. Base height 9 m, usual width 3 m; 1: 1.1 m, 4: 3.9 m, 7: 3.5 m wide; 6/9 bounds 9.5 m high.",
+          "A14 5.2.2, Fig 5-3"
+        ],
+        [
+          "编号放大档",
+          "Designator scales",
+          "乘1/2/3为包内放大档。图5-3尺寸校准外接框，不能据此宣称字形逐笔认证。",
+          "1x/2x/3x are package scale options. Figure 5-3 calibrates bounds; this does not certify every glyph stroke.",
+          "PKG"
+        ],
+        [
+          "入口条纹",
+          "Threshold stripes",
+          "单根1.8 x 30 m；普通净距约1.8 m、中央3.6 m；始端距入口6 m。",
+          "Each stripe 1.8 x 30 m; usual clear gaps approximately 1.8 m, centre gap 3.6 m; stripes start 6 m from the threshold.",
+          "A14 5.2.4"
+        ],
+        [
+          "条纹总数",
+          "Stripe counts",
+          "18/23/30/45/60 m跑道分别4/6/8/12/16根；本包提供单根及单侧2/3/4/6/8根组。",
+          "18/23/30/45/60 m runways use 4/6/8/12/16 stripes; the pack provides single stripes and half-groups of 2/3/4/6/8.",
+          "A14 5.2.4"
+        ],
+        [
+          "中线周期",
+          "Centre-line repeat",
+          "本包实30 m、空30 m、周期60 m；规范组合长度50-75 m，实段至少30 m或空段长度中的较大值。",
+          "Pack: 30 m paint, 30 m gap, 60 m repeat. Standard combined length 50-75 m; paint at least the greater of 30 m or the gap length.",
+          "A14 5.2.3"
+        ],
+        [
+          "中线线宽",
+          "Centre-line widths",
+          "0.90 m适用于精密进近II/III；0.45 m适用于精密I及代码3/4非精密；0.30 m适用于代码1/2非精密及非仪表跑道。",
+          "0.90 m for precision CAT II/III; 0.45 m for precision CAT I and code 3/4 non-precision; 0.30 m for code 1/2 non-precision and non-instrument runways.",
+          "A14 5.2.3"
+        ]
+      ]
+    },
+    {
+      "title_zh": "瞄准点、接地带与边线",
+      "title_en": "Aiming points, touchdown zones and side stripes",
+      "rows": [
+        [
+          "LDA小于800 m",
+          "LDA below 800 m",
+          "起点150 m；规范长30-45 m、宽4 m、两块内缘距6 m；本包4 x 30 m。",
+          "Start 150 m; standard length 30-45 m, width 4 m, inner-side spacing 6 m; pack block 4 x 30 m.",
+          "A14 Table 5-1"
+        ],
+        [
+          "LDA 800至小于1200 m",
+          "LDA 800 to below 1200 m",
+          "起点250 m；长30-45 m、宽6 m、内缘距9 m；本包6 x 30 m。",
+          "Start 250 m; length 30-45 m, width 6 m, inner-side spacing 9 m; pack 6 x 30 m.",
+          "A14 Table 5-1"
+        ],
+        [
+          "LDA 1200至小于2400 m",
+          "LDA 1200 to below 2400 m",
+          "起点300 m；长45-60 m、宽6-10 m、内缘距18-22.5 m；本包6 x 45 m。",
+          "Start 300 m; length 45-60 m, width 6-10 m, inner-side spacing 18-22.5 m; pack 6 x 45 m.",
+          "A14 Table 5-1"
+        ],
+        [
+          "LDA至少2400 m",
+          "LDA at least 2400 m",
+          "起点400 m；长45-60 m、宽6-10 m、内缘距18-22.5 m。6 x 45 m共用块；另有10 x 60 m放大档。",
+          "Start 400 m; length 45-60 m, width 6-10 m, spacing 18-22.5 m. Shared 6 x 45 m block and a 10 x 60 m option.",
+          "A14 Table 5-1 / PKG"
+        ],
+        [
+          "瞄准点条件",
+          "Aiming-point conditions",
+          "提供目视进近坡度指示系统时，起点与其坡度原点一致；有接地带时，两者内侧间距一致。",
+          "With a visual approach slope indicator, the start coincides with its slope origin. Aiming-point and touchdown-zone inner spacing must agree.",
+          "A14 5.2.5.3/4"
+        ],
+        [
+          "接地带图样",
+          "Touchdown-zone patterns",
+          "基本式单块至少3 x 22.5 m；编码式每条至少1.8 x 22.5 m，净距1.5 m；本包取下限。",
+          "Basic block at least 3 x 22.5 m; coded stripes at least 1.8 x 22.5 m with 1.5 m gaps; pack uses these minimum dimensions.",
+          "A14 5.2.6"
+        ],
+        [
+          "接地带纵向布置",
+          "Touchdown-zone placement",
+          "从入口每150 m设成对站；与瞄准点重合或在其50 m内的站省略。",
+          "Paired stations at 150 m intervals from the threshold; omit stations coincident with or within 50 m of an aiming point.",
+          "A14 5.2.6"
+        ],
+        [
+          "接地带对数",
+          "Touchdown-zone pair count",
+          "LDA或双向入口间距小于900、900-1200、1200-1500、1500-2400、至少2400 m：1/2/3/4/6对；区间上界不含。",
+          "LDA or threshold spacing below 900, 900-1200, 1200-1500, 1500-2400, at least 2400 m: 1/2/3/4/6 pairs; interval upper bounds excluded.",
+          "A14 5.2.6.3"
+        ],
+        [
+          "跑道边线",
+          "Runway side stripes",
+          "建议宽至少0.90 m（跑道宽至少30 m）或0.45 m（较窄）；宽超过60 m时边线建议距中线30 m。",
+          "Recommended width at least 0.90 m for runways at least 30 m wide, otherwise 0.45 m; on runways wider than 60 m, place stripes 30 m from the centre line.",
+          "A14 5.2.7"
+        ]
+      ]
+    },
+    {
+      "title_zh": "内移入口、V形与关闭标记",
+      "title_en": "Displaced thresholds, chevrons and closure marks",
+      "rows": [
+        [
+          "内移入口横条",
+          "Displaced-threshold bar",
+          "图5-4(B)横条至少1.80 m厚；本包有10 m拼接块和可拉取连续NetLane。",
+          "Figure 5-4(B) bar at least 1.80 m thick; pack provides a 10 m module and a continuous NetLane.",
+          "A14 5.2.4, Fig 5-4(B)"
+        ],
+        [
+          "白箭头",
+          "White arrows",
+          "箭头段h至少10 m，张宽h/3，笔画h/12；本包细杆0.45 m、总长30 m；图示纵向箭头间隔50 m。",
+          "Head h at least 10 m, spread h/3, stroke h/12. Pack stem 0.45 m, total length 30 m; figure shows 50 m longitudinal arrow spacing.",
+          "A14 Fig 5-4 / PKG"
+        ],
+        [
+          "V形适用区域",
+          "Chevron applicability",
+          "不可正常使用的前入口铺筑区域超过60 m时建议整段标示；优先黄色、笔画至少0.90 m。",
+          "Recommended over paved pre-threshold areas exceeding 60 m that are unsuitable for normal aircraft use; preferably yellow, stroke at least 0.90 m.",
+          "A14 7.3"
+        ],
+        [
+          "V形图示",
+          "Chevron geometry",
+          "图7-3两臂45度、顶点间距30 m、侧距至漆端最多7.5 m；本包30/45/60 m道面档留1.5 m侧距。",
+          "Figure 7-3: 45-degree arms, 30 m apex spacing, at most 7.5 m lateral distance to paint ends. Pack 30/45/60 m pavement presets leave 1.5 m at each side.",
+          "A14 Fig 7-3 / PKG"
+        ],
+        [
+          "V形与单线规格",
+          "Chevron and single-line sizes",
+          "整幅漆宽27/42/57 m，线宽0.90 m、周期30 m；单线0.90 m，长度自由，两臂独立拼装。",
+          "Full paint width 27/42/57 m, 0.90 m strokes, 30 m repeat; independent 0.90 m line for separately drawn arms and a chosen span.",
+          "PKG"
+        ],
+        [
+          "关闭标记",
+          "Closure marks",
+          "白跑道X笔画1.8 m、端点基准14.5 x 36 m；黄滑行道X斜臂全长9 m、笔画1.5 m；投影包含斜端外伸。",
+          "White runway X: 1.8 m strokes, reference endpoint dimensions 14.5 x 36 m. Yellow taxiway X: 9 m full diagonal arms, 1.5 m strokes. Projection includes slanted-end extents.",
+          "A14 7.1, Fig 7-1"
+        ]
+      ]
+    },
+    {
+      "title_zh": "滑行道与等待位置",
+      "title_en": "Taxiways and holding positions",
+      "rows": [
+        [
+          "滑行道中线",
+          "Taxiway centre line",
+          "黄线至少0.15 m；浅色道面档每侧黑边0.075 m为对比预设。",
+          "Yellow line at least 0.15 m; light-pavement option has 0.075 m black contrast edging on each side.",
+          "A14 5.2.8 / PKG"
+        ],
+        [
+          "增强中线",
+          "Enhanced centre line",
+          "中线和两侧虚线均0.15 m，净距0.15 m；侧虚线实3 m、空1 m；从等待线向后约47 m。",
+          "Centre and side-dash strokes 0.15 m, clear gaps 0.15 m; side dashes 3 m paint/1 m gap; extend approximately 47 m back from the holding marking.",
+          "A14 Fig 5-7"
+        ],
+        [
+          "A2等待线",
+          "A2 holding marking",
+          "四线各0.30 m、净距0.30 m；虚实各0.90 m，周期1.80 m；沿横向画，实线朝等待侧。",
+          "Four 0.30 m strokes, 0.30 m clear spacing; 0.90 m paint/gap, 1.80 m repeat. Draw transversely, solid lines facing the holding side.",
+          "A14 Fig 5-8"
+        ],
+        [
+          "B2 ILS等待线",
+          "B2 ILS holding marking",
+          "两纵线0.30 m、净距1.50 m；双横档0.30 m、净距0.30 m；组间净空3 m，周期3.90 m。",
+          "Two 0.30 m longitudinal strokes, 1.50 m clear spacing; paired 0.30 m bars with a 0.30 m gap; 3 m clear group spacing, 3.90 m repeat.",
+          "A14 Fig 5-8"
+        ],
+        [
+          "A2/B2日期",
+          "A2/B2 date",
+          "本包采用放大式；截至2026-11-25仍可选择A1/A2或B1/B2；自2026-11-26起采用A2/B2。",
+          "Pack uses enlarged patterns. A1/A2 or B1/B2 remain options through 25 November 2026; A2/B2 apply from 26 November 2026.",
+          "A14 5.2.10.5/6"
+        ],
+        [
+          "中间等待与非承重边界",
+          "Intermediate holds and boundaries",
+          "中间等待单黄虚线0.30 m，实/空0.90 m；非承重双黄实线各0.15 m，净距0.15 m。",
+          "Intermediate hold: one 0.30 m yellow dashed line, 0.90 m paint/gap. Non-load-bearing boundary: two 0.15 m yellow solid lines, 0.15 m gap.",
+          "A14 5.2.11 / 7.2.3"
+        ]
+      ]
+    },
+    {
+      "title_zh": "机位、安全线与独立配套",
+      "title_en": "Stands, safety lines and separate details",
+      "rows": [
+        [
+          "机位引导与安全线",
+          "Stand guidance and safety",
+          "机位黄线至少0.15 m，本包0.15/0.30 m；对比黑边各0.075 m。安全线连续、至少0.10 m，颜色醒目并区别于机位线。",
+          "Stand guidance at least 0.15 m; pack 0.15/0.30 m, with 0.075 m black edging. Safety lines continuous, at least 0.10 m, conspicuous and distinct from stand markings.",
+          "A14 5.2.13/14 / PKG"
+        ],
+        [
+          "多机型断线",
+          "Secondary guidance",
+          "CAAM实段2 m、空段2 m；宽0.15 m；本包另提供0.30 m加宽档。",
+          "CAAM 2 m paint/2 m gap, 0.15 m width; pack also offers a 0.30 m wider preset.",
+          "CAAM 8.1/2 / PKG"
+        ],
+        [
+          "转弯条",
+          "Turn bar",
+          "CAAM总长6 m含箭头，总宽2 m；杆0.15 m；三角箭头纵横各2 m。",
+          "CAAM total length 6 m including arrow, overall width 2 m; 0.15 m shaft; triangular arrow 2 x 2 m.",
+          "CAAM Fig 4-9"
+        ],
+        [
+          "鼻轮与驾驶员停止参照",
+          "Nosewheel and pilot datums",
+          "CAAC鼻轮横条2 x 0.15 m、黑边0.05 m、旁注字0.30 m；驾驶员参照线6 x 0.15 m，按实际左座位置摆放。",
+          "CAAC nosewheel bar 2 x 0.15 m, 0.05 m black border, 0.30 m label; pilot-reference bar 6 x 0.15 m, placed for the actual left-seat position.",
+          "CAAC 6.2.16 / PKG"
+        ],
+        [
+          "CAAM后推停止标记",
+          "CAAM push-back stop",
+          "自0.30 m中线左缘净伸1 m，条宽0.30 m；含中线总1.30 m；字高1 m、黑底高1.5 m。 标签左右各留0.15 m。",
+          "Extends 1 m clear of the left edge of a 0.30 m centre line; bar 0.30 m wide, 1.30 m total including centre line; 1 m text on a 1.5 m high black panel. Label side margins are 0.15 m each.",
+          "CAAM Fig 5-9/14/15"
+        ],
+        [
+          "机型标签",
+          "Aircraft-type labels",
+          "A320/B737/A350/B777/B747/A380，各CAAC与CAAM两款；不预设真实鼻轮或驾驶员坐标。",
+          "A320/B737/A350/B777/B747/A380, each in CAAC and CAAM variants; actual nosewheel or pilot coordinates are not preset.",
+          "PKG"
+        ],
+        [
+          "净空建议",
+          "Clearance recommendations",
+          "A/B为3 m，C为4.5 m，D/E/F为7.5 m；本包保护完整机长/翼展矩形。",
+          "A/B: 3 m, C: 4.5 m, D/E/F: 7.5 m; pack bases protect a full aircraft length/span rectangle.",
+          "A14 3.13.7 / PKG"
+        ],
+        [
+          "基础留白与编号空档",
+          "Reserves and identifier gap",
+          "非通航侧留白6/8 m，通航3/5 m；编号空档3 m，引入延长8 m。白外界0.15 m、红安全线0.10 m。 编号空档从入口后1 m开始。",
+          "Side reserves 6/8 m for non-GA, 3/5 m for GA; 3 m identifier gap, 8 m lead extension; white outer line 0.15 m, red safety line 0.10 m. Identifier gap starts 1 m beyond the entry.",
+          "PKG"
+        ],
+        [
+          "开放回转与贯通",
+          "Open turnaround and through",
+          "回转R12 m、出口直线8 m、箭头2 x 2 m；贯通中央段28.2 m、两端各8 m。半径与布局为造景预设。",
+          "Turnaround R12 m, 8 m exit straight, 2 x 2 m arrow; through stand 28.2 m centre segment plus 8 m at each end. Radius and layout are scenery presets.",
+          "PKG"
+        ],
+        [
+          "廊桥活动区",
+          "Bridge movement areas",
+          "Heathrow样式放射区R12/18 m、90度、每15度一线、白线0.10 m；尺寸为包内预设。",
+          "Heathrow-style radial areas R12/18 m, 90-degree sector, rays every 15 degrees, 0.10 m white strokes; dimensions are package presets.",
+          "LHR / PKG"
+        ],
+        [
+          "廊桥轮位",
+          "Bridge wheel positions",
+          "3 m圆/4 m方为尺寸档；白底红边至少0.10 m；按轮组外宽选择，外轮至边界不超过0.50 m。",
+          "3 m circle/4 m square are presets; white fill with red border at least 0.10 m; choose for actual wheel-group width, outer wheel to boundary at most 0.50 m.",
+          "CAAM 12.3/4 / PKG"
+        ],
+        [
+          "禁停斜线",
+          "No-parking hatching",
+          "CAAM红线至少0.10 m，垂直间距0.50-1.00 m；本包0.10 m、透明净距0.75 m、45度图示预设。",
+          "CAAM red strokes at least 0.10 m, perpendicular gap 0.50-1.00 m; pack 0.10 m, 0.75 m transparent gap and 45-degree illustrated preset.",
+          "CAAM 11.1/2 / PKG"
+        ],
+        [
+          "禁停模块与设备框",
+          "Hatch modules and parking boxes",
+          "禁停框6 x 10/10 x 20 m；梯形端宽6/12 m、长12 m；L形10 x 14 m、臂4/6 m。设备框3 x 5/6 x 10 m、白线0.10 m。",
+          "Hatch rectangles 6 x 10/10 x 20 m; trapezoid end widths 6/12 m, length 12 m; L shape 10 x 14 m, arms 4/6 m. Parking boxes 3 x 5/6 x 10 m, white strokes 0.10 m.",
+          "CAAM 11/15 / PKG"
+        ]
+      ]
+    },
+    {
+      "title_zh": "Surface、投影与量测",
+      "title_en": "Surfaces, projection and measurement",
+      "rows": [
+        [
+          "正式道面",
+          "Pavement materials",
+          "8160混凝土平均RGB128/126/118、光滑度0.04；8170沥青RGB约67/69/70、光滑度0.10；均5 m贴图周期与法线。",
+          "8160 concrete mean RGB128/126/118, smoothness 0.04; 8170 asphalt approximately RGB67/69/70, smoothness 0.10; both use 5 m texture tiles and normal maps.",
+          "PKG / EAI"
+        ],
+        [
+          "混凝土细节",
+          "Concrete detail",
+          "1024 px；颗粒尺度0.025-0.10 m，法线RMS斜率0.045、最大0.18；属于光照材质参数。",
+          "1024 px; aggregate scale 0.025-0.10 m, normal RMS slope 0.045, maximum 0.18; these are shading parameters.",
+          "PKG"
+        ],
+        [
+          "斜线Surface周期",
+          "Hatch Surface tile",
+          "垂直周期0.10+0.75=0.85 m；45度轴向方形边长sqrt(2) x 0.85=1.202081528 m；UVScale约0.831890331。",
+          "Perpendicular pitch 0.10+0.75=0.85 m; 45-degree axial square side sqrt(2) x 0.85=1.202081528 m; UVScale approximately 0.831890331.",
+          "PKG / EAI"
+        ],
+        [
+          "投影与透明留白",
+          "Projection and padding",
+          "Decal的MeshSize.x/z为含透明留白的投影米数；alpha至少128的外接框量涂漆。默认padding 0.15 m，复合组件可不同。",
+          "Decal MeshSize.x/z are projected metres including transparent space; paint bounds measured at alpha at least 128. Default padding 0.15 m; composite assets may differ.",
+          "PKG / EAI"
+        ],
+        [
+          "NetLane配置",
+          "NetLane configuration",
+          "MeshSize.z与OverrideLength一致；连续线9 m内部周期；其他周期1.8/3.9/4/30/60 m。首尾裁切不代表完整周期。",
+          "MeshSize.z equals OverrideLength. Continuous lines use a 9 m internal tile; other repeats 1.8/3.9/4/30/60 m. Endpoint crops do not represent a full repeat.",
+          "PKG / EAI"
+        ],
+        [
+          "绘制层",
+          "Draw order",
+          "铺装35，涂漆Surface38，禁停斜线40，背景/描边/基础/廊桥/设备41，字符/箭头/停止标注/其他标线42。",
+          "Pavement 35; paint Surfaces 38; hatching 40; backgrounds/outlines/bases/bridge/parking details 41; characters/arrows/stop labels/other markings 42.",
+          "PKG"
+        ],
+        [
+          "Surface边缘",
+          "Surface edges",
+          "Noise=(0,1)，Fade=(0.75,0.25)，Roundness=0；表面轮廓可柔化，不用Noise=(0,0)关闭噪声。",
+          "Noise=(0,1), Fade=(0.75,0.25), Roundness=0. Surface edges can soften; Noise=(0,0) is not a noise-disable setting.",
+          "PKG / EAI"
+        ],
+        [
+          "量尺",
+          "Measurement helpers",
+          "网格首末中心距10 m、格距1 m；20 m标尺每1 m刻度、每5 m长刻度；工具缩放会同比改变所有米制尺寸。",
+          "Grid first-to-last centre distance 10 m, 1 m spacing; 20 m ruler with 1 m ticks and 5 m major ticks. Tool scaling changes all metre dimensions proportionally.",
+          "PKG / USER"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,13 +1,3 @@
-﻿<Publish>
-	<!--Id must be set in order to update existed mod. it is not required for publishing mod for the first time-->
-	<ModId Value="" />
-	<!--Name of the mod to display to players-->
-	<DisplayName Value="Airport Details Pack [Continued]" />
-	<!--Short description of the mod-->
-	<ShortDescription Value="ICAO-based airport markings, modular decals and pavement surfaces." />
-	<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
-	<!--LongDescription Value="This is a long description" /-->
-	<LongDescription>
 ## Introduction
 
 Airport Details Pack Continued is the sequel to my earlier [Airport Details Pack](https://mods.paradoxplaza.com/mods/113207/Windows), developed by the same creator for Cities: Skylines II.
@@ -47,30 +37,3 @@ The main goal is to provide useful, modular airport markings with clear purposes
 - [Chinese PDF manual - 0.7.0.0](https://github.com/lazy-red-panda-qw/Airport_Next_Continued/blob/v0.7.0.0/output/pdf/Airport-Details-Pack-Continued-0.7.0.0-Manual-zh-CN.pdf)
 - [English PDF manual - 0.7.0.0](https://github.com/lazy-red-panda-qw/Airport_Next_Continued/blob/v0.7.0.0/output/pdf/Airport-Details-Pack-Continued-0.7.0.0-Manual-en-US.pdf)
 - [Complete asset catalog](https://github.com/lazy-red-panda-qw/Airport_Next_Continued/blob/main/docs/asset-catalog.csv)
-	</LongDescription>
-	<!--Thumbnail-->
-	<Thumbnail Value="Properties/Thumbnail.jpg" />
-	<!--Screenshot, can be set multiple times-->
-	<Screenshot Value="" />
-	<!--Tag, can be set multiple times-->
-	<Tag Value="" />
-	<!--Link to the forum post where the mod can be discussed-->
-	<ForumLink Value="" />
-	<!--Version of the mod-->
-	<ModVersion Value="0.7.0.0" />
-	<!--Recommended version of the base game to use the mod-->
-	<GameVersion Value="1.6.*" />
-	<!--Dependency for the mod, can be set multiple times-->
-	<Dependency Id="80529"/>
-	<Dependency Id="80528"/>
-	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
-	<RequiredDLC Value="" />
-	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-	<ChangeLog Value="First public WIP release: 506 modular airport assets, concrete and asphalt pavement, consistent asset descriptions, separate Chinese and English illustrated manuals and a complete sprite atlas. Continued development will expand service-road and apron markings." />
-	<!--<ChangeLog>
-	</ChangeLog>-->
-	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
-	<ExternalLink Type="github" Url="https://github.com/lazy-red-panda-qw/Airport_Next_Continued" />
-	<!--Supported values Public, Private, Unlisted-->
-	<AccessLevel Value="Public" />
-</Publish>

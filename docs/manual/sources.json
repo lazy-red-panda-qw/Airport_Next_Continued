@@ -1,0 +1,19 @@
+{
+  "edition_date": "2026-10-02",
+  "sources": [
+    {"id":"A14","title":"ICAO Annex 14 Volume I, ninth edition, Amendment 18 consolidated public copy","url":"https://www.bazl.admin.ch/dam/de/sd-web/PzvzqQpFptul/icao_annex_14_aerodromesvolumei-aerodromedesignandoperations.pdf","scope":"Runway, taxiway, stand and safety-line purposes and dimensions. A2/B2 are already allowed; they become the required patterns on 26 November 2026."},
+    {"id":"CAAM","title":"CAAM CAGM 1403, Issue 02 Revision 00, 4 February 2025","url":"https://www.caam.gov.my/wp-content/uploads/2025/02/CAGM-1403-Apron-Markings-and-Signs-ISS02_REV00.pdf","scope":"Malaysia guidance, including secondary guidance, stop marks, no-parking hatching, bridge wheels and equipment parking."},
+    {"id":"CAAC","title":"CAAC MH 5001-2021 consolidated text, section 6.2.16","url":"https://www.caac.gov.cn/XXGK/XXGK/BZGF/HYBZ/202112/P020240124587371852795.pdf","scope":"Nosewheel and pilot-reference stop markings; fourth amendment does not change the cited stand provisions."},
+    {"id":"LHR","title":"Heathrow OSI 030, Aircraft Aprons, Stands, Types and Markings, version 3.0, 21 May 2025","url":"https://www.heathrow.com/content/dam/heathrow/web/common/documents/company/team-heathrow/airside/operational-safety-insttructions/ASGrOps_OSI_030_Aircraft_Aprons_Stands_Types_and_Markings_v3.pdf","scope":"Optional local bridge-area appearance and functional distinctions; R12/R18 dimensions are package presets."},
+    {"id":"EAI","title":"Extra Assets Importer source and import formats","url":"https://github.com/AlphaGaming7780/ExtraAssetsImporter","scope":"Import conventions checked against source 1.7.6 and local DLL 1.7.5; material and UV parameters are game implementation values."},
+    {"id":"PKG","title":"Airport Details Pack Continued asset specifications and generated catalog","url":"https://github.com/lazy-red-panda-qw/Airport_Next_Continued/blob/v0.7.0.0/asset-specs.json","scope":"Package geometry, layout presets, colours, file identities and exact raster bounds."},
+    {"id":"USER","title":"Author's game measurements and setup","url":"https://github.com/lazy-red-panda-qw/Airport_Next_Continued/blob/v0.7.0.0/docs/test-round-4.md","scope":"Measured regional, passenger and cargo aircraft sizes; game 1.6.2f reported by the author."},
+    {"id":"SULLY","title":"Airport Essentials Pack by Sully_Skylines","url":"https://mods.paradoxplaza.com/mods/117064/Windows","scope":"Optional recommendation; primary page reviewed on 2 October 2026, version 1.1. Joint compatibility is not established."}
+  ],
+  "figures": [
+    {"file":"figures/annex-displaced.png","source":"A14","figure":"5-4(B)","printed_page":"5-9","pdf_page":135,"render_long_edge_px":1800,"crop_px":[740,180,1185,890],"note":"Limited figure excerpt, unretouched, for dimension explanation. Original source remains authoritative."},
+    {"file":"figures/annex-chevron.png","source":"A14","figure":"7-3","printed_page":"7-7","pdf_page":245,"render_long_edge_px":1800,"crop_px":[160,365,1230,780],"note":"Figure diagram excerpt, unretouched; surrounding normative prose is not reproduced."},
+    {"file":"figures/caam-hatch.png","source":"CAAM","figure":"11-1","printed_page":"11-1","pdf_page":55,"render_long_edge_px":1800,"crop_px":[188,532,1080,1385],"note":"Figure diagram excerpt, unretouched; labels A and B are explained in the manual."}
+  ],
+  "limits": {"Doc9157_Amendment2":"Full amendment text has not been obtained. This manual does not claim verification of all current Doc 9157 guidance.","ACI":"Handbook contents list was reviewed; it is not used as an unverified dimensional source.","images":"Project illustrations and texture previews are not in-game lighting screenshots. Public figure excerpts retain source attribution; no full standards document is redistributed."}
+}

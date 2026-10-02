@@ -228,6 +228,74 @@ def curve_config(priority, period):
             "utilityLane": None, "prefabIdentifierInfos": []}
 
 
+def asset_purpose(priority):
+    """Keep player-facing text about the current asset's use, separate from QA history."""
+    ranges = [
+        (1000, 2999, "拼装机位编号、地面文字及信息标记，可搭配独立背景", "Assemble stand identifiers, ground text and information markings with separate backgrounds"),
+        (4000, 4999, "拼装两位跑道编号及平行跑道 L/C/R 后缀", "Assemble two-digit runway designators and parallel-runway L/C/R suffixes"),
+        (5000, 5099, "按跑道宽度组合入口条纹，两侧成对布置", "Assemble paired threshold stripes for the chosen runway width"),
+        (5100, 5199, "沿跑道中心线绘制重复虚线", "Draw repeated dashes along the runway centre line"),
+        (5200, 5299, "在跑道两侧成对布置瞄准点", "Place paired aiming-point blocks on both sides of the runway"),
+        (5300, 5399, "在跑道两侧布置接地带标记", "Place touchdown-zone markings on both sides of the runway"),
+        (5400, 5499, "沿跑道边缘绘制连续边线", "Draw continuous runway side stripes"),
+        (5500, 5501, "横向标出内移入口，连续款可直接拉至道面全宽", "Mark a displaced threshold across the runway; draw the continuous version to pavement width"),
+        (5510, 5599, "标出内移入口之前可正常使用的跑道段", "Mark the usable runway portion before a displaced threshold"),
+        (5600, 5699, "标出不可正常使用的前入口铺筑区域，V 形尖端朝向跑道", "Mark unusable paved areas before the threshold, with chevron tips towards the runway"),
+        (5700, 5799, "标出关闭的跑道或滑行道区域", "Mark closed runway or taxiway areas"),
+        (6000, 6019, "引导航空器沿滑行道中心线行进", "Guide aircraft along the taxiway centre line"),
+        (6020, 6039, "标出跑道等待位置，实线朝向等待侧", "Mark a runway holding position, with solid lines facing the holding side"),
+        (6040, 6059, "标出 ILS 等待位置", "Mark an ILS holding position"),
+        (6060, 6069, "标出中间等待位置", "Mark an intermediate holding position"),
+        (6070, 6099, "区分承重铺装与非承重侧区", "Separate load-bearing pavement from non-load-bearing side areas"),
+        (7300, 7339, "旋转后与字符及背景组合方向标记", "Rotate and combine with characters and backgrounds for direction markings"),
+        (7400, 7400, "绘制机位引导线或黄色区域描边", "Draw aircraft-stand guidance or yellow outlines"),
+        (7410, 7419, "绘制机坪安全分界或红色区域描边", "Draw apron safety boundaries or red outlines"),
+        (7420, 7439, "绘制连续或多机型断线机位引导", "Draw continuous or secondary aircraft-stand guidance"),
+        (7440, 7449, "为机位转弯提供参照，可旋转使用", "Provide an aircraft-stand turning reference; rotate as required"),
+        (7450, 7499, "按实际鼻轮或驾驶员参照布置独立停止点", "Place a separate stop datum for the actual nosewheel or pilot position"),
+        (7700, 7779, "手动放置机坪基础，再按实际飞机添加编号、停止点及配套组件", "Place an apron base, then add identifiers, stop datums and details for the actual aircraft"),
+        (7780, 7799, "组合停止参照与可选机型标签", "Combine stop datums with optional aircraft-type labels"),
+        (7800, 7819, "标示实际廊桥的活动范围", "Indicate the movement area of the actual passenger boarding bridge"),
+        (7820, 7829, "标示廊桥轮组收回后的停放位置", "Indicate the parked position of the retracted bridge wheels"),
+        (7830, 7839, "标示禁止车辆与设备停放的区域", "Indicate areas where vehicles and equipment must not park"),
+        (7840, 7899, "标示车辆或设备停放区域", "Indicate vehicle or equipment parking areas"),
+        (8100, 8199, "绘制机场道面或涂漆背景的面积与轮廓", "Draw the area and outline of airport pavement or painted backgrounds"),
+        (8200, 8399, "与透明字符及箭头组合地面信息标记", "Combine with transparent characters and arrows for ground information markings"),
+        (8400, 8499, "为标记背景或区域边界绘制细描边", "Draw thin outlines around marking backgrounds or area boundaries"),
+        (8500, 8599, "绘制任意多边形禁停区域，边框另用红色线条布置", "Draw a polygonal no-parking area and add a separate red outline"),
+        (9900, 9999, "校准工具比例并测量场景中的米制尺寸", "Calibrate tool scale and measure dimensions in metres"),
+    ]
+    return next(((zh, en) for lo, hi, zh, en in ranges if lo <= priority <= hi),
+                ("组合机场地面标记", "Assemble airport ground markings"))
+
+
+def player_fields(rel, priority, title, note, note_en, width, height, painted, period):
+    purpose_zh, purpose_en = asset_purpose(priority)
+    if rel.startswith("Surfaces/"):
+        if priority == 8500:
+            spec_zh = "线宽 0.10 m；垂直透明净距 0.75 m；45°；轴向贴图周期 1.20208 m"
+            spec_en = "0.10 m strokes; 0.75 m perpendicular clear gaps; 45 degrees; 1.20208 m axial tile"
+        else:
+            spec_zh = "面积与轮廓自定；名义贴图周期 5 m"
+            spec_en = "Free area and outline; nominal 5 m texture tile"
+            if priority in (8160, 8170):
+                smoothness = SPEC['concrete_material_trial']['smoothness'] if priority == 8160 else 0.10
+                spec_zh += f"；光滑度 {smoothness:g}；自带法线"
+                spec_en += f"; smoothness {smoothness:g}; normal map included"
+    else:
+        spec_zh = f"默认投影 {width:.3f} × {height:.3f} m"
+        spec_en = f"Default projection {width:.3f} × {height:.3f} m"
+        if painted:
+            spec_zh += f"；可见涂漆外接 {painted[0]:.3f} × {painted[1]:.3f} m"
+            spec_en += f"; visible paint bounds {painted[0]:.3f} × {painted[1]:.3f} m"
+        if period:
+            spec_zh += f"；沿线周期 {period:g} m"
+            spec_en += f"; along-line repeat {period:g} m"
+    # The curated description retains nominal stroke sizes and component roles.
+    return (f"描述：{note}\n规格：{spec_zh}。\n作用：{purpose_zh}。",
+            f"Description: {note_en or Path(rel).name}\nSpecifications: {spec_en}.\nUse: {purpose_en}.")
+
+
 class Pipeline:
     def __init__(self, check):
         self.check = check
@@ -304,6 +372,8 @@ class Pipeline:
 
     def record(self,rel,priority,width,height,painted,period,order,title,note,ref,full,kind,new,
                source_rel=None,note_en=None):
+        name_note_en = note_en
+        note, note_en = player_fields(rel, priority, title, note, note_en, width, height, painted, period)
         self.rows.append({"UiPriority":priority,"path":rel,"source_path":source_rel or rel,"type":kind,"new":new,
                           "mesh_x_m":round(width,6) if width else None,
                           "mesh_z_m":round(height,6) if height else None,
@@ -312,11 +382,13 @@ class Pipeline:
                           "tile_period_m":period,"draw_order":order,"title":title,
                           "reference":ref,"notes":note,"prefab_name":full})
         english = Path(rel).name
-        if note_en and "runway character" not in note_en and any(note_en.startswith(color+" ") for color in ("White","Black","Yellow")):
-            m=re.search(r"character ([A-Z0-9]),",note_en)
-            letter=m.group(1) if m else "hyphen" if "hyphen," in note_en else "decimal point" if "decimal point," in note_en else None
+        english = {8160: "Airport Concrete Surface", 8170: "Airport Asphalt Surface",
+                   8500: "No-parking hatch area · CAAM · red 10 cm"}.get(priority, english)
+        if name_note_en and "runway character" not in name_note_en and any(name_note_en.startswith(color+" ") for color in ("White","Black","Yellow")):
+            m=re.search(r"character ([A-Z0-9]),",name_note_en)
+            letter=m.group(1) if m else "hyphen" if "hyphen," in name_note_en else "decimal point" if "decimal point," in name_note_en else None
             if letter is not None:
-                english=f"{note_en.split()[0]} {letter} · {title.rsplit(' · ',1)[1]}"
+                english=f"{name_note_en.split()[0]} {letter} · {title.rsplit(' · ',1)[1]}"
         if english.startswith("Aiming Point"):
             english=f"Aiming point · {painted[0]:.2f} × {painted[1]:.2f} m"
         if re.fullmatch(r"Runway [0-9LCR] (Small|Medium|Large)",english):
@@ -684,7 +756,7 @@ def generate_surface_prototypes(p):
     p.surface("No Parking Hatch CAAM Red 10cm",8500,COLORS["Red"],
               image=hatch_texture(width,gap,COLORS["Red"]),period=tile_m,
               material={"_DrawOrder":40,"colossal_UVScale":1/tile_m},
-              title="禁停斜线区域 · CAAM · 红色 10 cm（试验）",
+              title="禁停斜线区域 · CAAM · 红色 10 cm",
               note="红色 45° 斜线，宽 0.10 m、垂直净距 0.75 m；间隙透明，区域由玩家绘制，红色边框另画。",
               note_en="Red 45-degree hatching, 0.10 m wide with 0.75 m perpendicular clear gaps. Draw the area; transparent gaps and a separate red outline.",
               reference="CAAM CAGM 1403 (2025) 11.1/11.2，图 11-1；45° 和 0.75 m 为图示/范围内预设；Surface UV 米制换算待游戏测量")
@@ -693,9 +765,9 @@ def generate_surface_prototypes(p):
               normal=pavement_normal(102),
               material={"_NormalOpacity":1,"_MetallicOpacity":1,"_Smoothness":0.10,
                         "_NormalAlphaSource":0,"_MetallicAlphaSource":0},
-              title="机场沥青表面 · 细腻材质（试验）",
-              note="面积与形状由玩家绘制；与原沥青同色，使用轻微法线细节和哑光材质，用于道面效果对照。",
-              note_en="Draw airport pavement. Same base map as the original asphalt, with subtle normals and a matte material for comparison.",
+              title="机场沥青表面",
+              note="深色沥青道面，带轻微法线细节和哑光材质；面积与形状由玩家绘制。",
+              note_en="Dark asphalt pavement with subtle normal detail and a matte material; draw the area and outline.",
               reference="EAI 1.7.6 SurfacesImporter / TextureAssetImporterUtils；本机 AreaBatchSystem 与 TextureImporter；优化效果待游戏实测")
     profile=SPEC["concrete_material_trial"]
     concrete_color=tuple(profile["base_color_rgb"])
@@ -704,9 +776,9 @@ def generate_surface_prototypes(p):
               material={"_NormalOpacity":1,"_MetallicOpacity":1,"_Smoothness":profile["smoothness"],
                         "colossal_UVScale":1/profile["tile_m"],
                         "_NormalAlphaSource":0,"_MetallicAlphaSource":0},
-              title="机场混凝土表面 · 细腻材质（试验）",
-              note="面积与形状由玩家绘制；中灰暖色混凝土，降低基色亮度以改善强日照下与标线的区分；保留细颗粒、微孔和粗糙哑光法线。",
-              note_en="Draw airport concrete pavement. Darker warm-grey albedo improves contrast with markings in strong daylight; fine aggregate, subtle pores, normal detail and rough matte response are retained.",
+              title="机场混凝土表面",
+              note="中灰暖色混凝土道面，带细颗粒、微孔、法线细节和粗糙哑光材质；面积与形状由玩家绘制。",
+              note_en="Warm-grey concrete pavement with fine aggregate, subtle pores, normal detail and a rough matte material; draw the area and outline.",
               reference="0.6.7 用户功能与重载通过，8160强日照过亮；0.6.8仅降基色至RGB128/126/118，原颗粒、法线和材质参数保留；新亮度待游戏比较")
 
 
@@ -838,8 +910,7 @@ def generate(p):
                 f"{zh}描边线 · {round(width*100)} cm",f"{zh}实线，宽 {width:g} m；用于标记背景或涂漆区域描边。",
                 "包内描边组件；宽度档位按所选标记图样使用",canvas=c,period=9,painted=(width,9),draw_order=41,
                 note_en=f"{color} solid line, {width:g} m wide. Outline marking backgrounds or painted areas.")
-    for name,priority,color,pavement in [("Airport Asphalt",8100,(67,69,70),True),("Airport Concrete",8110,(155,153,145),True),
-        ("Paint White",8120,COLORS["White"],False),("Paint Yellow",8130,COLORS["Yellow"],False),
+    for name,priority,color,pavement in [("Paint White",8120,COLORS["White"],False),("Paint Yellow",8130,COLORS["Yellow"],False),
         ("Paint Red",8140,COLORS["Red"],False),("Paint Black",8150,COLORS["Black"],False)]:
         p.surface(name,priority,color,pavement)
     generate_surface_prototypes(p)
