@@ -1,5 +1,7 @@
 # Airport Details Pack Continued 玩家指南
 
+**中文指南** · [English guide](README.en.md)
+
 **0.7.0.0 - 首个公开 WIP 版本。** 本包提供机场地面标记和铺装，共506项：460 Decal、39 NetLane、7 Surface。适用游戏系列为1.6.*，作者当前环境为1.6.2f。
 
 **[中文版 PDF](../../output/pdf/Airport-Details-Pack-Continued-0.7.0.0-Manual-zh-CN.pdf)** · **[English PDF](../../output/pdf/Airport-Details-Pack-Continued-0.7.0.0-Manual-en-US.pdf)**

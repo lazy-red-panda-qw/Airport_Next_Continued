@@ -2,7 +2,7 @@
 
 首个公开WIP版本，继承同作者的[Airport Details Pack](https://mods.paradoxplaza.com/mods/113207/Windows)，用于在Cities: Skylines II中组合机场地面标记与铺装。共 **506项：460 Decal、39 NetLane、7 Surface**，包括342个透明字符、跑道与滑行道标记、10种机坪基础及25项独立配套、背景与描边、混凝土与沥青材质、四色涂漆及红色禁停斜线。
 
-**[玩家指南](docs/manual/README.md)** · **[中文PDF](output/pdf/Airport-Details-Pack-Continued-0.7.0.0-Manual-zh-CN.pdf)** · **[English PDF](output/pdf/Airport-Details-Pack-Continued-0.7.0.0-Manual-en-US.pdf)** · [完整资产清单](docs/asset-catalog.csv)
+**[中文玩家指南](docs/manual/README.md)** · **[English player guide](docs/manual/README.en.md)** · **[中文PDF](output/pdf/Airport-Details-Pack-Continued-0.7.0.0-Manual-zh-CN.pdf)** · **[English PDF](output/pdf/Airport-Details-Pack-Continued-0.7.0.0-Manual-en-US.pdf)** · [完整资产清单](docs/asset-catalog.csv)
 
 需要Extra Assets Importer（80529）、Extra Detailing Tools（80528）及它们所需的ExtraLib（75724）。发布配置为游戏1.6.*，作者当前使用1.6.2f。四类菜单保持为字符、道路贴花、道路线条、铺装。
 
