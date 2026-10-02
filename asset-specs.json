@@ -206,7 +206,8 @@
     "Surfaces/Pavement/Surface Diagnostic A Yellow",
     "Surfaces/Pavement/Surface Diagnostic B Yellow",
     "Surfaces/Pavement/Surface Diagnostic C Yellow",
-    "Surfaces/Pavement/Surface Diagnostic D Yellow"
+    "Surfaces/Pavement/Surface Diagnostic D Yellow",
+    "CustomDecals/RunwayMarkings/Prethreshold Chevron 30m"
   ],
   "reserved_removed_priorities": [
     3000,
@@ -284,6 +285,7 @@
     3720,
     3730,
     5203,
+    5600,
     7000,
     7001,
     7005,
@@ -545,6 +547,7 @@
     "angle_degrees": 45
   },
   "concrete_material_trial": {
+    "base_color_rgb": [128, 126, 118],
     "seed": 101,
     "texture_size_px": 1024,
     "tile_m": 5.0,
@@ -556,6 +559,17 @@
     "normal_rms_slope": 0.045,
     "normal_max_slope": 0.18,
     "smoothness": 0.04
+  },
+  "runway_netlane_additions": {
+    "threshold_bar_width_m": 1.8,
+    "threshold_bar_priority": 5501,
+    "chevron_runway_widths_m": [30.0, 45.0, 60.0],
+    "chevron_priority_start": 5601,
+    "chevron_single_line_priority": 5604,
+    "chevron_stroke_m": 0.9,
+    "chevron_edge_clearance_m": 1.5,
+    "chevron_period_m": 30.0,
+    "texture_px": 2048
   },
   "stand_presets": {
     "safety_line_m": 0.1,

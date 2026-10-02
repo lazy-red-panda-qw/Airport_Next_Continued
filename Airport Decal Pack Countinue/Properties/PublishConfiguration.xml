@@ -18,6 +18,7 @@ ICAO Annex 14 is the design baseline. The aim is strict application of the real 
 
 - Runway numbers, threshold stripes, centre lines, aiming points, touchdown-zone markings, edge lines, displaced-threshold arrows and closure markings.
 - Taxiway centre lines, enhanced centre lines, holding-position patterns and non-load-bearing pavement boundaries.
+- Draw continuous 1.80 m displaced-threshold bars across the runway, or repeated 45-degree yellow chevrons for 30/45/60 m runway-end pavements with 0.90 m strokes and 30 m apex spacing. An independent 0.90 m yellow line lets players draw each arm separately at a chosen span.
 - Transparent white, black and yellow characters in 1 m, 2 m and 4 m sizes, decimal points and matching arrows, with modular backgrounds and thin outlines.
 - Aircraft-stand guidance and apron safety lines, including wider continuous guidance, CAAM secondary guidance and a turn bar.
 - Ten flexible transparent apron bases, from small general aviation to large widebody stands, including open turnaround and straight through stands. Safety boundaries, corner no-parking areas and service reserves; bridge, wheel, equipment, stop and identification markings are positioned separately.
@@ -26,7 +27,7 @@ ICAO Annex 14 is the design baseline. The aim is strict application of the real 
 
 Choose each marking for its intended use and airport layout. The creator's character artwork uses ICAO font sources; colour and placement presets are chosen for game scenery, and this is not a claim of ICAO certification. CAAM variants are identified separately. The A2/B2 holding-position patterns follow the Annex 14 provisions applicable from 26 November 2026.
 
-Version 0.6.7 is currently a local test build. Runway centre lines, secondary guidance dashes, the red hatch surface and save/reload have passed user testing. Apron bases and optional details need in-game validation, together with the refined concrete grain and low-light lettering carried over from 0.6.5. Base footprints and the open turnaround radius are scenery presets. Select bridge and equipment markings for the actual layout, match aircraft and stop positions, then duplicate the player's assembly.
+Version 0.6.8 is currently a local test build. The 0.6.7 test items and save/reload have passed user testing, including apron bases and optional details. This update darkens only the fine concrete albedo to improve strong-daylight contrast, retaining the tested grain, normals and white lettering. The five new runway NetLanes and revised concrete brightness need a focused comparison in game. The former fixed 30 m chevron Decal has been retired; replace its placed objects manually with NetLanes. Base footprints and the open turnaround radius are scenery presets. Select bridge and equipment markings for the actual layout, match aircraft and stop positions, then duplicate the player's assembly.
 
 ## Recommended companion assets
 
@@ -62,16 +63,16 @@ Each addition will be researched against ICAO requirements and relevant guidance
 	<!--Link to the forum post where the mod can be discussed-->
 	<ForumLink Value="" />
 	<!--Version of the mod-->
-	<ModVersion Value="0.6.7.0" />
+	<ModVersion Value="0.6.8.0" />
 	<!--Recommended version of the base game to use the mod-->
-	<GameVersion Value="1.5.*" />
+	<GameVersion Value="1.6.*" />
 	<!--Dependency for the mod, can be set multiple times-->
 	<Dependency Id="80529"/>
 	<Dependency Id="80528"/>
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-	<ChangeLog Value="Redesign eight stand templates as flexible apron bases with corner no-parking, safety boundaries, guidance and service reserves. Keep bridge, wheel and equipment positions independent. Add an open turnaround, a straight open through stand and two optional no-parking silhouettes. Preserve all 500 existing prefab identities and the other 492 assets. Carry forward concrete, low-light lettering and turn-bar tests." />
+	<ChangeLog Value="Lower fine concrete albedo after strong-daylight feedback; retain its grain, normals and material settings. Add a continuous 1.80 m displaced-threshold bar, three repeating yellow chevron NetLanes for 30/45/60 m pavements and an independent 0.90 m yellow stroke for any span. Retire the old fixed chevron Decal at the user's request, reserve priority 5600 and preserve all 503 retained identities and the other 502 assets. Record passed 0.6.7 game tests and save/reload." />
 	<!--<ChangeLog>
 	</ChangeLog>-->
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->

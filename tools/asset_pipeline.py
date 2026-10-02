@@ -86,7 +86,6 @@ def player_description(rel, painted, period):
         "Touchdown Zone Basic 3x2250cm": ("白色基本式接地带单块，3 × 22.5 m；在跑道两侧成对布置。", "White basic touchdown-zone block, 3 × 22.5 m. Place in pairs on both sides of the runway centre line."),
         "Displaced Threshold Bar 180cm Module": ("白色内移入口横条，10 × 1.8 m；首尾拼接至跑道全宽。", "White displaced-threshold bar module, 10 × 1.8 m. Join end-to-end across the runway."),
         "Displaced Threshold Arrow 30m": ("白色内移入口箭头，长 30 m；用于跑道内移入口之前的中线。", "White displaced-threshold arrow, 30 m long. Place on the centre line before a displaced threshold."),
-        "Prethreshold Chevron 30m": ("黄色 V 形标记，跨宽约 30 m、笔画宽 0.9 m；用于前入口非可用区域。", "Yellow chevron, approximately 30 m across with 0.9 m strokes. Marks unusable pavement before the threshold."),
         "Closed Runway X": (f"白色跑道关闭标记，外接范围 {size_zh}、笔画宽 1.8 m。", f"White runway closure cross, {size_en} overall, with 1.8 m strokes."),
         "Closed Taxiway X": (f"黄色滑行道关闭标记，外接范围 {size_zh}、笔画宽 1.5 m。", f"Yellow taxiway closure cross, {size_en} overall, with 1.5 m strokes."),
         "Calibration Grid 10m": ("10 × 10 m 校准网格，格距 1 m；用于测量贴花尺寸。", "10 × 10 m calibration grid with 1 m spacing. Measures decal dimensions."),
@@ -699,15 +698,16 @@ def generate_surface_prototypes(p):
               note_en="Draw airport pavement. Same base map as the original asphalt, with subtle normals and a matte material for comparison.",
               reference="EAI 1.7.6 SurfacesImporter / TextureAssetImporterUtils；本机 AreaBatchSystem 与 TextureImporter；优化效果待游戏实测")
     profile=SPEC["concrete_material_trial"]
-    base,normal=concrete_material((155,153,145),profile)
-    p.surface("Airport Concrete Fine",8160,(155,153,145),True,image=base,normal=normal,
+    concrete_color=tuple(profile["base_color_rgb"])
+    base,normal=concrete_material(concrete_color,profile)
+    p.surface("Airport Concrete Fine",8160,concrete_color,True,image=base,normal=normal,
               material={"_NormalOpacity":1,"_MetallicOpacity":1,"_Smoothness":profile["smoothness"],
                         "colossal_UVScale":1/profile["tile_m"],
                         "_NormalAlphaSource":0,"_MetallicAlphaSource":0},
               title="机场混凝土表面 · 细腻材质（试验）",
-              note="面积与形状由玩家绘制；保持原混凝土平均基色，加入细颗粒、微孔色差和自身法线，使用粗糙哑光材质。",
-              note_en="Draw airport concrete pavement. Retains the original average colour with fine aggregate, subtle pores, its own normal detail and a rough matte finish.",
-              reference="0.6.4 用户实测清晰度改善但过于平滑；0.6.5 细颗粒与微孔法线调整，观感待游戏复测")
+              note="面积与形状由玩家绘制；中灰暖色混凝土，降低基色亮度以改善强日照下与标线的区分；保留细颗粒、微孔和粗糙哑光法线。",
+              note_en="Draw airport concrete pavement. Darker warm-grey albedo improves contrast with markings in strong daylight; fine aggregate, subtle pores, normal detail and rough matte response are retained.",
+              reference="0.6.7 用户功能与重载通过，8160强日照过亮；0.6.8仅降基色至RGB128/126/118，原颗粒、法线和材质参数保留；新亮度待游戏比较")
 
 
 def generate(p):
@@ -716,6 +716,8 @@ def generate(p):
     generate_backgrounds(p)
     generate_arrows(p)
     generate_stand_components(p)
+    from runway_netlanes import generate_runway_netlanes
+    generate_runway_netlanes(p, Canvas, SPEC, COLORS, PADDING)
 
     # Yellow taxiway patterns. Both dark and light pavement versions share geometry.
     for role,base in [("center",6000),("enhanced",6010),("hold",6020),("ils",6040),("intermediate",6060),("edge",6070)]:
@@ -807,13 +809,8 @@ def generate(p):
     p.asset("CustomDecals/RunwayMarkings/Displaced Threshold Arrow 30m",5510,c.width,c.height,"内移入口箭头 · 30 m",
             "30 m 长度预设、箭头段约 10 m、箭头张角宽 h/3、笔画 h/12。细杆 0.45 m；与 0.9 m 跑道中线搭配。沿中线每 50 m 设一箭头；另按图 5-4 放置入口横线。斜端与接缝待游戏/图样复核。",
             "ICAO 图 5-4；杆宽/段长为包内预设",canvas=c)
-    # Non-operational pre-threshold chevron; 0.9 m stripes at 45 degrees.
-    end_extra=.9/2/math.sqrt(2)
-    c=Canvas(30+end_extra*2+.3,15+end_extra*2+.3)
-    for end in ((.15+end_extra,.15+end_extra+15),(.15+end_extra+30,.15+end_extra+15)):
-        c.stroke((.15+end_extra+15,.15+end_extra),end,.9,COLORS["Yellow"])
-    p.asset("CustomDecals/RunwayMarkings/Prethreshold Chevron 30m",5600,c.width,c.height,"前入口非可用区域 V 形 · 30 m",
-            "黄色笔画 0.9 m、约 45°；30 m 跨宽造景预设。根据跑道宽度与图 7-3 的距边、纵向间距调整布置。","ICAO 7.3 / 图 7-3",canvas=c)
+    # Former 5600 fixed-width Decal retired at the user's request in 0.6.8.
+    # Repeated width presets and a freely drawn single arm are NetLanes.
     # X markings made from two rotated, butt-ended rectangles.
     # Runway figure labels 14.5 m between stroke-end centrelines, 36 m between ends.
     for name,priority,length,separation,stroke,color in [("Closed Runway X",5700,36,14.5,1.8,"White"),("Closed Taxiway X",5710,9/math.sqrt(2),9/math.sqrt(2),1.5,"Yellow")]:

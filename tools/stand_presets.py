@@ -299,6 +299,6 @@ def generate_stand_presets(p, Canvas, glyph, spec, colors, padding, png_bytes):
             "CAAM CAGM 1403 (2025) §15、图15-1/15-2；外框尺寸为包内预设，语义区别于禁停区",
             {"kind": "equipment_frame", "outer_m": [width, height], "stroke_m": 0.1})
 
-    p.output(ROOT / "docs/stand-presets.json", (json.dumps({"version": "0.6.7", "units": "metres",
+    p.output(ROOT / "docs/stand-presets.json", (json.dumps({"version": "0.6.8", "units": "metres",
              "orientation": "straight stands nose toward image top; curved stands follow the guidance path", "assets": records},
              ensure_ascii=False, indent=2) + "\n").encode("utf-8"))
