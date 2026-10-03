@@ -253,6 +253,12 @@ def asset_purpose(priority):
         (7420, 7439, "绘制连续或多机型断线机位引导", "Draw continuous or secondary aircraft-stand guidance"),
         (7440, 7449, "为机位转弯提供参照，可旋转使用", "Provide an aircraft-stand turning reference; rotate as required"),
         (7450, 7499, "按实际鼻轮或驾驶员参照布置独立停止点", "Place a separate stop datum for the actual nosewheel or pilot position"),
+        (7500, 7519, "手绘车辆道路边线或车道分隔，宽度与位置自定", "Draw separate vehicle-road edges or lane dividers at chosen positions"),
+        (7520, 7529, "标出车辆道路穿越航空器通道的边界，遇航空器标线时分段留空", "Mark vehicle-road crossing edges; leave gaps at aircraft markings"),
+        (7530, 7539, "横向标出车辆停止位置，位置由玩家按场地选择", "Draw a vehicle stop bar across the approach lane at a chosen position"),
+        (7540, 7549, "直接拉取单车道或双车道标线，铺装、箭头与停止线另放", "Draw a complete single- or two-lane marking preset; add pavement, arrows and stop bars separately"),
+        (7550, 7559, "连接对应宽度的CAAM穿越段，中央留白，按需独立布置分道线", "Connect a CAAM crossing section; the centre is clear for independent lane division if needed"),
+        (7560, 7699, "连接对应宽度的车辆道路拉链段，双车道自带分道虚线，遇航空器标线分段留空", "Connect a matching-width zipper section; two lanes include a divider, with gaps left at aircraft markings"),
         (7700, 7779, "手动放置机坪基础，再按实际飞机添加编号、停止点及配套组件", "Place an apron base, then add identifiers, stop datums and details for the actual aircraft"),
         (7780, 7799, "组合停止参照与可选机型标签", "Combine stop datums with optional aircraft-type labels"),
         (7800, 7819, "标示实际廊桥的活动范围", "Indicate the movement area of the actual passenger boarding bridge"),
@@ -496,7 +502,7 @@ class Pipeline:
         selected=[r for r in sorted(self.contacts) if r[0] in [1000,1001,1002,1370,2010,2011,2012,2750,4000,4010,4040,4060,4090,4100,4110,4120]
                   or 5000<=r[0]<6100 or r[0] in [7000,7001,7180,7181,7400,8100,8110,8120,8130,8140,8150,9900,9910]
                   or 8200<=r[0]<8430 or 7300<=r[0]<7330 or 7420<=r[0]<7500
-                  or r[0] in (8160,8170,8500) or 7700<=r[0]<7850]
+                  or r[0] in (8160,8170,8500) or 7500<=r[0]<7700 or 7700<=r[0]<7850]
         from PIL import ImageFont
         font=ImageFont.load_default()
         thumb=Image.new("RGB",(8*160,math.ceil(len(selected)/8)*170),(48,48,48))
@@ -790,6 +796,8 @@ def generate(p):
     generate_stand_components(p)
     from runway_netlanes import generate_runway_netlanes
     generate_runway_netlanes(p, Canvas, SPEC, COLORS, PADDING)
+    from service_road_markings import generate_service_roads
+    generate_service_roads(p, Canvas, SPEC, COLORS, PADDING)
 
     # Yellow taxiway patterns. Both dark and light pavement versions share geometry.
     for role,base in [("center",6000),("enhanced",6010),("hold",6020),("ils",6040),("intermediate",6060),("edge",6070)]:

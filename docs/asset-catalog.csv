@@ -1316,6 +1316,48 @@
 7452,CustomDecals/RoadMarkings/Stand Cockpit Stop 6m,CustomDecals/RoadMarkings/Stand Cockpit Stop 6m,StaticObjectPrefab,True,6.4,0.55,6.10625,0.250293,,42,驾驶员参照停止线 · 6 m,ICAO Annex 14 5.2.13.11；CAAM 4.3；独立停止线，不预设游戏飞机驾驶舱位置,"描述：黄色横线长 6 m、宽 0.15 m，黑边 0.05 m；与机位轴线成直角，按左座驾驶员实际位置摆放。
 规格：默认投影 6.400 × 0.550 m；可见涂漆外接 6.106 × 0.250 m。
 作用：按实际鼻轮或驾驶员参照布置独立停止点。",Airport Details Pack Countinue RoadMarkings Stand Cockpit Stop 6m Decal
+7500,CustomNetlanes/RoadMarking/Vehicle Road Edge FAA 15cm,CustomNetlanes/RoadMarking/Vehicle Road Edge FAA 15cm,NetLaneGeometryPrefab,True,0.45,9.0,0.150293,9.0,9.0,42,车辆道路边线 · FAA · 15 cm,FAA AC150/5340-1M Change1 §5.2.3/5.2.5.1、图A-15/A-25；采用正文米制值,"描述：白色连续边线，宽0.15m。两侧分别拉取，自由选择车辆道路宽度；航空器通道交叉处保留原有航空器标线。
+规格：默认投影 0.450 × 9.000 m；可见涂漆外接 0.150 × 9.000 m；沿线周期 9 m。
+作用：手绘车辆道路边线或车道分隔，宽度与位置自定。",Airport Details Pack Countinue RoadMarking Vehicle Road Edge FAA 15cm NetLane
+7510,CustomNetlanes/RoadMarking/Vehicle Road Divider FAA 15cm,CustomNetlanes/RoadMarking/Vehicle Road Divider FAA 15cm,NetLaneGeometryPrefab,True,0.45,12.0,0.150293,4.5,12.0,42,车辆道路分道虚线 · FAA · 15 cm · 12 m 周期,FAA AC150/5340-1M Change1 §5.2.3/5.2.5.1、图A-15/A-25；采用正文米制值,"描述：白色车道分隔虚线，宽0.15m、实段4.5m、空段7.5m，周期12m。独立放在车辆道路中心；不作为航空器引导线。
+规格：默认投影 0.450 × 12.000 m；可见涂漆外接 0.150 × 4.500 m；沿线周期 12 m。
+作用：手绘车辆道路边线或车道分隔，宽度与位置自定。",Airport Details Pack Countinue RoadMarking Vehicle Road Divider FAA 15cm NetLane
+7520,CustomNetlanes/RoadMarking/Vehicle Crossing Edge CAAM 10cm,CustomNetlanes/RoadMarking/Vehicle Crossing Edge CAAM 10cm,NetLaneGeometryPrefab,True,0.5,2.0,0.200195,2.0,2.0,42,车辆道路穿越交错边线 · CAAM · 0.1 m 笔画,CAAM CAGM1403 Issue02 Rev00 (2025) §20、图20-1/2；C为单列笔画厚度,"描述：两列交错白块，每块长1m、单列厚0.1m，交错带总宽0.2m、完整周期2m。沿服务道路穿越航空器通道的两侧分别拉取；不作行人斑马线，遇航空器标线时分段留空。
+规格：默认投影 0.500 × 2.000 m；可见涂漆外接 0.200 × 2.000 m；沿线周期 2 m。
+作用：标出车辆道路穿越航空器通道的边界，遇航空器标线时分段留空。",Airport Details Pack Countinue RoadMarking Vehicle Crossing Edge CAAM 10cm NetLane
+7521,CustomNetlanes/RoadMarking/Vehicle Crossing Edge FAA 30cm,CustomNetlanes/RoadMarking/Vehicle Crossing Edge FAA 30cm,NetLaneGeometryPrefab,True,0.9,2.4,0.601172,2.4,2.4,42,车辆道路穿越交错边线 · FAA · 0.3 m 笔画,FAA AC150/5340-1M Change1 §5.2.3/5.2.5.1、图A-15/A-25；采用正文米制值,"描述：两列交错白块，每块长1.2m、单列厚0.3m，交错带总宽0.6m、完整周期2.4m。沿服务道路穿越航空器通道的两侧分别拉取；不作行人斑马线，遇航空器标线时分段留空。
+规格：默认投影 0.900 × 2.400 m；可见涂漆外接 0.601 × 2.400 m；沿线周期 2.4 m。
+作用：标出车辆道路穿越航空器通道的边界，遇航空器标线时分段留空。",Airport Details Pack Countinue RoadMarking Vehicle Crossing Edge FAA 30cm NetLane
+7522,CustomNetlanes/RoadMarking/Vehicle Crossing Edge FAA Black Contrast 30cm,CustomNetlanes/RoadMarking/Vehicle Crossing Edge FAA Black Contrast 30cm,NetLaneGeometryPrefab,True,1.2,2.4,0.9,2.4,2.4,42,车辆道路黑底棋盘边线 · FAA · 30 cm 笔画,FAA AC150/5340-1M Change1 §1.4、§5.2、附录C；0.15m黑色对比边，间隙填黑；YVR 2026 §7.6实拍作外观对照,"描述：两列交错白块配真实黑色对比底，每块1.2×0.30m；白块带总宽0.60m、两侧黑边各0.15m、总带宽0.90m，周期2.4m。浅色道面也保留黑白棋盘外观；两侧独立拉取，遇航空器标线分段留空。
+规格：默认投影 1.200 × 2.400 m；可见涂漆外接 0.900 × 2.400 m；沿线周期 2.4 m。
+作用：标出车辆道路穿越航空器通道的边界，遇航空器标线时分段留空。",Airport Details Pack Countinue RoadMarking Vehicle Crossing Edge FAA Black Contrast 30cm NetLane
+7530,CustomNetlanes/RoadMarking/Vehicle Road Stop Bar FAA 60cm,CustomNetlanes/RoadMarking/Vehicle Road Stop Bar FAA 60cm,NetLaneGeometryPrefab,True,0.9,9.0,0.599414,9.0,9.0,42,车辆停止横线 · FAA · 60 cm,FAA AC150/5340-1M Change1 §5.2.3/5.2.5.1、图A-15/A-25；采用正文米制值,"描述：白色车辆停止横条，厚0.60m，横向拉过需要停止的车道，长度自由选择。停止位置、道路文字与牌体由玩家另放；不是机位飞机停止线。
+规格：默认投影 0.900 × 9.000 m；可见涂漆外接 0.599 × 9.000 m；沿线周期 9 m。
+作用：横向标出车辆停止位置，位置由玩家按场地选择。",Airport Details Pack Countinue RoadMarking Vehicle Road Stop Bar FAA 60cm NetLane
+7540,CustomNetlanes/RoadMarking/Vehicle Road Preset Single Lane FAA 400cm,CustomNetlanes/RoadMarking/Vehicle Road Preset Single Lane FAA 400cm,NetLaneGeometryPrefab,True,4.3,9.0,3.997656,9.0,9.0,42,车辆道路成套预设 · 单车道 · 4 m,FAA AC150/5340-1M Change1 §5.2.3/5.2.5.1、图A-15/A-25；采用正文米制值；FAA AC150/5300-13B Change1 §5.19.3；4/7.5m为指导范围内的包内档位,"描述：两侧白色连续边线各0.15m，标线外缘总宽4m；无中心线。整套沿道路中心路径拉取，路宽为包内档位，透明内部由Surface另铺；箭头、编号和停止横线另放。缩放会同时改变线宽、路宽和周期。
+规格：默认投影 4.300 × 9.000 m；可见涂漆外接 3.998 × 9.000 m；沿线周期 9 m。
+作用：直接拉取单车道或双车道标线，铺装、箭头与停止线另放。",Airport Details Pack Countinue RoadMarking Vehicle Road Preset Single Lane FAA 400cm NetLane
+7541,CustomNetlanes/RoadMarking/Vehicle Road Preset Two Lane FAA 750cm,CustomNetlanes/RoadMarking/Vehicle Road Preset Two Lane FAA 750cm,NetLaneGeometryPrefab,True,7.8,12.0,7.495312,12.0,12.0,42,车辆道路成套预设 · 双车道 · 7.5 m,FAA AC150/5340-1M Change1 §5.2.3/5.2.5.1、图A-15/A-25；采用正文米制值；FAA AC150/5300-13B Change1 §5.19.3；4/7.5m为指导范围内的包内档位,"描述：两侧白色连续边线各0.15m，标线外缘总宽7.5m；带0.15m分道虚线，实4.5m、空7.5m。整套沿道路中心路径拉取，路宽为包内档位，透明内部由Surface另铺；箭头、编号和停止横线另放。缩放会同时改变线宽、路宽和周期。
+规格：默认投影 7.800 × 12.000 m；可见涂漆外接 7.495 × 12.000 m；沿线周期 12 m。
+作用：直接拉取单车道或双车道标线，铺装、箭头与停止线另放。",Airport Details Pack Countinue RoadMarking Vehicle Road Preset Two Lane FAA 750cm NetLane
+7550,CustomNetlanes/RoadMarking/Vehicle Crossing Preset Single Lane CAAM 400cm,CustomNetlanes/RoadMarking/Vehicle Crossing Preset Single Lane CAAM 400cm,NetLaneGeometryPrefab,True,4.3,2.0,4.006055,2.0,2.0,42,车辆道路穿越段预设 · CAAM · 白色交错 · 单车道 · 4 m,CAAM CAGM1403 Issue02 Rev00 (2025) §20、图20-1/2；C为单列笔画厚度；FAA AC150/5300-13B Change1 §5.19.3；4/7.5m为指导范围内的包内档位,"描述：两侧交错白块一次拉取，白色标线外缘总宽4m；每块长1m、单列厚0.1m，边线图样周期2m，整套贴图周期2m。中央不自带分道线，铺装另画。遇航空器标线时整套分段留空，独立边线与7510可补齐局部。路宽及左右镜像同相位为包内预设。
+规格：默认投影 4.300 × 2.000 m；可见涂漆外接 4.006 × 2.000 m；沿线周期 2 m。
+作用：连接对应宽度的CAAM穿越段，中央留白，按需独立布置分道线。",Airport Details Pack Countinue RoadMarking Vehicle Crossing Preset Single Lane CAAM 400cm NetLane
+7551,CustomNetlanes/RoadMarking/Vehicle Crossing Preset Two Lane CAAM 750cm,CustomNetlanes/RoadMarking/Vehicle Crossing Preset Two Lane CAAM 750cm,NetLaneGeometryPrefab,True,7.8,2.0,7.510547,2.0,2.0,42,车辆道路穿越段预设 · CAAM · 白色交错 · 双车道 · 7.5 m,CAAM CAGM1403 Issue02 Rev00 (2025) §20、图20-1/2；C为单列笔画厚度；FAA AC150/5300-13B Change1 §5.19.3；4/7.5m为指导范围内的包内档位,"描述：两侧交错白块一次拉取，白色标线外缘总宽7.5m；每块长1m、单列厚0.1m，边线图样周期2m，整套贴图周期2m。中央不自带分道线，铺装另画。遇航空器标线时整套分段留空，独立边线与7510可补齐局部。路宽及左右镜像同相位为包内预设。
+规格：默认投影 7.800 × 2.000 m；可见涂漆外接 7.511 × 2.000 m；沿线周期 2 m。
+作用：连接对应宽度的CAAM穿越段，中央留白，按需独立布置分道线。",Airport Details Pack Countinue RoadMarking Vehicle Crossing Preset Two Lane CAAM 750cm NetLane
+7560,CustomNetlanes/RoadMarking/Vehicle Crossing Preset Single Lane FAA 400cm,CustomNetlanes/RoadMarking/Vehicle Crossing Preset Single Lane FAA 400cm,NetLaneGeometryPrefab,True,4.3,2.4,4.006055,2.4,2.4,42,车辆道路穿越段预设 · FAA · 白色交错 · 单车道 · 4 m,FAA AC150/5340-1M Change1 §5.2.3/5.2.5.1、图A-15/A-25；采用正文米制值；FAA AC150/5300-13B Change1 §5.19.3；4/7.5m为指导范围内的包内档位,"描述：两侧交错白块一次拉取，白色标线外缘总宽4m；每块长1.2m、单列厚0.3m，边线图样周期2.4m，整套贴图周期2.4m。中央不自带分道线，铺装另画。遇航空器标线时整套分段留空，独立边线与7510可补齐局部。路宽及左右镜像同相位为包内预设。
+规格：默认投影 4.300 × 2.400 m；可见涂漆外接 4.006 × 2.400 m；沿线周期 2.4 m。
+作用：连接对应宽度的车辆道路拉链段，双车道自带分道虚线，遇航空器标线分段留空。",Airport Details Pack Countinue RoadMarking Vehicle Crossing Preset Single Lane FAA 400cm NetLane
+7561,CustomNetlanes/RoadMarking/Vehicle Crossing Preset Two Lane FAA 750cm,CustomNetlanes/RoadMarking/Vehicle Crossing Preset Two Lane FAA 750cm,NetLaneGeometryPrefab,True,7.8,12.0,7.510547,12.0,12.0,42,车辆道路穿越段预设 · FAA · 白色交错 · 双车道 · 7.5 m,FAA AC150/5340-1M Change1 §5.2.3/5.2.5.1、图A-15/A-25；采用正文米制值；FAA AC150/5300-13B Change1 §5.19.3；4/7.5m为指导范围内的包内档位,"描述：两侧交错白块一次拉取，白色标线外缘总宽7.5m；每块长1.2m、单列厚0.3m，边线图样周期2.4m，整套贴图周期12m。带0.15m分道虚线，实4.5m、空7.5m，铺装另画。遇航空器标线时整套分段留空，独立边线与7510可补齐局部。路宽及左右镜像同相位为包内预设。
+规格：默认投影 7.800 × 12.000 m；可见涂漆外接 7.511 × 12.000 m；沿线周期 12 m。
+作用：连接对应宽度的车辆道路拉链段，双车道自带分道虚线，遇航空器标线分段留空。",Airport Details Pack Countinue RoadMarking Vehicle Crossing Preset Two Lane FAA 750cm NetLane
+7570,CustomNetlanes/RoadMarking/Vehicle Crossing Preset Single Lane FAA Black Contrast 400cm,CustomNetlanes/RoadMarking/Vehicle Crossing Preset Single Lane FAA Black Contrast 400cm,NetLaneGeometryPrefab,True,4.6,2.4,4.303516,2.4,2.4,42,车辆道路穿越段预设 · FAA · 黑底棋盘 · 单车道 · 4 m,FAA AC150/5340-1M Change1 §1.4、§5.2、附录C；0.15m黑色对比边，间隙填黑；YVR 2026 §7.6实拍作外观对照；FAA AC150/5300-13B Change1 §5.19.3；4/7.5m为指导范围内的包内档位,"描述：两侧交错白块一次拉取，白色标线外缘总宽4m；每块长1.2m、单列厚0.3m，边线图样周期2.4m，整套贴图周期2.4m。中央不自带分道线，铺装另画。白块间隙填黑，两侧黑边各0.15m；黑色外缘总宽增加0.30m。遇航空器标线时整套分段留空，独立边线与7510可补齐局部。路宽及左右镜像同相位为包内预设。
+规格：默认投影 4.600 × 2.400 m；可见涂漆外接 4.304 × 2.400 m；沿线周期 2.4 m。
+作用：连接对应宽度的车辆道路拉链段，双车道自带分道虚线，遇航空器标线分段留空。",Airport Details Pack Countinue RoadMarking Vehicle Crossing Preset Single Lane FAA Black Contrast 400cm NetLane
+7571,CustomNetlanes/RoadMarking/Vehicle Crossing Preset Two Lane FAA Black Contrast 750cm,CustomNetlanes/RoadMarking/Vehicle Crossing Preset Two Lane FAA Black Contrast 750cm,NetLaneGeometryPrefab,True,8.1,12.0,7.799414,12.0,12.0,42,车辆道路穿越段预设 · FAA · 黑底棋盘 · 双车道 · 7.5 m,FAA AC150/5340-1M Change1 §1.4、§5.2、附录C；0.15m黑色对比边，间隙填黑；YVR 2026 §7.6实拍作外观对照；FAA AC150/5300-13B Change1 §5.19.3；4/7.5m为指导范围内的包内档位,"描述：两侧交错白块一次拉取，白色标线外缘总宽7.5m；每块长1.2m、单列厚0.3m，边线图样周期2.4m，整套贴图周期12m。带0.15m分道虚线，实4.5m、空7.5m，铺装另画。白块间隙填黑，两侧黑边各0.15m；黑色外缘总宽增加0.30m。遇航空器标线时整套分段留空，独立边线与7510可补齐局部。路宽及左右镜像同相位为包内预设。
+规格：默认投影 8.100 × 12.000 m；可见涂漆外接 7.799 × 12.000 m；沿线周期 12 m。
+作用：连接对应宽度的车辆道路拉链段，双车道自带分道虚线，遇航空器标线分段留空。",Airport Details Pack Countinue RoadMarking Vehicle Crossing Preset Two Lane FAA Black Contrast 750cm NetLane
 7700,CustomDecals/RoadMarkings/Stand Template GA A,CustomDecals/RoadMarkings/Stand Template GA A,StaticObjectPrefab,True,26.9,35.7,26.453418,35.124756,,41,通航机坪基础布局模板 · 小型通航 A,ICAO Annex14按停靠配置选标记及净空；CAAM1403禁停/机坪安全线；CAA637开放自行机动图样；跨机场功能分区对照，外形与留白为包内预设,"描述：通航机坪基础布局，参照机长 10 m、翼展 12 m；净空 3 m。折角安全边界、角部禁停斜线、机坪外界及两侧服务留白。廊桥、轮位、设备停车框、编号与停止线独立放置。
 规格：默认投影 26.900 × 35.700 m；可见涂漆外接 26.453 × 35.125 m。
 作用：手动放置机坪基础，再按实际飞机添加编号、停止点及配套组件。",Airport Details Pack Countinue RoadMarkings Stand Template GA A Decal
